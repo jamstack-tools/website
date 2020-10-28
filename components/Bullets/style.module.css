@@ -1,0 +1,48 @@
+.root {
+  padding: 0;
+  list-style-type: none;
+}
+
+.bullet {
+  margin-bottom: 12px;
+  align-items: center;
+  font-weight: bold;
+  font-size: 17px;
+  list-style: none;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (width > 650px) {
+    display: flex;
+    align-items: flex-start;
+
+    span {
+      flex: 1;
+    }
+  }
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 3px;
+  display: inline-flex;
+  height: 1.3em;
+  align-items: center;
+
+  @media screen and (width > 650px) {
+    width: 20px;
+  }
+}
+
+.bad {
+  composes: icon;
+  fill: var(--accent-color);
+}
+
+.good {
+  composes: icon;
+  fill: var(--azure-color);
+}
