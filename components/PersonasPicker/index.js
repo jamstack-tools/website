@@ -10,11 +10,9 @@ export default function PersonasPicker() {
     <Wrapper>
       <div className={s.root}>
         <div className={s.intro}>
-          <div className={s.introSub}>
-            A technology investment for your whole company
-          </div>
+          <div className={s.introSub}>Stack is of the essence</div>
           <h2 className={s.introTitle}>
-            Empower <Highlight>every&nbsp;member</Highlight> of&nbsp;your team
+            Choose <Highlight>a tool</Highlight> for any specific task
           </h2>
           <div className={s.introBody}>
             An end-to-end solution for businesses who create and distribute

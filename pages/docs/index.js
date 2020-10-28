@@ -16,28 +16,9 @@ export const getStaticProps = gqlStaticProps(
           ...seoMetaTagsFields
         }
       }
-      roots: allDocGroups(filter: { parent: { exists: false } }) {
-        name
-        children {
-          name
-          slug
-          pages {
-            slugOverride
-            page {
-              slug
-            }
-          }
-          children {
-            name
-            slug
-            pages {
-              slugOverride
-              page {
-                slug
-              }
-            }
-          }
-        }
+      roots: allDocPages {
+        title
+        slug
       }
     }
     ${seoMetaTagsFields}
@@ -50,34 +31,15 @@ const Sidebar = ({ roots }) => (
   <>
     {roots.map((root) => (
       <div className={s.group} key={root.slug}>
-        <div className={s.groupName}>{root.name}</div>
-        <div className={s.guides}>
-          {root.children.map((sub) => (
-            <Link
-              href={docHref(
-                `/docs/${sub.slug}${normalize(
-                  sub.pages[0].slugOverride || sub.pages[0].page.slug,
-                )}`,
-              )}
-              as={`/docs/${sub.slug}${normalize(
-                sub.pages[0].slugOverride || sub.pages[0].page.slug,
-              )}`}
-              key={sub.slug}
-            >
-              <a className={s.guide}>{sub.name}</a>
-            </Link>
-          ))}
-        </div>
-      </div>
-    ))}
-    <div className={s.group}>
-      <div className={s.groupName}>Community</div>
-      <div className={s.guides}>
-        <Link href="/docs/community-tutorials">
-          <a className={s.guide}>Community tutorials</a>
+        <Link
+          href={docHref(`/docs/${root.slug}`)}
+          as={`/docs/${root.slug}`}
+          key={root.slug}
+        >
+          <a className={s.groupName}>{root.title}</a>
         </Link>
       </div>
-    </div>
+    ))}
   </>
 );
 
