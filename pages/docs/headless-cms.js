@@ -10,10 +10,11 @@ import Anchor from 'public/icons/regular/link.svg';
 export const getStaticProps = gqlStaticProps(
   gql`
     {
-      tutorials: allTutorials {
-        title
-        url
-        excerpt(markdown: true)
+      tutorials: allCmsHeadlesses(first: 100) {
+        name
+        slug
+        description(markdown: true)
+        cmsType
       }
     }
   `,
@@ -21,34 +22,26 @@ export const getStaticProps = gqlStaticProps(
 
 export default function Tutorials({ tutorials }) {
   return (
-    <DocsLayout
-      sidebar={
-        <Sidebar
-          title="Community tutorials"
-          entries={[
-            {
-              url: '/docs/community-tutorials',
-              label: 'Tutorials',
-            },
-          ]}
-        />
-      }
-    >
+    <DocsLayout sidebar={<Sidebar title="Headless CMSs" entries={[]} />}>
       <Head>
-        <title>Community tutorials</title>
+        <title>Headless CMSs</title>
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <div className={s.title}>Community tutorials</div>
+          <div className={s.title}>Headless CMSs</div>
 
           <div className={s.tutorials}>
-            {tutorials.map(tutorial => (
-              <a href={tutorial.url} key={tutorial.url} className={s.tutorial}>
+            {tutorials.map((tutorial) => (
+              <a
+                href={`/docs/headless/${tutorial.slug}`}
+                key={tutorial.slug}
+                className={s.tutorial}
+              >
                 <h6 className={s.tutorialTitle}>
-                  {tutorial.title} <Anchor />
+                  {tutorial.name} <Anchor />
                 </h6>
                 <div className={s.tutorialDescription}>
-                  <SmartMarkdown>{tutorial.excerpt}</SmartMarkdown>
+                  <SmartMarkdown>{tutorial.description}</SmartMarkdown>
                 </div>
               </a>
             ))}

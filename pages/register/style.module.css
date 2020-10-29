@@ -1,83 +1,102 @@
+.root {
+  margin: rfs(50px) 0 rfs(100px);
+  position: relative;
+}
+
+.rootInner {
+  @media (width > 900px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.intro,
 .picker {
-  max-width: 600px;
-  margin: 0 auto;
+  flex: 1;
 }
 
-.topic {
-  margin-bottom: rfs(50px);
-}
-
-.topicLabel {
-  margin: 0;
-}
-
-.topicSelect {
-  display: block;
-  border: 0;
-  margin: 0;
-  padding: 15px 30px 15px 0;
-  font-family: inherit;
-  font-size: rfs(30px);
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  appearance: none;
-  border-bottom: 1px solid var(--border-color);
-  font-family: var(--font-serif);
-  background-color: white;
-  background-image: url('../../public/icons/regular/chevron-down.svg');
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: rfs(30px);
-  color: inherit;
-
-  &:focus {
-    outline: none;
-  }
-
-  option {
-    font-family: var(--font-sans);
-    font-size: 25px;
+.picker {
+  margin: 0 calc(var(--page-margin) * -0.5);
+  @media (width > 900px) {
+    margin: 0;
+    min-width: 540px;
   }
 }
 
-.form {
-  margin-left: calc(var(--page-margin) * -0.5);
-  margin-right: calc(var(--page-margin) * -0.5);
+.intro {
+  margin-bottom: rfs(70px);
 
   @media (width > 900px) {
-    margin-left: 0;
-    margin-right: 0;
+    margin-right: 70px;
+    margin-bottom: 0;
   }
 }
 
-.talkWithUs {
-  padding: rfs(100px) 0;
+.introSub {
+  font-weight: bold;
+  margin-bottom: 30px;
 }
 
-.talkWithUsInner {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.talkWithUsIntro {
-  margin-bottom: rfs(60px);
-  text-align: center;
-}
-
-.talkWithUsTitle {
+.introTitle {
   font-family: var(--font-headline);
-  line-height: 1.2;
-  font-size: rfs(60px);
-  margin-bottom: rfs(40px);
+  line-height: 1;
+  font-size: rfs(80px);
+  letter-spacing: -0.02em;
+  margin-bottom: 50px;
 }
 
-.root {
-  min-height: rfs(800px);
+.introKicker {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: var(--extra-light-body-color);
+  text-transform: uppercase;
 }
 
-.footer {
-  margin-top: rfs(200px);
+.introBody {
+  line-height: 1.4;
+}
+
+.support {
+  color: var(--light-body-color);
+  font-weight: bold;
+  margin-top: 50px;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.inquiries {
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    margin: 0 0 15px 0;
+    padding-right: 30px;
+    position: relative;
+
+    &:before {
+    }
+  }
+}
+
+.inquiry {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.inquiryTitle {
+  font-weight: bold;
+}
+
+.inquiryDesc {
+  font-size: 15px;
 }
 
 .description {

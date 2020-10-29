@@ -48,65 +48,52 @@ export default function Docs({ roots, preview, page }) {
     <DocsLayout preview={preview} sidebar={<Sidebar roots={roots} />}>
       <Head>{renderMetaTags(page.seo)}</Head>
       <div className={s.container}>
-        <h2 className={s.title}>Documentation</h2>
+        <h2 className={s.title}>Browse our toolkit!</h2>
         <p className={s.subtitle}>
-          Whether you’re a startup or a global enterprise, learn how to
-          integrate with DatoCMS to manage your content in a centralized,
-          structured hub.
+          Here you can search into our directories to find the perfect stack for
+          your project
         </p>
 
-        <h6 className={s.introTitle}>Start with your use case</h6>
+        <h6 className={s.introTitle}>The basics</h6>
         <div className={s.useCaseCards}>
-          <Link
-            href={docHref('/docs/general-concepts')}
-            as="/docs/general-concepts"
-          >
+          <Link href={docHref('/docs/headless-cms')} as="/docs/headless-cms">
             <a className={s.useCaseCard}>
-              <div className={s.useCaseCardTitle}>Getting started</div>
-              <p>Learn all the basic concepts and features behind DatoCMS.</p>
+              <div className={s.useCaseCardTitle}>Headless CMSs</div>
+              <p>Choose an headless CMS.</p>
             </a>
           </Link>
-          <Link
-            href={docHref('/docs/content-modelling')}
-            as="/docs/content-modelling"
-          >
+          <Link href={docHref('/docs/generators')} as="/docs/generators">
             <a className={s.useCaseCard}>
-              <div className={s.useCaseCardTitle}>Model your schema</div>
-              <p>
-                Build your administrative area and define the structure of your
-                content.
-              </p>
-            </a>
-          </Link>
-          <Link
-            href={docHref('/docs/content-delivery-api')}
-            as="/docs/content-delivery-api"
-          >
-            <a className={s.useCaseCard}>
-              <div className={s.useCaseCardTitle}>GraphQL API</div>
-              <p>Learn how to fetch your content into any frontend project.</p>
+              <div className={s.useCaseCardTitle}>Static site generator</div>
+              <p>Choose a generator</p>
             </a>
           </Link>
         </div>
 
-        <h6 className={s.introTitle}>Popular integrations</h6>
+        <h6 className={s.introTitle}>Toolkit by category</h6>
         <div className={s.useCaseCards}>
-          <Link href={docHref('/docs/next-js')} as="/docs/next-js">
+          <Link
+            href={docHref('/docs/tools/feedback')}
+            as="/docs/tools/feedback"
+          >
             <a className={s.useCaseCard}>
-              <div className={s.useCaseCardTitle}>Next.js</div>
-              <p>Learn how to integrate your Next.js website with DatoCMS</p>
+              <div className={s.useCaseCardTitle}>Feedback tools</div>
+              <p>
+                Do you want to receive feedback? Choose one of theses amazing
+                tools
+              </p>
             </a>
           </Link>
-          <Link href={docHref('/docs/gatsby')} as="/docs/gatsby">
+          <Link href={docHref('/docs/tools/forms')} as="/docs/tools/forms">
             <a className={s.useCaseCard}>
-              <div className={s.useCaseCardTitle}>Gatsby</div>
-              <p>Learn how to integrate your Gatsby website with DatoCMS</p>
+              <div className={s.useCaseCardTitle}>Forms</div>
+              <p>Here are the top notch form tools </p>
             </a>
           </Link>
-          <Link href={docHref('/docs/hugo')} as="/docs/hugo">
+          <Link href={docHref('/docs/tools/payment')} as="/docs/tools/payment">
             <a className={s.useCaseCard}>
-              <div className={s.useCaseCardTitle}>Hugo</div>
-              <p>Learn how to integrate your Hugo website with DatoCMS</p>
+              <div className={s.useCaseCardTitle}>Payment</div>
+              <p>For any e-commerce out there!</p>
             </a>
           </Link>
         </div>
