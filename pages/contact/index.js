@@ -10,14 +10,14 @@ export default function Register() {
   return (
     <Layout noCta>
       <Head>
-        <title>Register your tool</title>
+        <title>Contact us</title>
       </Head>
       <div className={s.root}>
         <Wrapper>
           <div className={s.intro}>
             <div className={s.introKicker}>Get in touch</div>
             <div className={s.introTitle}>
-              Register <Highlight>your tool</Highlight>!
+              <Highlight>Contact us</Highlight>
             </div>
             <div className={s.introBody}>
               <p>
@@ -25,8 +25,10 @@ export default function Register() {
                 multi-million company let's let the world know whu you are. Join
                 the jam!
               </p>
-
-              <p>Fill out the form below and we will do everything for you.</p>
+              <p>
+                Let us know what you think about the project, any idea on how we
+                can improve and give a better service
+              </p>
             </div>
           </div>
           <div className={s.picker}>

@@ -49,6 +49,23 @@ export default function Footer({ noCta }) {
                   </div>
                 </div>
               </div>
+              <div className={s.col}>
+                <div className={s.group}>
+                  <div className={s.groupTitle}>Contact</div>
+                  <div className={s.groupLinks}>
+                    <div className={s.groupLink}>
+                      <Link href="/contact">
+                        <a>Contact us</a>
+                      </Link>
+                    </div>
+                    <div className={s.groupLink}>
+                      <Link href="/register">
+                        <a>Register your tool</a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Wrapper>
