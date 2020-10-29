@@ -2,9 +2,9 @@
   --font-sans: colfax, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  --font-headline: tiempos-headline, Georgia, serif;
+  --font-headline: montserrat-headline, Georgia, serif;
   --font-mono: SFMono-Regular, Source Code Pro, Menlo, monospace;
-  --font-serif: tiempos-text, Georgia, serif;
+  --font-serif: montserrat-text, Georgia, serif;
   --page-margin: 30px;
   --page-width-with-margin: 1200px;
   --base-body-color: #2f333f;

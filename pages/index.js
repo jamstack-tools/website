@@ -22,15 +22,6 @@ import Space from 'components/Space';
 import WarningIcon from 'public/icons/regular/times.svg';
 import SuccessIcon from 'public/icons/regular/check.svg';
 
-import Hashicorp from 'public/images/logos/hashicorp.svg';
-import Vercel from 'public/images/logos/vercel.svg';
-import Dropbox from 'public/images/logos/dropbox.svg';
-import Verizon from 'public/images/logos/verizon.svg';
-import Vmware from 'public/images/logos/vmware.svg';
-import Wonderland from 'public/images/logos/wonderland.svg';
-import Chillys from 'public/images/logos/chillys.svg';
-import MatterSupply from 'public/images/logos/matter-supply.svg';
-
 import Arduino from 'public/images/logos/arduino.svg';
 import CityOfSidney from 'public/images/logos/cityofsidney.svg';
 import DeutscheTelekom from 'public/images/logos/deutsche-telekom.svg';
@@ -83,11 +74,7 @@ function Homepage({ successStories, preview, page }) {
     <Layout preview={preview}>
       <Head>{page && renderMetaTags(page.seo)}</Head>
       <Hero
-        title={
-          <>
-            The marketplace for all <Highlight>JAMstack tools</Highlight>
-          </>
-        }
+        title={<>The marketplace for all JAMstack tools</>}
         subtitle={<>JAMstack is the new place to be and blabla</>}
       >
         <Checks checks={["It's free!"]}>
@@ -96,26 +83,6 @@ function Homepage({ successStories, preview, page }) {
           </Button>
         </Checks>
       </Hero>
-
-      <LogosBar
-        clients={[
-          Vercel,
-          Dropbox,
-          Hashicorp,
-          Verizon,
-          Vmware,
-          Arduino,
-          CityOfSidney,
-          DeutscheTelekom,
-          LinkedIn,
-          Oberlo,
-          Nhs,
-          LittleCaesars,
-          Mit,
-          Afsp,
-          Harrys,
-        ]}
-      />
 
       <Space top={3}>
         <PersonasPicker />

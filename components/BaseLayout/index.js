@@ -14,10 +14,6 @@ export default function Layout({ preview, children }) {
         <link rel="preload" href="/fonts/tiempos-text-web-regular.woff2" />
         <link rel="preload" href="/fonts/tiempos-headline-web-semibold.woff2" />
         <link rel="preload" href="/fonts/colfax-web-regular.woff2" />
-        <meta
-          name="google-site-verification"
-          content="wfOsq57h3qCQUTbHcX-4qEEY07vgi4KgH9rdT1ywwwc"
-        />
         {[16, 32, 96, 192].map((size) => (
           <link
             rel="icon"
