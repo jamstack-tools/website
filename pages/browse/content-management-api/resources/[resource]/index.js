@@ -2,8 +2,8 @@ import DocsLayout from 'components/DocsLayout';
 import {
   Sidebar,
   getStaticProps as docPageGetStaticProps,
-} from 'pages/docs/[...chunks]';
-import s from 'pages/docs/pageStyle.module.css';
+} from 'pages/browse/[...chunks]';
+import s from 'pages/browse/pageStyle.module.css';
 import fetchCma from 'utils/fetchCma';
 import docHref from 'utils/docHref';
 import { parse } from 'flatted';
@@ -42,7 +42,7 @@ export const getStaticProps = async ({ params: { resource }, ...other }) => {
 export default function DocPage({ docGroup, cma, preview, resourceId }) {
   const router = useRouter();
   const result = useMemo(() => cma && parse(cma), [cma]);
-  const url = `/docs/content-management-api/resources/${resourceId}`;
+  const url = `/browse/content-management-api/resources/${resourceId}`;
 
   return (
     <DocsLayout
@@ -56,7 +56,7 @@ export default function DocPage({ docGroup, cma, preview, resourceId }) {
             entries={[].concat(
               docGroup.pages.map((page) => {
                 return {
-                  url: `/docs/${docGroup.slug}${
+                  url: `/browse/${docGroup.slug}${
                     page.page.slug === 'index' ? '' : `/${page.page.slug}`
                   }`,
                   label: page.titleOverride || page.page.title,

@@ -32,8 +32,8 @@ const Sidebar = ({ roots }) => (
     {roots.map((root) => (
       <div className={s.group} key={root.slug}>
         <Link
-          href={docHref(`/docs/${root.slug}`)}
-          as={`/docs/${root.slug}`}
+          href={docHref(`/browse/${root.slug}`)}
+          as={`/browse/${root.slug}`}
           key={root.slug}
         >
           <a className={s.groupName}>{root.title}</a>
@@ -56,13 +56,16 @@ export default function Docs({ roots, preview, page }) {
 
         <h6 className={s.introTitle}>The basics</h6>
         <div className={s.useCaseCards}>
-          <Link href={docHref('/docs/headless-cms')} as="/docs/headless-cms">
+          <Link
+            href={docHref('/browse/headless-cms')}
+            as="/browse/headless-cms"
+          >
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Headless CMSs</div>
               <p>Choose an headless CMS.</p>
             </a>
           </Link>
-          <Link href={docHref('/docs/generators')} as="/docs/generators">
+          <Link href={docHref('/browse/generators')} as="/browse/generators">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Static site generator</div>
               <p>Choose a generator</p>
@@ -73,8 +76,8 @@ export default function Docs({ roots, preview, page }) {
         <h6 className={s.introTitle}>Toolkit by category</h6>
         <div className={s.useCaseCards}>
           <Link
-            href={docHref('/docs/tools/feedback')}
-            as="/docs/tools/feedback"
+            href={docHref('/browse/tools/feedback')}
+            as="/browse/tools/feedback"
           >
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Feedback tools</div>
@@ -84,13 +87,16 @@ export default function Docs({ roots, preview, page }) {
               </p>
             </a>
           </Link>
-          <Link href={docHref('/docs/tools/forms')} as="/docs/tools/forms">
+          <Link href={docHref('/browse/tools/forms')} as="/browse/tools/forms">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Forms</div>
               <p>Here are the top notch form tools </p>
             </a>
           </Link>
-          <Link href={docHref('/docs/tools/payment')} as="/docs/tools/payment">
+          <Link
+            href={docHref('/browse/tools/payment')}
+            as="/browse/tools/payment"
+          >
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Payment</div>
               <p>For any e-commerce out there!</p>

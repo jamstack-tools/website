@@ -2,8 +2,8 @@ import DocsLayout from 'components/DocsLayout';
 import {
   Sidebar,
   getStaticProps as docPageGetStaticProps,
-} from 'pages/docs/[...chunks]';
-import s from 'pages/docs/pageStyle.module.css';
+} from 'pages/browse/[...chunks]';
+import s from 'pages/browse/pageStyle.module.css';
 import fetchCma from 'utils/fetchCma';
 import { parse } from 'flatted';
 
@@ -76,7 +76,7 @@ export default function DocPage({ docGroup, cma, preview, endpoint }) {
             entries={[].concat(
               docGroup.pages.map((page) => {
                 return {
-                  url: `/docs/${docGroup.slug}${
+                  url: `/browse/${docGroup.slug}${
                     page.page.slug === 'index' ? '' : `/${page.page.slug}`
                   }`,
                   label: page.titleOverride || page.page.title,

@@ -88,11 +88,12 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
             options={[
               'Headless CMS',
               'Generator',
+              'API',
               'Feedback tool',
               'Payment tool',
               'UX tool',
               'Form tool',
-              'other',
+              'other - please specify in description :)',
             ]}
           />
           <Field

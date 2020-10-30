@@ -5,10 +5,10 @@ import {
   Toc,
   Sidebar,
   getStaticProps as docPageGetStaticProps,
-} from 'pages/docs/[...chunks]';
+} from 'pages/browse/[...chunks]';
 import tiny from 'tiny-json-http';
 import Prism from 'components/Prism';
-import s from 'pages/docs/pageStyle.module.css';
+import s from 'pages/browse/pageStyle.module.css';
 import gqlExampleForField, { camelize } from 'utils/gqlExampleForField';
 import fieldTypes from 'utils/fieldTypes';
 import metaTypes from 'utils/metaTypes';
@@ -60,7 +60,7 @@ export default function DocPage({
           title={docGroup.name}
           entries={docGroup.pages.map((page) => {
             return {
-              url: `/docs/${docGroup.slug}${
+              url: `/browse/${docGroup.slug}${
                 page.page.slug === 'index' ? '' : `/${page.page.slug}`
               }`,
               label: page.titleOverride || page.page.title,

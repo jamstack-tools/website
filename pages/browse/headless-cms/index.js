@@ -2,27 +2,27 @@ import { gqlStaticProps } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
 import SmartMarkdown from 'components/SmartMarkdown';
 import gql from 'graphql-tag';
-import { Sidebar } from 'pages/docs/[...chunks]';
+import { Sidebar } from 'pages/browse/[...chunks]';
 import Head from 'next/head';
-import s from 'pages/docs/pageStyle.module.css';
+import s from 'pages/browse/pageStyle.module.css';
 import Anchor from 'public/icons/regular/link.svg';
 
 export const getStaticProps = gqlStaticProps(
   gql`
     {
-      generators: allGenerators(first: 100) {
+      tutorials: allCmsHeadlesses(first: 100) {
         name
         slug
         description(markdown: true)
-        language
+        cmsType
       }
     }
   `,
 );
 
-export default function Tutorials({ generators }) {
+export default function Tutorials({ tutorials }) {
   return (
-    <DocsLayout sidebar={<Sidebar title="Generators" entries={[]} />}>
+    <DocsLayout sidebar={<Sidebar title="Headless CMSs" entries={[]} />}>
       <Head>
         <title>Headless CMSs</title>
       </Head>
@@ -31,18 +31,17 @@ export default function Tutorials({ generators }) {
           <div className={s.title}>Headless CMSs</div>
 
           <div className={s.tutorials}>
-            {generators.map((generator) => (
+            {tutorials.map((tutorial) => (
               <a
-                href={`/docs/headless/${generator.slug}`}
-                key={generator.slug}
+                href={`/browse/headless-cms/${tutorial.slug}`}
+                key={tutorial.slug}
                 className={s.tutorial}
               >
                 <h6 className={s.tutorialTitle}>
-                  {generator.name} <Anchor />
+                  {tutorial.name} <Anchor />
                 </h6>
                 <div className={s.tutorialDescription}>
-                  <p>{generator.language}</p>
-                  <SmartMarkdown>{generator.description}</SmartMarkdown>
+                  <SmartMarkdown>{tutorial.description}</SmartMarkdown>
                 </div>
               </a>
             ))}

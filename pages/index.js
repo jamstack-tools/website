@@ -22,18 +22,6 @@ import Space from 'components/Space';
 import WarningIcon from 'public/icons/regular/times.svg';
 import SuccessIcon from 'public/icons/regular/check.svg';
 
-import Arduino from 'public/images/logos/arduino.svg';
-import CityOfSidney from 'public/images/logos/cityofsidney.svg';
-import DeutscheTelekom from 'public/images/logos/deutsche-telekom.svg';
-import LinkedIn from 'public/images/logos/linkedin.svg';
-
-import Oberlo from 'public/images/logos/new/oberlo.svg';
-import Nhs from 'public/images/logos/new/nhs.svg';
-import LittleCaesars from 'public/images/logos/new/little-caesars.svg';
-import Mit from 'public/images/logos/new/mit.svg';
-import Afsp from 'public/images/logos/new/afsp.svg';
-import Harrys from 'public/images/logos/new/harrys.svg';
-
 import styles from './style.module.css';
 
 export const getStaticProps = gqlStaticProps(
@@ -78,8 +66,14 @@ function Homepage({ successStories, preview, page }) {
         subtitle={<>JAMstack is the new place to be and blabla</>}
       >
         <Checks checks={["It's free!"]}>
-          <Button fs="big" as="a" href="#">
+          <Button fs="big" as="a" href="/register">
             Register your tool!
+          </Button>
+        </Checks>
+        or
+        <Checks checks={["It's also free!"]}>
+          <Button fs="big" as="a" href="/browse">
+            Browse
           </Button>
         </Checks>
       </Hero>

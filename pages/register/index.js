@@ -17,7 +17,7 @@ export default function Register() {
           <div className={s.intro}>
             <div className={s.introKicker}>Get in touch</div>
             <div className={s.introTitle}>
-              Register <Highlight>your tool</Highlight>!
+              <Highlight>Register your tool!</Highlight>
             </div>
             <div className={s.introBody}>
               <p>
@@ -26,7 +26,9 @@ export default function Register() {
                 the jam!
               </p>
 
-              <p>Fill out the form below and we will do everything for you.</p>
+              <p>
+                Fill out the form below and we will create a page for your tool.
+              </p>
             </div>
           </div>
           <div className={s.picker}>

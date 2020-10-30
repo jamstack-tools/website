@@ -1,23 +1,23 @@
 export default function docHref(url) {
-  if (url === '/docs/content-delivery-api/filtering-records') {
-    return '/docs/content-delivery-api/filtering-records';
+  if (url === '/browse/content-delivery-api/filtering-records') {
+    return '/browse/content-delivery-api/filtering-records';
   }
 
-  if (!url.startsWith('/docs/content-management-api')) {
-    return '/docs/[...chunks]';
+  if (!url.startsWith('/browse/content-management-api')) {
+    return '/browse/[...chunks]';
   }
 
-  if (url.startsWith('/docs/content-management-api/resources/')) {
+  if (url.startsWith('/browse/content-management-api/resources/')) {
     if (url.match(/resources\/[^\/]+$/)) {
-      return '/docs/content-management-api/resources/[resource]';
+      return '/browse/content-management-api/resources/[resource]';
     } else {
-      return '/docs/content-management-api/resources/[resource]/[endpoint]';
+      return '/browse/content-management-api/resources/[resource]/[endpoint]';
     }
   }
 
-  if (url === '/docs/content-management-api') {
-    return '/docs/content-management-api';
+  if (url === '/browse/content-management-api') {
+    return '/browse/content-management-api';
   }
 
-  return '/docs/content-management-api/[...chunks]';
+  return '/browse/content-management-api/[...chunks]';
 }

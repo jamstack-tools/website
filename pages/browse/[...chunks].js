@@ -11,7 +11,7 @@ import htmlToDOM from 'html-dom-parser';
 import { domToReact } from 'html-react-parser';
 import slugify from 'utils/slugify';
 import getInnerText from 'utils/getInnerText';
-import s from 'pages/docs/pageStyle.module.css';
+import s from 'pages/browse/pageStyle.module.css';
 import Head from 'next/head';
 import docHref from 'utils/docHref';
 import emojify from 'utils/emojify';
@@ -283,7 +283,7 @@ const SidebarEntry = ({ url, level, label, children }) => {
 export const Sidebar = ({ title, entries }) => {
   return (
     <>
-      <Link href="/docs">
+      <Link href="/browse">
         <a className={s.backHome}>
           <LeftIcon /> Home
         </a>
@@ -372,7 +372,7 @@ export default function DocPage({ docGroup, titleOverride, page }) {
               docGroup && docGroup.pages.length > 1
                 ? docGroup.pages.map((page) => {
                     return {
-                      url: `/docs/${docGroup.slug}${
+                      url: `/browse/${docGroup.slug}${
                         (page.slugOverride || page.page.slug) === 'index'
                           ? ''
                           : `/${page.slugOverride || page.page.slug}`

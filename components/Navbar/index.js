@@ -54,17 +54,17 @@ export default function Navbar() {
                         <TitleDesc
                           title="All"
                           description="Get a first look"
-                          href="/docs"
+                          href="/browse"
                         />
                         <TitleDesc
                           title="Headless CMS"
                           description="Browse headless CMSs"
-                          href="/docs/headless-cms"
+                          href="/browse/headless-cms"
                         />
                         <TitleDesc
                           title="Generators"
                           description="Browse generators"
-                          href="/docs/generators"
+                          href="/browse/generators"
                         />
                       </div>
                     </div>
@@ -73,17 +73,17 @@ export default function Navbar() {
                         <TitleDesc
                           title="Feedback"
                           description="Feedback tools"
-                          href="/docs/tools/feedback"
+                          href="/browse/tools/feedback"
                         />
                         <TitleDesc
                           title="Form"
                           description="Form tools"
-                          href="/docs/tools/feedback"
+                          href="/browse/tools/feedback"
                         />
                         <TitleDesc
                           title="Payment"
                           description="Payment tools"
-                          href="/docs/tools/feedback"
+                          href="/browse/tools/feedback"
                         />
                       </div>
                     </div>

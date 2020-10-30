@@ -17,26 +17,15 @@ export default function DocsLayout({
     <div className={s.container}>
       {children}
       <div className={s.footer} data-datocms-noindex>
-        <div className={s.footerTitle}>Questions?</div>
+        <div className={s.footerTitle}>Cant't find what your tool?</div>
         <div className={s.footerBody}>
-          We're always happy to help with code or other questions you might
-          have. Search our{' '}
-          <Link href="/docs">
-            <a>documentation</a>
-          </Link>
-          , <a href="https://community.datocms.com">forum</a>,{' '}
-          <Link href="/support">
-            <a>contact support</a>
+          <Link href="/register">
+            <a>register now</a>
           </Link>
           , or{' '}
-          <Link href="/enterprise#form">
-            <a>connect with our sales team</a>
+          <Link href="/contact">
+            <a>talk to us</a>
           </Link>
-          . You can chat live with other developers in our{' '}
-          <Link href="/slack">
-            <a>Slack channel</a>
-          </Link>
-          .
         </div>
       </div>
     </div>
