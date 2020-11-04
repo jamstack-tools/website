@@ -11,13 +11,13 @@ import docHref from 'utils/docHref';
 export const getStaticProps = gqlStaticProps(
   gql`
     query {
-      page: docsPage {
+      page: browsePage {
         seo: _seoMetaTags {
           ...seoMetaTagsFields
         }
       }
-      roots: allDocPages {
-        title
+      roots: allTools {
+        name
         slug
       }
     }
@@ -36,7 +36,7 @@ const Sidebar = ({ roots }) => (
           as={`/browse/${root.slug}`}
           key={root.slug}
         >
-          <a className={s.groupName}>{root.title}</a>
+          <a className={s.groupName}>{root.name}</a>
         </Link>
       </div>
     ))}
@@ -46,7 +46,7 @@ const Sidebar = ({ roots }) => (
 export default function Docs({ roots, preview, page }) {
   return (
     <DocsLayout preview={preview} sidebar={<Sidebar roots={roots} />}>
-      <Head>{renderMetaTags(page.seo)}</Head>
+      <Head>{page && renderMetaTags(page.seo)}</Head>
       <div className={s.container}>
         <h2 className={s.title}>Browse our toolkit!</h2>
         <p className={s.subtitle}>

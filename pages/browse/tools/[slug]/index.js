@@ -19,34 +19,34 @@ import { useRouter } from 'next/router';
 export const getStaticPaths = gqlStaticPaths(
   gql`
     query {
-      posts: allCmsHeadlesses(first: 10) {
+      tools: allTools(first: 10) {
         slug
       }
     }
   `,
   'slug',
-  ({ posts }) => posts.map((p) => p.slug),
+  ({ tools }) => tools.map((p) => p.slug),
 );
 
 export const getStaticProps = gqlStaticProps(
   gql`
-    query ArticleQuery($slug: String!) {
-      post: cmsHeadless(filter: { slug: { eq: $slug } }) {
+    query ToolsQuery($slug: String!) {
+      tool: allTools(filter: { slug: { eq: $slug } }) {
         name
-        slug
       }
     }
   `,
 );
 
-export default function Article({ post, preview }) {
+export default function Tool({ tool, preview }) {
+  console.log('hfhguwgfweuyfgifgei');
   return (
     <Layout preview={preview}>
       <InterstitialTitle kicker="The DatoCMS Blog" style="two">
-        {post.name}
+        {tool.name}
       </InterstitialTitle>
       <Wrapper>
-        <div> {post.name} </div>
+        <div> {tool.name} </div>
       </Wrapper>
     </Layout>
   );

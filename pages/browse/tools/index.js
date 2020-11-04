@@ -10,38 +10,37 @@ import Anchor from 'public/icons/regular/link.svg';
 export const getStaticProps = gqlStaticProps(
   gql`
     {
-      cms: allCmsHeadlesses(first: 100) {
+      tools: allTools(first: 100) {
         name
         slug
         description(markdown: true)
-        cmsType
       }
     }
   `,
 );
 
-export default function Cms({ cms }) {
+export default function Tools({ tools }) {
   return (
-    <DocsLayout sidebar={<Sidebar title="Headless CMSs" entries={[]} />}>
+    <DocsLayout sidebar={<Sidebar title="Tools" entries={tools} />}>
       <Head>
-        <title>Headless CMSs</title>
+        <title>Tools</title>
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <div className={s.title}>Headless CMSs</div>
+          <div className={s.title}>Tools</div>
 
           <div className={s.tutorials}>
-            {cms.map((tutorial) => (
+            {tools.map((tool) => (
               <a
-                href={`/browse/headless-cms/${tutorial.slug}`}
-                key={tutorial.slug}
+                href={`/browse/tools/${tool.slug}`}
+                key={tool.slug}
                 className={s.tutorial}
               >
                 <h6 className={s.tutorialTitle}>
-                  {tutorial.name} <Anchor />
+                  {tool.name} <Anchor />
                 </h6>
                 <div className={s.tutorialDescription}>
-                  <SmartMarkdown>{tutorial.description}</SmartMarkdown>
+                  <SmartMarkdown>{tool.description}</SmartMarkdown>
                 </div>
               </a>
             ))}
