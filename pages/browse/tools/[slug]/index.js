@@ -1,14 +1,9 @@
 import Layout from 'components/Layout';
 import Wrapper from 'components/Wrapper';
 import { gqlStaticPaths, gqlStaticProps } from 'lib/datocms';
-import { Image, renderMetaTags } from 'react-datocms';
-import FormattedDate from 'components/FormattedDate';
 import gql from 'graphql-tag';
 import InterstitialTitle from 'components/InterstitialTitle';
 import PostContent from 'components/PostContent';
-import Head from 'next/head';
-import s from './style.module.css';
-import { Line, Copy, Rect } from 'components/FakeContent';
 import { useRouter } from 'next/router';
 
 export const getStaticPaths = gqlStaticPaths(
@@ -26,22 +21,24 @@ export const getStaticPaths = gqlStaticPaths(
 export const getStaticProps = gqlStaticProps(
   gql`
     query ToolsQuery($slug: String!) {
-      tool: allTools(filter: { slug: { eq: $slug } }) {
+      tool: tool(filter: { slug: { eq: $slug } }) {
         name
+        text(markdown: true)
       }
     }
   `,
 );
 
 export default function Tool({ tool, preview }) {
-  console.log('hfhguwgfweuyfgifgei');
+  const { isFallback } = useRouter();
+
   return (
     <Layout preview={preview}>
-      <InterstitialTitle kicker="The DatoCMS Blog" style="two">
+      <InterstitialTitle kicker="Tool" style="two">
         {tool.name}
       </InterstitialTitle>
       <Wrapper>
-        <div> {tool.name} </div>
+        <PostContent isFallback={isFallback} content={tool} />
       </Wrapper>
     </Layout>
   );

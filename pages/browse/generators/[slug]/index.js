@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 import { gqlStaticPaths, gqlStaticProps } from 'lib/datocms';
 import Layout from 'components/Layout';
 import Wrapper from 'components/Wrapper';
+import PostContent from 'components/PostContent';
 // import { Image, renderMetaTags } from 'react-datocms';
 // import FormattedDate from 'components/FormattedDate';
 import InterstitialTitle from 'components/InterstitialTitle';
@@ -33,14 +34,14 @@ export const getStaticProps = gqlStaticProps(
   `,
 );
 
-export default function Cms({ cms, preview }) {
+export default function Generator({ cms, preview }) {
   return (
     <Layout preview={preview}>
       <InterstitialTitle kicker="Tool" style="two">
         {cms.name}
       </InterstitialTitle>
       <Wrapper>
-        <div> {cms.name} </div>
+        <PostContent isFallback={isFallback} content={cms} />
       </Wrapper>
     </Layout>
   );

@@ -2,13 +2,12 @@ import gql from 'graphql-tag';
 import { gqlStaticPaths, gqlStaticProps } from 'lib/datocms';
 import Layout from 'components/Layout';
 import Wrapper from 'components/Wrapper';
-// import { Image, renderMetaTags } from 'react-datocms';
-// import FormattedDate from 'components/FormattedDate';
+import PostContent from 'components/PostContent';
 import InterstitialTitle from 'components/InterstitialTitle';
+import { useRouter } from 'next/router';
 // import Head from 'next/head';
 // import s from './style.module.css';
 // import { Line, Copy, Rect } from 'components/FakeContent';
-// import { useRouter } from 'next/router';
 
 export const getStaticPaths = gqlStaticPaths(
   gql`
@@ -28,19 +27,22 @@ export const getStaticProps = gqlStaticProps(
       cms: cmsHeadless(filter: { slug: { eq: $slug } }) {
         name
         slug
+        text
       }
     }
   `,
 );
 
 export default function Cms({ cms, preview }) {
+  const { isFallback } = useRouter();
+
   return (
     <Layout preview={preview}>
-      <InterstitialTitle kicker="Tool" style="two">
+      <InterstitialTitle kicker="Headless CMS" style="two">
         {cms.name}
       </InterstitialTitle>
       <Wrapper>
-        <div> {cms.name} </div>
+        <PostContent isFallback={isFallback} content={cms} />
       </Wrapper>
     </Layout>
   );
