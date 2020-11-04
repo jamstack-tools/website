@@ -2,7 +2,7 @@ import { gqlStaticProps } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
 import SmartMarkdown from 'components/SmartMarkdown';
 import gql from 'graphql-tag';
-import { Sidebar } from 'pages/browse/[...chunks]';
+import Sidebar from 'pages/browse/Sidebar';
 import Head from 'next/head';
 import s from 'pages/browse/pageStyle.module.css';
 import Anchor from 'public/icons/regular/link.svg';

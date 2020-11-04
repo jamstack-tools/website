@@ -104,7 +104,7 @@ const SidebarEntry = ({ url, level, label, children }) => {
   );
 };
 
-export const Sidebar = ({ title, entries }) => {
+export default function Sidebar({ title, entries }) {
   return (
     <>
       <Link href="/browse">
@@ -122,7 +122,7 @@ export const Sidebar = ({ title, entries }) => {
       <div style={{ height: '80px' }} />
     </>
   );
-};
+}
 
 export function Toc({ content, extraEntries: extra }) {
   const contentEntries =
@@ -181,83 +181,4 @@ export function Toc({ content, extraEntries: extra }) {
       </div>
     </div>
   ) : null;
-}
-
-export default function DocPage({ tool, titleOverride, page }) {
-  const { isFallback } = useRouter();
-
-  return (
-    <DocsLayout
-      sidebar={
-        tool && (
-          <Sidebar
-            title={tool.name}
-            entries={
-              tool && tool.pages.length > 1
-                ? tool.pages.map((page) => {
-                    return {
-                      url: `/browse/${tool.slug}${
-                        (page.slugOverride || page.page.slug) === 'index'
-                          ? ''
-                          : `/${page.slugOverride || page.page.slug}`
-                      }`,
-                      label: page.titleOverride || page.page.title,
-                    };
-                  })
-                : page &&
-                  page.content &&
-                  page.content
-                    .filter((b) => b._modelApiKey === 'text')
-                    .map((b) => {
-                      const dom = htmlToDOM(b.text, domParserOptions);
-
-                      return dom
-                        .filter(
-                          (el) =>
-                            el.type === 'tag' && el.name.match(/^h[1-6]$/),
-                        )
-                        .map((heading) => {
-                          const innerText = getInnerText([heading]);
-
-                          return {
-                            url: `#${slugify(innerText)}`,
-                            label: domToReact([heading], {
-                              replace: ({ children }) => {
-                                return (
-                                  <span key={innerText}>
-                                    {domToReact(children, {
-                                      replace: ({ type, data }) => {
-                                        if (type === 'text') {
-                                          return <>{emojify(data)}</>;
-                                        }
-                                      },
-                                    })}
-                                  </span>
-                                );
-                              },
-                            }),
-                          };
-                        });
-                    })
-                    .flat()
-            }
-          />
-        )
-      }
-    >
-      <Head>{!isFallback && renderMetaTags(page._seoMetaTags)}</Head>
-      <div className={s.articleContainer}>
-        <div className={s.article}>
-          <div className={s.title}>
-            {isFallback ? <Line /> : titleOverride || (page && page.title)}
-          </div>
-          <PostContent
-            isFallback={isFallback}
-            content={page && page.content}
-            style={s}
-          />
-        </div>
-      </div>
-    </DocsLayout>
-  );
 }

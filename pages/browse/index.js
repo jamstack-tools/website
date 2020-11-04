@@ -16,7 +16,7 @@ export const getStaticProps = gqlStaticProps(
           ...seoMetaTagsFields
         }
       }
-      roots: allTools {
+      roots: allCategories {
         name
         slug
       }
@@ -27,21 +27,29 @@ export const getStaticProps = gqlStaticProps(
 
 const normalize = (slug) => (slug === 'index' ? '' : `/${slug}`);
 
-const Sidebar = ({ roots }) => (
-  <>
-    {roots.map((root) => (
-      <div className={s.group} key={root.slug}>
-        <Link
-          href={docHref(`/browse/${root.slug}`)}
-          as={`/browse/${root.slug}`}
-          key={root.slug}
-        >
-          <a className={s.groupName}>{root.name}</a>
-        </Link>
-      </div>
-    ))}
-  </>
-);
+const Sidebar = ({ roots }) => {
+  const all = [
+    { name: 'CMSs', slug: 'headless-cms' },
+    { name: 'Generators', slug: 'generators' },
+    ...roots,
+  ];
+
+  return (
+    <>
+      {all.map((category) => (
+        <div className={s.group} key={category.slug}>
+          <Link
+            href={docHref(`/browse/${category.slug}`)}
+            as={`/browse/${category.slug}`}
+            key={category.slug}
+          >
+            <a className={s.groupName}>{category.name}</a>
+          </Link>
+        </div>
+      ))}
+    </>
+  );
+};
 
 export default function Docs({ roots, preview, page }) {
   return (
