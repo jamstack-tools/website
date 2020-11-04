@@ -23,6 +23,14 @@ export const getStaticProps = gqlStaticProps(
     query ToolsQuery($slug: String!) {
       tool: tool(filter: { slug: { eq: $slug } }) {
         name
+        url
+        pricing
+        category {
+          name
+          color {
+            hex
+          }
+        }
         text(markdown: true)
       }
     }
@@ -34,7 +42,10 @@ export default function Tool({ tool, preview }) {
 
   return (
     <Layout preview={preview}>
-      <InterstitialTitle kicker="Tool" style="two">
+      <InterstitialTitle
+        kicker={`Tool / ${tool.category && tool.category.name}`}
+        style="two"
+      >
         {tool.name}
       </InterstitialTitle>
       <Wrapper>
