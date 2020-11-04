@@ -32,32 +32,13 @@ export const getStaticProps = gqlStaticProps(
           ...seoMetaTagsFields
         }
       }
-      successStories: allSuccessStories(
-        first: 4
-        orderBy: _firstPublishedAt_DESC
-      ) {
-        accentColor {
-          hex
-        }
-        duotoneColor1 {
-          hex
-        }
-        duotoneColor2 {
-          hex
-        }
-        title(markdown: true)
-        slug
-        logo {
-          url
-        }
-      }
     }
 
     ${seoMetaTagsFields}
   `,
 );
 
-function Homepage({ successStories, preview, page }) {
+function Homepage({ preview, page }) {
   return (
     <Layout preview={preview}>
       <Head>{page && renderMetaTags(page.seo)}</Head>
@@ -299,8 +280,6 @@ function Homepage({ successStories, preview, page }) {
           ]}
         />
       </Flag>
-
-      {successStories.length > 0 && <UseCaseExcerpts cases={successStories} />}
     </Layout>
   );
 }
