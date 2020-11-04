@@ -2,7 +2,6 @@ import { gqlStaticProps } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
 import SmartMarkdown from 'components/SmartMarkdown';
 import gql from 'graphql-tag';
-import { Sidebar } from 'pages/browse/[...chunks]';
 import Head from 'next/head';
 import s from 'pages/browse/pageStyle.module.css';
 import Anchor from 'public/icons/regular/link.svg';
@@ -22,7 +21,7 @@ export const getStaticProps = gqlStaticProps(
 
 export default function Cms({ cms }) {
   return (
-    <DocsLayout sidebar={<Sidebar title="Headless CMSs" entries={[]} />}>
+    <DocsLayout>
       <Head>
         <title>Headless CMSs</title>
       </Head>

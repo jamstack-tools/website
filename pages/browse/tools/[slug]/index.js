@@ -1,11 +1,6 @@
 import Layout from 'components/Layout';
 import Wrapper from 'components/Wrapper';
-import {
-  gqlStaticPaths,
-  gqlStaticProps,
-  imageFields,
-  seoMetaTagsFields,
-} from 'lib/datocms';
+import { gqlStaticPaths, gqlStaticProps } from 'lib/datocms';
 import { Image, renderMetaTags } from 'react-datocms';
 import FormattedDate from 'components/FormattedDate';
 import gql from 'graphql-tag';

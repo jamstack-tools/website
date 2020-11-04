@@ -1,4 +1,4 @@
-import { request, seoMetaTagsFields, imageFields } from 'lib/datocms';
+import { request } from 'lib/datocms';
 import { renderMetaTags } from 'react-datocms';
 import { gqlStaticPaths } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
