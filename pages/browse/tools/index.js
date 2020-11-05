@@ -14,6 +14,11 @@ export const getStaticProps = gqlStaticProps(
         name
         slug
         description(markdown: true)
+        category {
+          name
+          slug
+          hex
+        }
       }
     }
   `,
@@ -21,13 +26,13 @@ export const getStaticProps = gqlStaticProps(
 
 export default function Tools({ tools }) {
   return (
-    <DocsLayout sidebar={<Sidebar title="Tools" entries={tools} />}>
+    <DocsLayout sidebar={<Sidebar />}>
       <Head>
         <title>Tools</title>
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <div className={s.title}>Tools</div>
+          <div className={s.title}>All tools</div>
 
           <div className={s.tutorials}>
             {tools.map((tool) => (

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import s from './style.module.css';
 import { renderMetaTags } from 'react-datocms';
+import Sidebar from 'pages/browse/Sidebar';
 
 export const getStaticProps = gqlStaticProps(
   gql`
@@ -14,44 +15,14 @@ export const getStaticProps = gqlStaticProps(
           ...seoMetaTagsFields
         }
       }
-      roots: allCategories {
-        name
-        slug
-      }
     }
     ${seoMetaTagsFields}
   `,
 );
 
-const normalize = (slug) => (slug === 'index' ? '' : `/${slug}`);
-
-const Sidebar = ({ roots }) => {
-  const all = [
-    { name: 'CMSs', slug: 'headless-cms' },
-    { name: 'Generators', slug: 'generators' },
-    ...roots,
-  ];
-
+export default function Docs({ preview, page }) {
   return (
-    <>
-      {all.map((category) => (
-        <div className={s.group} key={category.slug}>
-          <Link
-            href={`/browse/${category.slug}`}
-            as={`/browse/${category.slug}`}
-            key={category.slug}
-          >
-            <a className={s.groupName}>{category.name}</a>
-          </Link>
-        </div>
-      ))}
-    </>
-  );
-};
-
-export default function Docs({ roots, preview, page }) {
-  return (
-    <DocsLayout preview={preview} sidebar={<Sidebar roots={roots} />}>
+    <DocsLayout preview={preview} sidebar={<Sidebar />}>
       <Head>{page && renderMetaTags(page.seo)}</Head>
       <div className={s.container}>
         <h2 className={s.title}>Browse our toolkit!</h2>

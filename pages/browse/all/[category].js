@@ -21,10 +21,18 @@ export const getStaticPaths = gqlStaticPaths(
 
 export const getStaticProps = gqlStaticProps(
   gql`
-    query ToolByCategoryQuery {
-      tools: allTools(filter: { category: { eq: 9863203 } }) {
+    query ToolByCategoryQuery($category: ItemId!) {
+      tools: allTools(filter: { category: { eq: $category } }) {
         name
         slug
+        description
+        category {
+          name
+          slug
+          color {
+            hex
+          }
+        }
       }
     }
   `,
@@ -39,7 +47,8 @@ export const getStaticProps = gqlStaticProps(
       `,
     });
 
-    return { category: data.id };
+    // if category is non existant use random id
+    return { category: (data.category && data.category.id) || '111' };
   },
 );
 
@@ -47,11 +56,13 @@ export default function Cat({ tools }) {
   return (
     <DocsLayout sidebar={<Sidebar title="Tools" entries={tools} />}>
       <Head>
-        <title>Tools</title>
+        <title>{tools[0] && tools[0].category.name} JAMstack tools</title>
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <div className={s.title}>Tools</div>
+          <div className={s.title}>
+            {tools[0] && tools[0].category.name} tools
+          </div>
 
           <div className={s.tutorials}>
             {tools.map((tool) => (

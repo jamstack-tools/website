@@ -17,14 +17,14 @@ export default function DocsLayout({
     <div className={s.container}>
       {children}
       <div className={s.footer} data-datocms-noindex>
-        <div className={s.footerTitle}>Cant't find what your tool?</div>
+        <div className={s.footerTitle}>Cant't find a tool?</div>
         <div className={s.footerBody}>
-          <Link href="/register">
-            <a>register now</a>
+          <Link href="/contact">
+            <a>Write to us</a>
           </Link>
           , or{' '}
-          <Link href="/contact">
-            <a>talk to us</a>
+          <Link href="/register">
+            <a>register it!</a>
           </Link>
         </div>
       </div>

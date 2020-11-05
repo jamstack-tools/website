@@ -24,11 +24,11 @@ export default function Tutorials({ generators }) {
   return (
     <DocsLayout sidebar={<Sidebar entries={[]} />}>
       <Head>
-        <title>Headless CMSs</title>
+        <title>Static Site Generators</title>
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <div className={s.title}>Headless CMSs</div>
+          <div className={s.title}>Static Site Generators</div>
 
           <div className={s.tutorials}>
             {generators.map((generator) => (
