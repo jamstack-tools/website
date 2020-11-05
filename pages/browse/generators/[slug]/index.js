@@ -3,11 +3,10 @@ import { gqlStaticPaths, gqlStaticProps } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
 import Wrapper from 'components/Wrapper';
 import PostContent from 'components/PostContent';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
 import InterstitialTitle from 'components/InterstitialTitle';
+import Head from 'next/head';
 import Sidebar from 'pages/browse/Sidebar';
-import s from 'pages/browse/pageStyle.module.css';
+import { useRouter } from 'next/router';
 
 // import { Image, renderMetaTags } from 'react-datocms';
 // import FormattedDate from 'components/FormattedDate';

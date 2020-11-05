@@ -1,9 +1,11 @@
-import Layout from 'components/Layout';
-import Wrapper from 'components/Wrapper';
-import { gqlStaticPaths, gqlStaticProps } from 'lib/datocms';
 import gql from 'graphql-tag';
-import InterstitialTitle from 'components/InterstitialTitle';
+import { gqlStaticPaths, gqlStaticProps } from 'lib/datocms';
+import DocsLayout from 'components/DocsLayout';
+import Wrapper from 'components/Wrapper';
 import PostContent from 'components/PostContent';
+import InterstitialTitle from 'components/InterstitialTitle';
+import Head from 'next/head';
+import Sidebar from 'pages/browse/Sidebar';
 import { useRouter } from 'next/router';
 
 export const getStaticPaths = gqlStaticPaths(
@@ -41,16 +43,18 @@ export default function Tool({ tool, preview }) {
   const { isFallback } = useRouter();
 
   return (
-    <Layout preview={preview}>
+    <DocsLayout sidebar={<Sidebar />}>
+      <Head>
+        <title>{tool && tool.name}</title>
+      </Head>
       <InterstitialTitle
         kicker={`Tool / ${tool && tool.category && tool.category.name}`}
-        style="two"
       >
         {tool && tool.name}
       </InterstitialTitle>
       <Wrapper>
         <PostContent isFallback={isFallback} content={tool} />
       </Wrapper>
-    </Layout>
+    </DocsLayout>
   );
 }
