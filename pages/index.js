@@ -70,216 +70,46 @@ function Homepage({ preview, page }) {
         </InterstitialTitle>
       </Space>
 
-      <Flag
-        style="bad"
-        title={
-          <>
-            Is content spread across{' '}
-            <FlagHighlight style="bad">endless different CMSs</FlagHighlight>?
-          </>
-        }
-        image="random-things"
-      >
-        <p>
-          How can you deliver a cohesive brand and message strategy if your
-          company functions in silos and information is manually copy-pasted
-          across tens of different platforms?
-        </p>
-        <Bullets
-          style="bad"
-          icon={WarningIcon}
-          bullets={[
-            'Out-of-sync content',
-            'Redundant expenses',
-            'Internal inefficiencies',
-          ]}
-        />
-      </Flag>
-
-      <Flag
-        style="bad"
-        title={
-          <>
-            Are you slowed down&nbsp;by{' '}
-            <FlagHighlight style="bad">legacy&nbsp;technology?</FlagHighlight>
-          </>
-        }
-        image="stale-flower"
-      >
-        <p>
-          Your customers demand blazing-fast digital products, web standards are
-          evolving at the speed of light, yet you rely on 15-years-old solutions
-          like Wordpress that force you to deliver heavy, low-quality user
-          experiences.
-        </p>
-        <Bullets
-          style="bad"
-          icon={WarningIcon}
-          bullets={[
-            'Slow development times',
-            'Rigid structures and models',
-            'Poor performance in websites and apps',
-          ]}
-        />
-      </Flag>
-
-      <Flag
-        style="bad"
-        title={
-          <>
-            Is your infrastructure{' '}
-            <FlagHighlight style="bad">
-              ready&nbsp;for&nbsp;scale?
-            </FlagHighlight>
-          </>
-        }
-        image="waves"
-      >
-        <p>
-          New channels, new markets, complex use cases, fast iterations. You can
-          no longer afford to think locally. You need to have a reliable
-          solution that is capable of following your growth, globally, and lets
-          you adapt along the journey.
-        </p>
-        <Bullets
-          style="bad"
-          icon={WarningIcon}
-          bullets={[
-            'Complex data migrations',
-            'Slow access times',
-            'Missing integrations to new technology',
-          ]}
-        />
-      </Flag>
-
-      <TitleStripWithContent title={<>How much is this already costing you?</>}>
+      <TitleStripWithContent title={<>Cannot find your favourite tool?</>}>
         <div className={styles.grid}>
           <Result
-            number="89%"
+            number="1."
             label={
               <>
-                of <Highlight style="bad">customer loss</Highlight>
+                Who, <Highlight style="bad">me?</Highlight>
               </>
             }
           >
-            According to <strong>Gartner</strong> 89 percent of companies plan
-            to compete primarily on the basis of CX this year.
+            Did you just launch on Product Hunt? Do you have a solid JAM
+            startup? Did you use a tool that made developing your static site so
+            much easier? <strong>It's time to register!</strong>
           </Result>
           <Result
-            number="86%"
+            number="2."
             label={
               <>
-                of buyers <Highlight style="warning">pay more</Highlight>
+                I got <Highlight style="warning">what you need</Highlight>
               </>
             }
           >
-            <strong>Harris</strong> found 86% of consumers stop
-            interacting&#8203;/&#8203;buying from businesses if they have a bad
-            experience.
+            You need a just a few basic information to register a new{' '}
+            <strong>JAMstack tool</strong>. Or go crazy with a long markdown
+            description. It's up to you!
           </Result>
           <Result
-            number="25%"
+            number="3."
             label={
               <>
-                <Highlight style="good">in profitability</Highlight>
+                You make me <Highlight style="good">so proud</Highlight>
               </>
             }
           >
-            <strong>Oracle</strong> reported that multichannel integration has
-            the ability to increase profitability by 25 percent.
+            We usually take a few hours to check, after that you will be able to
+            see your tool in all its glory in our{' '}
+            <strong>Browse section</strong>.
           </Result>
         </div>
       </TitleStripWithContent>
-
-      <Space top={4} bottom={2}>
-        <InterstitialTitle style="two">
-          Here's how an Headless&nbsp;CMS can&nbsp;help&nbsp;your company
-        </InterstitialTitle>
-      </Space>
-
-      <Space top={2}>
-        <Wrapper>
-          <OmnichannelIllustration />
-        </Wrapper>
-      </Space>
-
-      <Flag
-        style="good"
-        image="box-things"
-        title={
-          <>
-            Manage all your content{' '}
-            <FlagHighlight>in&nbsp;one&nbsp;place</FlagHighlight>
-          </>
-        }
-      >
-        <p>
-          Headless CMS means keeping everyone on the same page, storing
-          everything in a single centralized hub, making an edit and publish it
-          instantly, everywhere.
-        </p>
-        <Bullets
-          style="good"
-          icon={SuccessIcon}
-          bullets={[
-            'Access every bit of copy, anytime',
-            'Your content becomes future-proof',
-            'Deliver real omnichannel experiences',
-          ]}
-        />
-      </Flag>
-
-      <Flag
-        style="good"
-        title={
-          <>
-            From idea to market <FlagHighlight>in&nbsp;hours</FlagHighlight>,
-            not months
-          </>
-        }
-        image="people"
-      >
-        <p>
-          Test and iterate painlessly, no matter what’s the digital product
-          you’re working on, without reaching out to your IT for complex
-          migrations.
-        </p>
-        <Bullets
-          style="good"
-          icon={SuccessIcon}
-          bullets={[
-            'Flexible content model',
-            'Fast iterations, instant prototyping',
-            'Repeatable architecture for all your projects',
-          ]}
-        />
-      </Flag>
-
-      <Flag
-        style="good"
-        title={
-          <>
-            A <FlagHighlight>global delivery network</FlagHighlight> at your
-            service
-          </>
-        }
-        image="muscles"
-      >
-        <p>
-          With a network that spans 200 cities in more than 90 countries, you
-          can be sure your content is always accessible, performant, secure, and
-          close to every customer.
-        </p>
-        <Bullets
-          style="good"
-          icon={SuccessIcon}
-          bullets={[
-            'Reduced architectural complexities',
-            'Scalability is built-in',
-            'Integrations ready with any digital product',
-          ]}
-        />
-      </Flag>
     </Layout>
   );
 }
