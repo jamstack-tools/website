@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&family=Poppins&family=Raleway&display=swap');
 
 :root {
-  --font-sans: 'Poppins', montserrat-text, colfax, -apple-system,
+  --font-sans: montserrat-text, montserrat-text, colfax, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   --font-headline: montserrat-headline, Georgia, serif;

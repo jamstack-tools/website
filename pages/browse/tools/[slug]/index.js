@@ -43,10 +43,10 @@ export default function Tool({ tool, preview }) {
   return (
     <Layout preview={preview}>
       <InterstitialTitle
-        kicker={`Tool / ${tool.category && tool.category.name}`}
+        kicker={`Tool / ${tool && tool.category && tool.category.name}`}
         style="two"
       >
-        {tool.name}
+        {tool && tool.name}
       </InterstitialTitle>
       <Wrapper>
         <PostContent isFallback={isFallback} content={tool} />

@@ -1,6 +1,5 @@
 import { request } from 'lib/datocms';
 import { renderMetaTags } from 'react-datocms';
-import { gqlStaticPaths } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
 import gql from 'graphql-tag';
 import PostContent from 'components/PostContent';
@@ -13,30 +12,12 @@ import slugify from 'utils/slugify';
 import getInnerText from 'utils/getInnerText';
 import s from 'pages/browse/pageStyle.module.css';
 import Head from 'next/head';
-import docHref from 'utils/docHref';
 import emojify from 'utils/emojify';
 import { useRouter } from 'next/router';
 import { Line } from 'components/FakeContent';
 import cn from 'classnames';
 
 var domParserOptions = { decodeEntities: true, lowerCaseAttributeNames: false };
-
-export const getStaticPaths = gqlStaticPaths(
-  gql`
-    {
-      roots: allTools(first: 100) {
-        slug
-        name
-      }
-    }
-  `,
-  'chunks',
-  ({ roots }) => {
-    const results = roots;
-
-    return results;
-  },
-);
 
 export const getStaticProps = async function ({
   params: { chunks: rawChunks },
@@ -87,7 +68,7 @@ const SidebarEntry = ({ url, level, label, children }) => {
   return (
     <div>
       {url ? (
-        <ActiveLink href={docHref(url)} as={url} activeClassName={s.activePage}>
+        <ActiveLink href={url} as={url} activeClassName={s.activePage}>
           <a className={cn(s.page, s[`page-level${level}`])}>{label}</a>
         </ActiveLink>
       ) : (

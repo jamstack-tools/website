@@ -6,8 +6,6 @@ import Head from 'next/head';
 import s from './style.module.css';
 import { renderMetaTags } from 'react-datocms';
 
-import docHref from 'utils/docHref';
-
 export const getStaticProps = gqlStaticProps(
   gql`
     query {
@@ -39,7 +37,7 @@ const Sidebar = ({ roots }) => {
       {all.map((category) => (
         <div className={s.group} key={category.slug}>
           <Link
-            href={docHref(`/browse/${category.slug}`)}
+            href={`/browse/${category.slug}`}
             as={`/browse/${category.slug}`}
             key={category.slug}
           >
@@ -64,16 +62,13 @@ export default function Docs({ roots, preview, page }) {
 
         <h6 className={s.introTitle}>The basics</h6>
         <div className={s.useCaseCards}>
-          <Link
-            href={docHref('/browse/headless-cms')}
-            as="/browse/headless-cms"
-          >
+          <Link href={'/browse/headless-cms'} as="/browse/headless-cms">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Headless CMSs</div>
               <p>Choose an headless CMS.</p>
             </a>
           </Link>
-          <Link href={docHref('/browse/generators')} as="/browse/generators">
+          <Link href={'/browse/generators'} as="/browse/generators">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Static site generator</div>
               <p>Choose a generator</p>
@@ -83,10 +78,7 @@ export default function Docs({ roots, preview, page }) {
 
         <h6 className={s.introTitle}>Toolkit by category</h6>
         <div className={s.useCaseCards}>
-          <Link
-            href={docHref('/browse/tools/feedback')}
-            as="/browse/tools/feedback"
-          >
+          <Link href={'/browse/tools/feedback'} as="/browse/tools/feedback">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Feedback tools</div>
               <p>
@@ -95,16 +87,13 @@ export default function Docs({ roots, preview, page }) {
               </p>
             </a>
           </Link>
-          <Link href={docHref('/browse/tools/forms')} as="/browse/tools/forms">
+          <Link href={'/browse/tools/forms'} as="/browse/tools/forms">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Forms</div>
               <p>Here are the top notch form tools </p>
             </a>
           </Link>
-          <Link
-            href={docHref('/browse/tools/payment')}
-            as="/browse/tools/payment"
-          >
+          <Link href={'/browse/tools/payment'} as="/browse/tools/payment">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Payment</div>
               <p>For any e-commerce out there!</p>
