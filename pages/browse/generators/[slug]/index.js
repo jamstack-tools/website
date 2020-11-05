@@ -45,7 +45,9 @@ export default function Generator({ generator, preview }) {
       <Head>
         <title>{generator.name}</title>
       </Head>
-      <InterstitialTitle kicker="Generator">{generator.name}</InterstitialTitle>
+      <InterstitialTitle kicker="Generator" style="lamellae">
+        {generator.name}
+      </InterstitialTitle>
       <Wrapper>
         <PostContent isFallback={isFallback} content={generator} />
       </Wrapper>

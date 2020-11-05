@@ -5,7 +5,6 @@ import Link from 'next/link';
 import s from './style.module.css';
 import PenIcon from 'public/icons/regular/pen.svg';
 import RegisterIcon from 'public/icons/regular/pi.svg';
-import LanguagePicker from 'components/LanguagePicker';
 
 export default function DocsLayout({ sidebar, children, preview }) {
   const content = (

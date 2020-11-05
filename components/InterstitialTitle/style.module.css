@@ -33,33 +33,96 @@
     content: '';
     display: block;
     background-color: #eee;
-    width: 40vw;
-    max-width: 400px;
-    height: 25vw;
-    max-height: 200px;
+    width: 35vw;
+    max-width: 300px;
+    height: 15vw;
+    max-height: 140px;
     z-index: -1;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-20%, -50%) skew(0deg, -15deg);
-    background: linear-gradient(45deg, #fefae4, #f9ecfe);
+    transform: translate(-45%, -40%) skew(-25deg, -15deg);
+    background: linear-gradient(90deg, #fefae4, #f7e3ff);
   }
 
   &:after {
     content: '';
     display: block;
     background-color: #eee;
-    width: 40vw;
-    max-width: 400px;
-    height: 25vw;
-    max-height: 200px;
+    width: 35vw;
+    max-width: 300px;
+    height: 15vw;
+    max-height: 140px;
     z-index: -1;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-80%, -50%) skew(0deg, -15deg);
-    background: linear-gradient(45deg, #fefae4, #f9ecfe);
+    transform: translate(-50%, -50%) skew(-25deg, -15deg);
+    background: linear-gradient(90deg, #fefae4, #f9ecfe);
   }
+}
+.lamellae {
+  position: relative;
+}
+
+.bg3 {
+  display: block;
+  background-color: #eee;
+  width: 35vw;
+  max-width: 300px;
+  height: 15vw;
+  max-height: 140px;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -30%) skew(-25deg, -15deg);
+  background: linear-gradient(90deg, #e8feff, #fdf7ff);
+}
+
+.bg2 {
+  display: block;
+  background-color: #eee;
+  width: 35vw;
+  max-width: 300px;
+  height: 15vw;
+  max-height: 140px;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-43%, -37%) skew(-25deg, -15deg);
+  background: linear-gradient(90deg, #b9f6fa, #fcf5ff);
+}
+
+.bg1 {
+  display: block;
+  background-color: #eee;
+  width: 35vw;
+  max-width: 300px;
+  height: 15vw;
+  max-height: 140px;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-46%, -44%) skew(-25deg, -15deg);
+  background: linear-gradient(90deg, #6be0e8, #f9ecfe);
+}
+
+.bg {
+  display: block;
+  background-color: #eee;
+  width: 35vw;
+  max-width: 300px;
+  height: 15vw;
+  max-height: 140px;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skew(-25deg, -15deg);
+  background: linear-gradient(90deg, #4bc0c8, #f4d9ff);
 }
 
 .kicker,
