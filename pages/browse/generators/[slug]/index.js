@@ -1,20 +1,23 @@
 import gql from 'graphql-tag';
 import { gqlStaticPaths, gqlStaticProps } from 'lib/datocms';
-import Layout from 'components/Layout';
+import DocsLayout from 'components/DocsLayout';
 import Wrapper from 'components/Wrapper';
 import PostContent from 'components/PostContent';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import InterstitialTitle from 'components/InterstitialTitle';
+import Sidebar from 'pages/browse/Sidebar';
+import s from 'pages/browse/pageStyle.module.css';
+
 // import { Image, renderMetaTags } from 'react-datocms';
 // import FormattedDate from 'components/FormattedDate';
-import InterstitialTitle from 'components/InterstitialTitle';
-// import Head from 'next/head';
 // import s from './style.module.css';
 // import { Line, Copy, Rect } from 'components/FakeContent';
-// import { useRouter } from 'next/router';
 
 export const getStaticPaths = gqlStaticPaths(
   gql`
     query {
-      posts: allCmsHeadlesses(first: 10) {
+      posts: allGenerators(first: 10) {
         slug
       }
     }
@@ -25,24 +28,28 @@ export const getStaticPaths = gqlStaticPaths(
 
 export const getStaticProps = gqlStaticProps(
   gql`
-    query ArticleQuery($slug: String!) {
-      cms: cmsHeadless(filter: { slug: { eq: $slug } }) {
+    query GeneratorQuery($slug: String!) {
+      generator: generator(filter: { slug: { eq: $slug } }) {
         name
         slug
+        text
       }
     }
   `,
 );
 
-export default function Generator({ cms, preview }) {
+export default function Generator({ generator, preview }) {
+  const { isFallback } = useRouter();
+
   return (
-    <Layout preview={preview}>
-      <InterstitialTitle kicker="Tool" style="two">
-        {cms.name}
-      </InterstitialTitle>
+    <DocsLayout sidebar={<Sidebar entries={[]} />}>
+      <Head>
+        <title>{generator.name}</title>
+      </Head>
+      <InterstitialTitle kicker="Generator">{generator.name}</InterstitialTitle>
       <Wrapper>
-        <PostContent isFallback={isFallback} content={cms} />
+        <PostContent isFallback={isFallback} content={generator} />
       </Wrapper>
-    </Layout>
+    </DocsLayout>
   );
 }

@@ -33,7 +33,7 @@ export default function Tutorials({ generators }) {
           <div className={s.tutorials}>
             {generators.map((generator) => (
               <a
-                href={`/browse/headless/${generator.slug}`}
+                href={`/browse/generators/${generator.slug}`}
                 key={generator.slug}
                 className={s.tutorial}
               >

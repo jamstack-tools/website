@@ -119,6 +119,8 @@
 
   .container {
     padding-bottom: 33px;
+    position: relative;
+    z-index: 0;
   }
 
   .mainHeader {

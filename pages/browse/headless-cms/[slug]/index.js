@@ -23,7 +23,7 @@ export const getStaticPaths = gqlStaticPaths(
 
 export const getStaticProps = gqlStaticProps(
   gql`
-    query ArticleQuery($slug: String!) {
+    query CmsQuery($slug: String!) {
       cms: cmsHeadless(filter: { slug: { eq: $slug } }) {
         name
         slug

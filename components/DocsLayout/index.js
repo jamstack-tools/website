@@ -7,12 +7,7 @@ import PenIcon from 'public/icons/regular/pen.svg';
 import RegisterIcon from 'public/icons/regular/pi.svg';
 import LanguagePicker from 'components/LanguagePicker';
 
-export default function DocsLayout({
-  sidebar,
-  children,
-  preview,
-  languageSwitch,
-}) {
+export default function DocsLayout({ sidebar, children, preview }) {
   const content = (
     <div className={s.container}>
       {children}
@@ -63,11 +58,7 @@ export default function DocsLayout({
               </li>
             </ul>
           </div>
-          {languageSwitch ? (
-            <LanguagePicker>{content}</LanguagePicker>
-          ) : (
-            content
-          )}
+          {content}
         </div>
       </div>
     </BaseLayout>
