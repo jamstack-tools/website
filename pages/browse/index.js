@@ -49,7 +49,7 @@ export default function Docs({ preview, page }) {
 
         <h6 className={s.introTitle}>Toolkit by category</h6>
         <div className={s.useCaseCards}>
-          <Link href={'/browse/tools/feedback'} as="/browse/tools/feedback">
+          <Link href={'/browse/all/feedback'} as="/browse/all/feedback">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Feedback tools</div>
               <p>
@@ -58,13 +58,13 @@ export default function Docs({ preview, page }) {
               </p>
             </a>
           </Link>
-          <Link href={'/browse/tools/forms'} as="/browse/tools/forms">
+          <Link href={'/browse/all/forms'} as="/browse/all/forms">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Forms</div>
               <p>Here are the top notch form tools </p>
             </a>
           </Link>
-          <Link href={'/browse/tools/payment'} as="/browse/tools/payment">
+          <Link href={'/browse/all/payment'} as="/browse/all/payment">
             <a className={s.useCaseCard}>
               <div className={s.useCaseCardTitle}>Payment</div>
               <p>For any e-commerce out there!</p>

@@ -7,6 +7,7 @@ import InterstitialTitle from 'components/InterstitialTitle';
 import Head from 'next/head';
 import Sidebar from 'pages/browse/Sidebar';
 import { useRouter } from 'next/router';
+import s from 'pages/browse/pageStyle.module.css';
 
 export const getStaticPaths = gqlStaticPaths(
   gql`
@@ -42,15 +43,27 @@ export const getStaticProps = gqlStaticProps(
 export default function Tool({ tool, preview }) {
   const { isFallback } = useRouter();
 
+  if (!tool) {
+    return (
+      <DocsLayout sidebar={<Sidebar />}>
+        <div className={s.articleContainer}>
+          <div className={s.article}>
+            <div className={s.title}>Not found</div>
+          </div>
+        </div>
+      </DocsLayout>
+    );
+  }
+
   return (
     <DocsLayout sidebar={<Sidebar />}>
       <Head>
-        <title>{tool && tool.name}</title>
+        <title>{tool.name}</title>
       </Head>
       <InterstitialTitle
-        kicker={`Tool / ${tool && tool.category && tool.category.name}`}
+        kicker={`Tool / ${tool.category && tool.category.name}`}
       >
-        {tool && tool.name}
+        {tool.name}
       </InterstitialTitle>
       <Wrapper>
         <PostContent isFallback={isFallback} content={tool} />
