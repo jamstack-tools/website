@@ -25,6 +25,10 @@
   }
 }
 
+.introBody {
+  margin-bottom: rfs(30px);
+}
+
 .introSub {
   font-weight: bold;
   margin-bottom: rfs(30px);
@@ -55,18 +59,32 @@
   transition: all 200ms ease-in-out;
   position: relative;
   padding: 30px;
+  /* background: linear-gradient(45deg, #f9ecfe, #fefae4, transparent); */
 
   @media (width > 900px) {
-    padding: 40px 50px 40px 150px;
+    padding: 40px 50px;
 
     &:hover {
-      padding-left: 160px;
+      padding-left: 60px;
     }
   }
 
   &:last-child {
     border-bottom-width: 0;
   }
+}
+
+.square {
+  content: '';
+  display: block;
+  background-color: #eee;
+  width: 3vw;
+  height: 3vw;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%) rotate(-45deg);
+  background: linear-gradient(90deg, #fefae4, #f7e3ff);
 }
 
 .personasTitle {

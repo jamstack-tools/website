@@ -43,8 +43,10 @@ function Homepage({ preview, page }) {
     <Layout preview={preview}>
       <Head>{page && renderMetaTags(page.seo)}</Head>
       <Hero
-        title={<>The marketplace for all JAMstack tools</>}
-        subtitle={<>JAMstack is the new place to be and blabla</>}
+        title={<>The ultimate JAMstack tools marketplace</>}
+        subtitle={
+          <>Build fast and secure modern websites. That is why we ♥ to JAM. </>
+        }
       >
         <Checks checks={["It's free!"]}>
           <Button fs="big" as="a" href="/register">
