@@ -25,8 +25,9 @@
     align-items: stretch;
     padding: 30px 0;
 
-    svg {
-      height: 30px;
+    svg,
+    img {
+      height: 50px;
     }
   }
 

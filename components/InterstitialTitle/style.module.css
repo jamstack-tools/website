@@ -42,7 +42,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-45%, -40%) skew(-25deg, -15deg);
-    background: linear-gradient(90deg, #fefae4, #f7e3ff);
+    background: linear-gradient(45deg, #fefae4, #f7e3ff);
   }
 
   &:after {
@@ -58,7 +58,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) skew(-25deg, -15deg);
-    background: linear-gradient(90deg, #fefae4, #f9ecfe);
+    background: linear-gradient(45deg, #fefae4, #f9ecfe);
   }
 }
 .lamellae {
@@ -107,7 +107,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-46%, -44%) skew(-25deg, -15deg);
-  background: linear-gradient(90deg, #6be0e8, #f9ecfe);
+  background: linear-gradient(45deg, #6be0e8, #f9ecfe);
 }
 
 .bg {
@@ -122,7 +122,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) skew(-25deg, -15deg);
-  background: linear-gradient(90deg, #4bc0c8, #f4d9ff);
+  background: linear-gradient(45deg, #4bc0c8, #f4d9ff);
 }
 
 .kicker,

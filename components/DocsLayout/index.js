@@ -1,6 +1,6 @@
 import BaseLayout from 'components/BaseLayout';
 import DocSearch from 'components/DocSearch';
-import FullLogo from 'public/images/full_logo.svg';
+import Logo from 'public/images/logo.svg';
 import Link from 'next/link';
 import s from './style.module.css';
 import PenIcon from 'public/icons/regular/pen.svg';
@@ -30,7 +30,8 @@ export default function DocsLayout({ sidebar, children, preview }) {
         <div className={s.sidebar}>
           <Link href="/">
             <a className={s.logo}>
-              <FullLogo height={30} />
+              <Logo width={30} height={30} />
+              <span> JAMTools </span>
             </a>
           </Link>
           <div className={s.innerSidebar} data-datocms-noindex>

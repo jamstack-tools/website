@@ -51,23 +51,25 @@
   border-radius: 5px;
 }
 
+.personasContainer {
+  transition: all 200ms ease-in-out;
+  padding: 30px;
+
+  @media (width > 900px) {
+    padding: 40px 50px 40px 100px;
+
+    &:hover {
+      padding-left: 110px;
+    }
+  }
+}
+
 .personas {
   color: inherit;
   text-decoration: none;
   display: block;
   border-bottom: 1px solid var(--border-color);
-  transition: all 200ms ease-in-out;
   position: relative;
-  padding: 30px;
-  /* background: linear-gradient(45deg, #f9ecfe, #fefae4, transparent); */
-
-  @media (width > 900px) {
-    padding: 40px 50px;
-
-    &:hover {
-      padding-left: 60px;
-    }
-  }
 
   &:last-child {
     border-bottom-width: 0;
@@ -78,13 +80,19 @@
   content: '';
   display: block;
   background-color: #eee;
-  width: 3vw;
-  height: 3vw;
+  width: 6vw;
+  height: 6vw;
   z-index: -1;
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%) rotate(-45deg);
-  background: linear-gradient(90deg, #fefae4, #f7e3ff);
+  left: 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background: linear-gradient(45deg, #b9f6fa, #fcf5ff);
+
+  @media (width > 900px) {
+    width: 3vw;
+    height: 3vw;
+  }
 }
 
 .personasTitle {

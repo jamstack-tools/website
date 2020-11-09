@@ -20,7 +20,7 @@ export default function Sidebar() {
     <>
       <Link href="/browse">
         <a className={s.backHome}>
-          <LeftIcon /> Back
+          <LeftIcon /> Browse
         </a>
       </Link>
       {all.map((category) => (

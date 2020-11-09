@@ -1,5 +1,5 @@
 import Wrapper from 'components/Wrapper';
-import FullLogo from 'public/images/full_logo.svg';
+import LazyImage from 'components/LazyImage';
 import Link from 'next/link';
 import s from './style.module.css';
 import classnames from 'classnames';
@@ -72,7 +72,7 @@ export default function Navbar() {
           <div className={s.innerRoot}>
             <Link href="/">
               <a className={s.logo}>
-                <FullLogo />
+                <LazyImage src={`/images/logo-small-gradient.png`} />
               </a>
             </Link>
             <div className={s.space} />
