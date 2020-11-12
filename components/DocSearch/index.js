@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useDebounce } from 'use-debounce';
 import DatoCmsSearch from 'datocms-search/dist/datocms-search.base';
 import highlighter from 'keyword-highlighter';
@@ -8,39 +8,12 @@ import wretch from 'wretch';
 
 import s from './style.module.css';
 
-const client = new DatoCmsSearch('d9b1b26eca0d85626f24c1ac2f8cff');
-
-const fetchCommunity = async (query) => {
-  const endpoint = 'https://community.datocms.com/search/query.json';
-
-  const { topics, posts } = await wretch(
-    `${endpoint}?include_blurbs=true&term=${encodeURIComponent(query)}`,
-  )
-    .get()
-    .json();
-
-  if (!posts) {
-    return [];
-  }
-
-  return posts.map((post) => {
-    const topic = topics.find((t) => t.id === post.topic_id);
-    return {
-      title: highlighter(query || '', topic.title),
-      body: highlighter(query || '', post.blurb),
-      url: `https://community.datocms.com/t/${topic.slug}/${topic.id}`,
-      community: true,
-    };
-  });
-};
+const client = new DatoCmsSearch('c84d1aee3930503d15d76e70cf91e0');
 
 const search = async (query) => {
-  const [{ results: docs }, community] = await Promise.all([
-    client.search(query),
-    fetchCommunity(query),
-  ]);
+  const [{ results: docs }] = await Promise.all([client.search(query)]);
 
-  return [].concat(docs, community);
+  return docs;
 };
 
 export default function DocSearch() {
@@ -81,9 +54,6 @@ export default function DocSearch() {
               <a href={result.url}>
                 <div className={s.resultTitle}>
                   {parse((result.title || '').replace(/ - DatoCMS$/, ''))}{' '}
-                  {result.community && (
-                    <span className={s.community}>Community</span>
-                  )}
                 </div>
                 {result.body && (
                   <div
@@ -106,7 +76,7 @@ export default function DocSearch() {
         <input
           name="query"
           type="search"
-          placeholder="Search in the docs and community..."
+          placeholder="Search in the registry..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
