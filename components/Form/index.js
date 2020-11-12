@@ -7,9 +7,6 @@ import {
   useFormContext,
   Controller,
 } from 'react-hook-form';
-import cn from 'classnames';
-import { ToastProvider, useToasts } from 'react-toast-notifications';
-import { useEffect } from 'react';
 
 export const Field = ({
   name,
@@ -87,7 +84,13 @@ export const Field = ({
   );
 };
 
-export function FormInner({ children, defaultValues, action, submitLabel }) {
+export function FormInner({
+  children,
+  defaultValues,
+  action,
+  submitLabel,
+  name,
+}) {
   const { addToast } = useToasts();
 
   useEffect(() => {
@@ -125,9 +128,10 @@ export function FormInner({ children, defaultValues, action, submitLabel }) {
         className={s.form}
         onSubmit={handleSubmit(onSubmit)}
         method="POST"
-        action={action}
         encType="multipart/form-data"
         acceptCharset="utf-8"
+        data-netlify="true"
+        name={name}
       >
         {children}
 

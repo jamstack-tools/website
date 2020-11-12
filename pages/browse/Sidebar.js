@@ -1,23 +1,17 @@
 import Link from 'next/link';
 import ActiveLink from 'components/ActiveLink';
 import LeftIcon from 'public/icons/regular/chevron-double-left.svg';
+import all from 'lib/categories';
 import s from './pageStyle.module.css';
 
 export default function Sidebar() {
-  const all = [
-    { name: 'CMS', slug: 'headless-cms' },
-    { name: 'Generators', slug: 'generators' },
-    { name: 'Form', slug: 'all/form' },
-    { name: 'Chat', slug: 'all/chat' },
-    { name: 'Feedback', slug: 'all/feedback' },
-    { name: 'Payment', slug: 'all/payment' },
-    { name: 'Commerce', slug: 'all/commerce' },
-    { name: 'Media', slug: 'all/media' },
-    { name: 'Authentication', slug: 'all/authentication' },
-  ];
-
   return (
     <>
+      <Link href="/">
+        <a className={s.backHome}>
+          <LeftIcon /> Home
+        </a>
+      </Link>
       <Link href="/browse">
         <a className={s.backHome}>
           <LeftIcon /> Browse

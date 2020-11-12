@@ -21,16 +21,12 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
     ...initialValues,
   };
 
-  function frontUrl() {
-    return 'https://webhook.frontapp.com/forms/f51dbf7c0379d350b50e/4GuYjvVpHX6Xqau-2EggC1eKeg0Iw_fMbehg2EbuLpRQARK6OetUIsAzCTs5-NdwQS_X02Qo1vdMMh6aNGLiySEIPM3EqvAkgNvPW-dQ6BdvbK4bXw1qwh3D2i5j';
-  }
-
   return (
     <div className={s.root}>
       <Form
-        action={frontUrl()}
         defaultValues={defaultValues}
         submitLabel="Register!"
+        name="register"
       >
         <div className={s.formCols}>
           <Field

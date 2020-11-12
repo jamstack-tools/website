@@ -51,10 +51,12 @@ export default function DocsLayout({ sidebar, children, preview }) {
                 </Link>
               </li>
               <li>
-                <a href="https://status.datocms.com" target="_blank">
-                  <RegisterIcon />
-                  Register a tool
-                </a>
+                <Link href="/register">
+                  <a>
+                    <RegisterIcon />
+                    Register a tool
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>

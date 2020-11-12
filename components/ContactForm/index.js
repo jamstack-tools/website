@@ -1,36 +1,21 @@
 import s from './style.module.css';
 import Textarea from 'react-autosize-textarea';
-import { getData } from 'country-list';
 import { Form, Field } from 'components/Form';
-import { getCookie } from 'utils/cookies';
 
-export default function ContactForm({ initialValues = {}, issueType }) {
+export default function ContactForm({ initialValues = {} }) {
   const defaultValues = {
     name: '',
-    project: '',
-    email: getCookie('datoAccountEmail'),
-    phoneNumber: '',
-    companyName: '',
-    country: '',
-    jobTitle: '',
-    companyRevenue: '',
-    numberEmployees: '',
+    email: '',
     body: '',
-    errorId: '',
-    issueType: issueType,
     ...initialValues,
   };
-
-  function frontUrl() {
-    return 'https://webhook.frontapp.com/forms/f51dbf7c0379d350b50e/sWPCwvUmu--UpyGfM9hRVfjaIwWCyVh-3I0nJ4gNZKU6fQeDGRdrNfYSsrIyeoqTcGPguYxKX-ULe-OYj08sar17B0gWytpkKNcAZNZB_0HTwk9jBCh5wEQCmsmm';
-  }
 
   return (
     <div className={s.root}>
       <Form
-        action={frontUrl()}
         defaultValues={defaultValues}
         submitLabel="Register!"
+        name="contact"
       >
         <div className={s.formCols}>
           <Field
