@@ -10,31 +10,18 @@ export default function Layout({ preview, children }) {
     <>
       <Head>
         <link rel="preload" href="/fonts/colfax-web-700.woff2" />
+        <link rel="preload" href="/fonts/colfax-web-700.woff2" />
         <link rel="preload" href="/fonts/colfax-web-bold.woff2" />
-        <link rel="preload" href="/fonts/tiempos-text-web-regular.woff2" />
-        <link rel="preload" href="/fonts/tiempos-headline-web-semibold.woff2" />
         <link rel="preload" href="/fonts/colfax-web-regular.woff2" />
         {[16, 32, 96, 192].map((size) => (
           <link
             rel="icon"
             sizes="16x16"
-            href={`https://www.datocms-assets.com/205/1525789775-dato.png?w=${size}&amp;h=${size}`}
+            href={`https://www.datocms-assets.com/36744/1605179339-logo.png?w=${size}&amp;h=${size}`}
             type="image/png"
             key={size}
           />
         ))}
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="DatoCMS Blog"
-          href="/blog.xml"
-        />
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="DatoCMS Product Changelog"
-          href="/product-changelog.xml"
-        />
       </Head>
       <NProgress />
       {preview && (

@@ -3,6 +3,7 @@ import FinalCta from 'components/FinalCta';
 import cn from 'classnames';
 import Link from 'next/link';
 import s from './style.module.css';
+import { categories } from 'lib/categories';
 
 export default function Footer({ noCta }) {
   return (
@@ -36,16 +37,13 @@ export default function Footer({ noCta }) {
                 <div className={s.group}>
                   <div className={s.groupTitle}>By category</div>
                   <div className={s.groupLinks}>
-                    <div className={s.groupLink}>
-                      <Link href="/tools/feedback">
-                        <a>User feedback</a>
-                      </Link>
-                    </div>
-                    <div className={s.groupLink}>
-                      <Link href="/tools/payment">
-                        <a>Payment</a>
-                      </Link>
-                    </div>
+                    {categories.map((category) => (
+                      <div className={s.groupLink}>
+                        <Link href={category.slug}>
+                          <a>{category.name}</a>
+                        </Link>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -71,20 +69,22 @@ export default function Footer({ noCta }) {
         </Wrapper>
         <div className={s.finalFooter}>
           <Wrapper>
-            <div className={s.finalLinks}>
-              <Link href="/legal/privacy-policy">
-                <a className={s.finalLink}>Privacy policy</a>
-              </Link>
-              <Link href="/legal/cookie-policy">
-                <a className={s.finalLink}>Cookie policy</a>
-              </Link>
-              <Link href="/legal/gdpr">
-                <a className={s.finalLink}>GDPR Compliance</a>
-              </Link>
-              <Link href="/legal/terms">
-                <a className={s.finalLink}>Terms of Service</a>
-              </Link>
-            </div>
+            {false && (
+              <div className={s.finalLinks}>
+                <Link href="/legal/privacy-policy">
+                  <a className={s.finalLink}>Privacy policy</a>
+                </Link>
+                <Link href="/legal/cookie-policy">
+                  <a className={s.finalLink}>Cookie policy</a>
+                </Link>
+                <Link href="/legal/gdpr">
+                  <a className={s.finalLink}>GDPR Compliance</a>
+                </Link>
+                <Link href="/legal/terms">
+                  <a className={s.finalLink}>Terms of Service</a>
+                </Link>
+              </div>
+            )}
             <div className={s.finalLine}>
               <a href="mailto:write@jamstacktools.org">
                 write@jamstacktools.org

@@ -1,10 +1,6 @@
 import s from './style.module.css';
 
-export default function UiChrome({
-  title = 'Acme Inc. - DatoCMS',
-  url,
-  children,
-}) {
+export default function UiChrome({ title = 'Acme Inc', url, children }) {
   return (
     <div className={s.root}>
       <div className={s.bar}>
