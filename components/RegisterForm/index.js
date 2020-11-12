@@ -1,6 +1,5 @@
 import s from './style.module.css';
 import Textarea from 'react-autosize-textarea';
-import { getData } from 'country-list';
 import { Form, Field } from 'components/Form';
 import { getCookie } from 'utils/cookies';
 
@@ -8,7 +7,7 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
   const defaultValues = {
     name: '',
     project: '',
-    email: getCookie('datoAccountEmail'),
+    email: '',
     phoneNumber: '',
     companyName: '',
     country: '',
@@ -120,7 +119,7 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
 
         <Field
           name="Screenshots"
-          label="Add some images/screenshots"
+          label="Add some images / screenshots"
           type="file"
           multiple
         />

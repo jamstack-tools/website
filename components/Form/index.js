@@ -140,14 +140,18 @@ export function FormInner({
 
         <div className={s.submit}>
           <div className={s.agree}>
-            By submitting you agree to our{' '}
-            <Link href="/legal/terms">
-              <a>TOS</a>
-            </Link>{' '}
-            and acknowledge our{' '}
-            <Link href="/legal/privacy-policy">
-              <a>Privacy Policy</a>
-            </Link>
+            {false && (
+              <>
+                By submitting you agree to our{' '}
+                <Link href="/legal/terms">
+                  <a>TOS</a>
+                </Link>{' '}
+                and acknowledge our{' '}
+                <Link href="/legal/privacy-policy">
+                  <a>Privacy Policy</a>
+                </Link>
+              </>
+            )}
           </div>
 
           <Button as="button" type="submit">

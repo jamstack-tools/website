@@ -49,17 +49,22 @@
 .children {
   margin-top: 60px;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
   div {
     margin: 0 20px;
   }
+
   p {
     font-weight: bold;
     margin-bottom: calc(17.4px + 1.05vw);
     color: var(--light-body-color);
     text-transform: uppercase;
     letter-spacing: -0.02em;
+  }
+
+  @media (width > 600px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

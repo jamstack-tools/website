@@ -19,12 +19,12 @@ export default function Footer({ noCta }) {
                   <div className={s.groupTitle}>Basic</div>
                   <div className={s.groupLinks}>
                     <div className={s.groupLink}>
-                      <Link href="/headless-cms">
+                      <Link href="/browse/headless-cms">
                         <a>Headless CMSs</a>
                       </Link>
                     </div>
                     <div className={s.groupLink}>
-                      <Link href="/generators">
+                      <Link href="/browse/generators">
                         <a>Generators</a>
                       </Link>
                     </div>

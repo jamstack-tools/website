@@ -96,13 +96,13 @@ export default function Navbar() {
                     <LearnResource
                       title="Headless CMSs"
                       description="Headless CMSs"
-                      href="/headless-cms"
+                      href="/browse/headless-cms"
                     />
 
                     <LearnResource
                       title="Generators"
                       description="Static site generators"
-                      href="/generators"
+                      href="/browse/generators"
                     />
                   </div>
                 </Group>
