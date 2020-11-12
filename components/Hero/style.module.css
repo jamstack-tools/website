@@ -22,18 +22,18 @@
   line-height: 1.1;
   font-weight: normal;
 
-  background: #feac5e; /* fallback for old browsers */
+  background: var(--orange-color); /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #4bc0c8,
-    #c779d0,
-    #feac5e
+    var(--azure-color),
+    var(--accent-color),
+    var(--orange-color)
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #4bc0c8,
-    #c779d0,
-    #feac5e
+    var(--azure-color),
+    var(--accent-color),
+    var(--orange-color)
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   -webkit-background-clip: text;
@@ -49,4 +49,17 @@
 .children {
   margin-top: 60px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div {
+    margin: 0 20px;
+  }
+  p {
+    font-weight: bold;
+    margin-bottom: calc(17.4px + 1.05vw);
+    color: var(--light-body-color);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
 }

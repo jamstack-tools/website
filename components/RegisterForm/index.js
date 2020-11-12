@@ -92,22 +92,25 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
               'Feedback tool',
               'Payment tool',
               'UX tool',
+              'Commerce tool',
               'Form tool',
+              'Chat tool',
+              'Media tool',
               'other - please specify in description :)',
             ]}
           />
           <Field
-            name="pricing"
-            label="Describe your pricing model"
-            placeholder="Describe your pricing model"
+            name="pitch"
+            label="Pitch description"
+            placeholder="Define your tool in one sentence"
             validations={{ required: 'Required' }}
           />
         </div>
 
         <Field
           name="description"
-          label="Description"
-          placeholder="Give a description of what your tool does"
+          label="Full description"
+          placeholder="Give a description of what your tool does - Markdown accepted"
           validations={{ required: 'Required' }}
           as={<Textarea />}
         />

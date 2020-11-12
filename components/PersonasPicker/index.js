@@ -12,7 +12,8 @@ export default function PersonasPicker() {
         <div className={s.intro}>
           <div className={s.introSub}>Stack is of the essence</div>
           <h2 className={s.introTitle}>
-            Out there, there is <Highlight>the tool</Highlight> for you
+            Out there, there is{' '}
+            <Highlight style="pinkorange">the right tool</Highlight> for you
           </h2>
           <div className={s.introBody}>
             If you are wandering: "Will there be a tool that does that?" Well,

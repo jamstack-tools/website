@@ -27,10 +27,10 @@
 .intro {
   margin-bottom: rfs(70px);
 
-  @media (width > 900px) {
+  /* @media (width > 900px) {
     margin-right: 70px;
     margin-bottom: 0;
-  }
+  } */
 }
 
 .introSub {

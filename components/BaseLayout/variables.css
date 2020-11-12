@@ -16,9 +16,13 @@
   --light-bg-color: #f4f4f4;
   --highlight-bg-color: rgb(246, 251, 253);
   --border-color: #eee;
-  --accent-color: #ff593d;
-  --darker-accent-color: #c93f28;
-  --azure-color: #33a3b1;
+  --accent-color: #ce8bd6;
+  --darker-accent-color: #a758b0;
+  --azure-color: #4bc0c8;
+  --orange-color: #fec65e;
+  --yellow-color: #fff86e;
+  --light-azure-color: #b9f6fa;
+  --light-pink-color: #fcf5ff;
   --clip-path: polygon(0 3vw, 100% 0, 100% calc(100% - 4vw), 0 100%);
   --dato-gradient: linear-gradient(to right, #ff593d, #ff7751);
   --box-shadow: 0 0.9px 2.2px rgba(0, 0, 0, 0.02),

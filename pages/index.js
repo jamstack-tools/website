@@ -53,7 +53,7 @@ function Homepage({ preview, page }) {
             Register your tool!
           </Button>
         </Checks>
-        or
+        <p>or</p>
         <Checks checks={["It's also free!"]}>
           <Button fs="big" as="a" href="/browse">
             Browse
@@ -66,52 +66,27 @@ function Homepage({ preview, page }) {
       </Space>
 
       <Space top={3}>
-        <InterstitialTitle subtitle="Browse our repository and choose your favourite stack">
-          How much time are you losing because you don't know{' '}
-          <Highlight>which tool you can use</Highlight>?
+        <InterstitialTitle subtitle="Either you are the founder or a fan, register!">
+          Can't find your favourite tool?
         </InterstitialTitle>
-      </Space>
-
-      <TitleStripWithContent title={<>Cannot find your favourite tool?</>}>
         <div className={styles.grid}>
-          <Result
-            number="1."
-            label={
-              <>
-                Who, <Highlight style="bad">me?</Highlight>
-              </>
-            }
-          >
+          <Result number="1" label={<>Who, me?</>}>
             Did you just launch on Product Hunt? Do you have a solid JAM
             startup? Did you use a tool that made developing your static site so
             much easier? <strong>It's time to register!</strong>
           </Result>
-          <Result
-            number="2."
-            label={
-              <>
-                I got <Highlight style="warning">what you need</Highlight>
-              </>
-            }
-          >
+          <Result number="2" label={<>I got what you need</>}>
             You need a just a few basic information to register a new{' '}
             <strong>JAMstack tool</strong>. Or go crazy with a long markdown
             description. It's up to you!
           </Result>
-          <Result
-            number="3."
-            label={
-              <>
-                You make me <Highlight style="good">so proud</Highlight>
-              </>
-            }
-          >
+          <Result number="3" label={<>You make me so proud</>}>
             We usually take a few hours to check, after that you will be able to
             see your tool in all its glory in our{' '}
             <strong>Browse section</strong>.
           </Result>
         </div>
-      </TitleStripWithContent>
+      </Space>
     </Layout>
   );
 }
