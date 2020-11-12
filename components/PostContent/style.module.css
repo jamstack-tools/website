@@ -15,6 +15,7 @@
   h3,
   h4,
   h5,
+  h2,
   h6 {
     font-family: var(--font-headline);
     font-size: 130%;
@@ -176,19 +177,6 @@
 .demoPreview {
   max-width: 450px;
   margin: 0 auto;
-}
-
-.techLogo {
-  height: 25px;
-  margin-top: 20px;
-  box-shadow: none !important;
-  height: 40px;
-  display: block !important;
-  margin: 20px auto 0;
-
-  @media (width > 800px) {
-    margin: 20px 0 0;
-  }
 }
 
 .demoDesc {

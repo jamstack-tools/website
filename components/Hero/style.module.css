@@ -21,7 +21,6 @@
   letter-spacing: -0.02em;
   line-height: 1.1;
   font-weight: normal;
-
   background: var(--orange-color); /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,

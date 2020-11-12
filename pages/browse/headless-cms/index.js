@@ -5,7 +5,7 @@ import Sidebar from 'pages/browse/Sidebar';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import s from 'pages/browse/pageStyle.module.css';
-import Anchor from 'public/icons/regular/link.svg';
+import truncate from 'truncatise';
 
 export const getStaticProps = gqlStaticProps(
   gql`
@@ -24,24 +24,32 @@ export default function Cms({ cms }) {
   return (
     <DocsLayout sidebar={<Sidebar entries={[]} />}>
       <Head>
-        <title>Headless CMSs</title>
+        <title>JAMStack tools - Choose a headless CMSs</title>
+        <meta
+          property="og:description"
+          content="Need to choose a headless CMS? Browse our registry and find the perfect match!"
+          key="description"
+        />
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <div className={s.title}>Headless CMSs</div>
+          <h1 className={s.title}>Headless CMSs</h1>
 
-          <div className={s.tutorials}>
+          <div className={s.Cards}>
             {cms.map((tutorial) => (
               <a
                 href={`/browse/headless-cms/${tutorial.slug}`}
                 key={tutorial.slug}
-                className={s.tutorial}
+                className={s.Card}
               >
-                <h6 className={s.tutorialTitle}>
-                  {tutorial.name} <Anchor />
-                </h6>
+                <h6 className={s.CardTitle}>{tutorial.name}</h6>
                 <div className={s.tutorialDescription}>
-                  <SmartMarkdown>{tutorial.description}</SmartMarkdown>
+                  <SmartMarkdown>
+                    {truncate(tutorial.description, {
+                      TruncateBy: 'words',
+                      TruncateLength: 20,
+                    })}
+                  </SmartMarkdown>
                 </div>
               </a>
             ))}

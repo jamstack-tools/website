@@ -73,7 +73,7 @@
     "sort-object": "^3.0.3",
     "swr": "^0.3.1",
     "tiny-json-http": "^7.2.2",
-    "truncate": "^2.1.0",
+    "truncatise": "^0.0.8",
     "use-debounce": "^3.4.3",
     "wretch": "^1.7.2"
   },
