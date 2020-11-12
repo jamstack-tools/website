@@ -1,5 +1,4 @@
 import Wrapper from 'components/Wrapper';
-import FinalCta from 'components/FinalCta';
 import cn from 'classnames';
 import Link from 'next/link';
 import s from './style.module.css';
@@ -11,7 +10,6 @@ export default function Footer({ noCta }) {
       className={cn(s.footerBg, { [s.noCta]: noCta, [s.cta]: !noCta })}
       data-datocms-noindex
     >
-      {!noCta && <FinalCta />}
       <div className={s.footerRoot}>
         <Wrapper>
           <div className={s.footerInnerRoot}>

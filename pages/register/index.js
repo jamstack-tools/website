@@ -1,6 +1,5 @@
 import Layout from 'components/Layout';
 import Wrapper from 'components/Wrapper';
-import Link from 'next/link';
 import s from './style.module.css';
 import RegisterForm from 'components/RegisterForm';
 import Highlight from 'components/Highlight';

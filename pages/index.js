@@ -1,26 +1,16 @@
 import Layout from 'components/Layout';
 import Hero from 'components/Hero';
-import Highlight from 'components/Highlight';
 import Button from 'components/Button';
 import Checks from 'components/Checks';
-import UseCaseExcerpts from 'components/UseCaseExcerpts';
-import OmnichannelIllustration from 'components/OmnichannelIllustration';
 import Wrapper from 'components/Wrapper';
 import PersonasPicker from 'components/PersonasPicker';
 import InterstitialTitle from 'components/InterstitialTitle';
-import TitleStripWithContent from 'components/TitleStripWithContent';
 import Result from 'components/Result';
-import Flag, { Highlight as FlagHighlight } from 'components/Flag';
-import Bullets from 'components/Bullets';
-import LogosBar from 'components/LogosBar';
 import { gqlStaticProps, seoMetaTagsFields } from 'lib/datocms';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
 import Space from 'components/Space';
-
-import WarningIcon from 'public/icons/regular/times.svg';
-import SuccessIcon from 'public/icons/regular/check.svg';
 
 import styles from './style.module.css';
 
