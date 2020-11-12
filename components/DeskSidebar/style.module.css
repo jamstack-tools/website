@@ -27,33 +27,8 @@
 }
 
 @media (width < 1000px) {
-  .logo {
-    overflow: hidden;
-    height: 55px;
-    padding: 13px var(--page-margin);
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--border-color);
-    margin: 0;
-    font-family: var(--font-headline);
-    font-size: calc(22.4px + 4.8vw);
-    letter-spacing: -15px;
-    line-height: 1.1;
-    font-weight: normal;
-    background: var(--accent-color);
-    background: linear-gradient(
-      to right,
-      #4bc0d6,
-      var(--accent-color),
-      var(--orange-color)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .innerSidebar {
-    padding: 30px var(--page-margin);
-    border-bottom: 1px solid var(--border-color);
+  .sidebar {
+    display: none;
   }
 }
 
