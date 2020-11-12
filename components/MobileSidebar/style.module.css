@@ -1,0 +1,98 @@
+.sidebar {
+  position: relative;
+}
+
+.innerSidebar {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  padding: var(--page-margin) 0;
+  flex-shrink: 0;
+  svg,
+  img {
+    height: 40px;
+  }
+}
+
+.space {
+  flex: 1;
+}
+
+.hamburger {
+  background: transparent;
+  padding: 10px;
+  margin-right: -10px;
+  border: 0;
+  font-size: inherit;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    width: 25px;
+    height: 25px;
+    fill: var(--base-body-color);
+  }
+}
+
+.pane {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  padding: var(--page-margin) 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.page {
+  margin-bottom: 7px;
+  color: var(--light-body-color);
+  display: block;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.activePage {
+  color: var(--accent-color);
+}
+
+.backHome {
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--light-body-color);
+  margin-bottom: 20px;
+  display: flex;
+
+  svg {
+    fill: var(--light-body-color);
+    margin-right: 0.5em;
+  }
+}
+
+@media screen and (width > 1000px) {
+  .overlay {
+    display: none;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}

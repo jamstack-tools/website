@@ -27,17 +27,7 @@ export default function DocsLayout({ sidebar, children, preview }) {
   return (
     <BaseLayout preview={preview}>
       <div className={s.root}>
-        <div className={s.sidebar}>
-          <Link href="/">
-            <a className={s.logo}>
-              <Logo width={30} height={30} />
-              <span> JAMTools </span>
-            </a>
-          </Link>
-          <div className={s.innerSidebar} data-datocms-noindex>
-            {sidebar}
-          </div>
-        </div>
+        {sidebar}
         <div className={s.contentWrapper}>
           <DocSearch />
           <div className={s.mainHeader}>
