@@ -1,5 +1,6 @@
 .sidebar {
   position: relative;
+  z-index: 1000;
 }
 
 .innerSidebar {
@@ -44,7 +45,6 @@
   top: 100%;
   left: 0;
   right: 0;
-  z-index: 1000;
   background: white;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   padding: var(--page-margin) 0;

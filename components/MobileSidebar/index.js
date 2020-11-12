@@ -8,6 +8,7 @@ import Link from 'next/link';
 import s from './style.module.css';
 import classnames from 'classnames';
 import Hamburger from 'public/icons/regular/bars.svg';
+import Logo from 'public/images/logo.svg';
 
 export default function Navbar() {
   const [visible, setVisible] = useState(false);
@@ -41,7 +42,8 @@ export default function Navbar() {
               <Wrapper>
                 <Link href="/">
                   <a className={s.backHome}>
-                    <LeftIcon /> Home
+                    <Logo width={18} height={18} />
+                    Home
                   </a>
                 </Link>
                 <Link href="/browse">

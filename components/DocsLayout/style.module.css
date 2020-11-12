@@ -6,6 +6,10 @@
   .mainHeader {
     display: none;
   }
+
+  .contentWrapper {
+    position: relative;
+  }
 }
 
 @media (width >= 1000px) {
