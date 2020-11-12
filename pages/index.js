@@ -2,7 +2,6 @@ import Layout from 'components/Layout';
 import Hero from 'components/Hero';
 import Button from 'components/Button';
 import Checks from 'components/Checks';
-import Wrapper from 'components/Wrapper';
 import PersonasPicker from 'components/PersonasPicker';
 import InterstitialTitle from 'components/InterstitialTitle';
 import Result from 'components/Result';

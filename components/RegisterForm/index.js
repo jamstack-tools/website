@@ -28,6 +28,7 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
         submitLabel="Register!"
         name="register"
       >
+        <input type="hidden" name="form-name" value="register" />
         <div className={s.formCols}>
           <Field
             name="name"
