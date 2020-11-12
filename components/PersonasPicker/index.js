@@ -1,7 +1,7 @@
 import s from './style.module.css';
 import Wrapper from 'components/Wrapper';
 import Link from 'next/link';
-import ArrowIcon from 'public/images/illustrations/arrow-usecase.svg';
+import ArrowIcon from 'public/images/arrow-usecase.svg';
 import LazyImage from 'components/LazyImage';
 import Highlight from 'components/Highlight';
 
