@@ -1,0 +1,42 @@
+.root {
+  padding-top: 5%;
+  margin: 0 auto;
+  max-width: 750px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-bottom: rfs(18px);
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+}
+
+.tag {
+  margin-right: 10px;
+  color: var(--base-body-color);
+}
+
+.url {
+  margin-right: 10px;
+  text-decoration: none;
+  color: var(--base-body-color);
+  font-weight: bold;
+}
+
+.key,
+.value {
+  font-size: rfs(15px);
+}
+
+.key {
+  margin-right: 3px;
+}
+
+.value {
+  background-color: var(--light-orange-color);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: bold;
+}

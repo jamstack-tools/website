@@ -22,7 +22,6 @@ export default function PostContent({ isFallback, content, style, children }) {
       ) : (
         <>
           <div className={s.text}>
-            <div>{content.url}</div>
             <SmartMarkdown>{content.text || ''}</SmartMarkdown>
             {children}
           </div>

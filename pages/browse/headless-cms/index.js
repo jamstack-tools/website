@@ -6,11 +6,13 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import s from 'pages/browse/pageStyle.module.css';
 import truncate from 'truncatise';
+import Tags from 'components/Tags';
+import { LikeButton } from '@lyket/react';
 
 export const getStaticProps = gqlStaticProps(
   gql`
     {
-      cms: allCmsHeadlesses(first: 100) {
+      cmss: allCmsHeadlesses(first: 100) {
         name
         slug
         description(markdown: true)
@@ -20,7 +22,7 @@ export const getStaticProps = gqlStaticProps(
   `,
 );
 
-export default function Cms({ cms }) {
+export default function Cms({ cmss }) {
   return (
     <DocsLayout sidebar={<Sidebar entries={[]} />}>
       <Head>
@@ -35,17 +37,25 @@ export default function Cms({ cms }) {
         <div className={s.article}>
           <h1 className={s.title}>Headless CMSs</h1>
 
-          <div className={s.Cards}>
-            {cms.map((tutorial) => (
+          <div className={s.cards}>
+            {cmss.map((cms) => (
               <a
-                href={`/browse/headless-cms/${tutorial.slug}`}
-                key={tutorial.slug}
-                className={s.Card}
+                href={`/browse/headless-cms/${cms.slug}`}
+                key={cms.slug}
+                className={s.card}
               >
-                <h6 className={s.CardTitle}>{tutorial.name}</h6>
-                <div className={s.tutorialDescription}>
+                <h6 className={s.cardTitle}>{cms.name}</h6>
+                <div className={s.absoluteButton}>
+                  <LikeButton
+                    id={cms.slug}
+                    namespace="generators"
+                    component={LikeButton.templates.Twitter}
+                  />
+                </div>
+                <Tags />
+                <div className={s.cardDescription}>
                   <SmartMarkdown>
-                    {truncate(tutorial.description, {
+                    {truncate(cms.description, {
                       TruncateBy: 'words',
                       TruncateLength: 20,
                     })}

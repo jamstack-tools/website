@@ -7,22 +7,19 @@ import InterstitialTitle from 'components/InterstitialTitle';
 import Head from 'next/head';
 import Sidebar from 'pages/browse/Sidebar';
 import { useRouter } from 'next/router';
-
-// import { Image, renderMetaTags } from 'react-datocms';
-// import FormattedDate from 'components/FormattedDate';
-// import s from './style.module.css';
-// import { Line, Copy, Rect } from 'components/FakeContent';
+import Tags from 'components/Tags';
+import { LikeButton } from '@lyket/react';
 
 export const getStaticPaths = gqlStaticPaths(
   gql`
     query {
-      posts: allGenerators(first: 10) {
+      generators: allGenerators(first: 100) {
         slug
       }
     }
   `,
   'slug',
-  ({ posts }) => posts.map((p) => p.slug),
+  ({ generators }) => generators.map((p) => p.slug),
 );
 
 export const getStaticProps = gqlStaticProps(
@@ -31,13 +28,14 @@ export const getStaticProps = gqlStaticProps(
       generator: generator(filter: { slug: { eq: $slug } }) {
         name
         slug
+        url
         text
       }
     }
   `,
 );
 
-export default function Generator({ generator, preview }) {
+export default function Generator({ generator, button }) {
   const { isFallback } = useRouter();
 
   return (
@@ -49,6 +47,13 @@ export default function Generator({ generator, preview }) {
         {generator.name}
       </InterstitialTitle>
       <Wrapper>
+        <Tags tags={[[('Language', generator.language)]]} url={generator.url}>
+          <LikeButton
+            id={generator.slug}
+            namespace="generators"
+            component={LikeButton.templates.Twitter}
+          />
+        </Tags>
         <PostContent isFallback={isFallback} content={generator} />
       </Wrapper>
     </DocsLayout>

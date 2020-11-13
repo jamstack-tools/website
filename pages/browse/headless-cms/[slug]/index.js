@@ -7,11 +7,13 @@ import InterstitialTitle from 'components/InterstitialTitle';
 import Head from 'next/head';
 import Sidebar from 'pages/browse/Sidebar';
 import { useRouter } from 'next/router';
+import Tags from 'components/Tags';
+import { LikeButton } from '@lyket/react';
 
 export const getStaticPaths = gqlStaticPaths(
   gql`
     query {
-      posts: allCmsHeadlesses(first: 10) {
+      posts: allCmsHeadlesses(first: 100) {
         slug
       }
     }
@@ -27,12 +29,13 @@ export const getStaticProps = gqlStaticProps(
         name
         slug
         text
+        url
       }
     }
   `,
 );
 
-export default function Cms({ cms, preview }) {
+export default function Cms({ cms }) {
   const { isFallback } = useRouter();
 
   return (
@@ -41,6 +44,13 @@ export default function Cms({ cms, preview }) {
         <title>{cms.name}</title>
       </Head>
       <InterstitialTitle kicker="Generator">{cms.name}</InterstitialTitle>
+      <Tags url={cms.url}>
+        <LikeButton
+          id={cms.slug}
+          namespace="cms"
+          component={LikeButton.templates.Twitter}
+        />
+      </Tags>
       <Wrapper>
         <PostContent isFallback={isFallback} content={cms} />
       </Wrapper>

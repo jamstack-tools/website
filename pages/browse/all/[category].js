@@ -5,7 +5,9 @@ import DocsLayout from 'components/DocsLayout';
 import Sidebar from 'pages/browse/Sidebar';
 import Head from 'next/head';
 import s from 'pages/browse/pageStyle.module.css';
-import Anchor from 'public/icons/regular/link.svg';
+import truncate from 'truncatise';
+import Tags from 'components/Tags';
+import { LikeButton } from '@lyket/react';
 
 export const getStaticPaths = gqlStaticPaths(
   gql`
@@ -64,18 +66,32 @@ export default function Cat({ tools }) {
             {tools[0] && tools[0].category.name} tools
           </div>
 
-          <div className={s.tutorials}>
+          <div className={s.cards}>
             {tools.map((tool) => (
               <a
                 href={`/browse/tools/${tool.slug}`}
                 key={tool.slug}
-                className={s.tutorial}
+                className={s.card}
               >
-                <h6 className={s.tutorialTitle}>
-                  {tool.name} <Anchor />
-                </h6>
-                <div className={s.tutorialDescription}>
-                  <SmartMarkdown>{tool.description || ''}</SmartMarkdown>
+                <Tags />
+                <h6 className={s.cardTitle}>{tool.name}</h6>
+                <div className={s.absoluteButton}>
+                  <LikeButton
+                    id={tool.slug}
+                    namespace={
+                      (tools[0] && tools[0].category.name) || 'unknown-category'
+                    }
+                    component={LikeButton.templates.Twitter}
+                  />
+                </div>
+                <Tags />
+                <div className={s.cardDescription}>
+                  <SmartMarkdown>
+                    {truncate(tool.description || '', {
+                      TruncateBy: 'words',
+                      TruncateLength: 20,
+                    })}
+                  </SmartMarkdown>
                 </div>
               </a>
             ))}

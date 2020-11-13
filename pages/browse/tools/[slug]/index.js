@@ -8,11 +8,13 @@ import Head from 'next/head';
 import Sidebar from 'pages/browse/Sidebar';
 import { useRouter } from 'next/router';
 import s from 'pages/browse/pageStyle.module.css';
+import Tags from 'components/Tags';
+import { LikeButton } from '@lyket/react';
 
 export const getStaticPaths = gqlStaticPaths(
   gql`
     query {
-      tools: allTools(first: 10) {
+      tools: allTools(first: 100) {
         slug
       }
     }
@@ -28,6 +30,7 @@ export const getStaticProps = gqlStaticProps(
         name
         url
         pricing
+        slug
         category {
           name
           color {
@@ -65,6 +68,13 @@ export default function Tool({ tool, preview }) {
       >
         {tool.name}
       </InterstitialTitle>
+      <Tags tags={[['Type', tool.category.name]]} url={tool.url}>
+        <LikeButton
+          id={tool.slug}
+          namespace="tools"
+          component={LikeButton.templates.Twitter}
+        />
+      </Tags>
       <Wrapper>
         <PostContent isFallback={isFallback} content={tool} />
       </Wrapper>
