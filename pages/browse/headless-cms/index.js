@@ -48,7 +48,7 @@ export default function Cms({ cmss }) {
                 <div className={s.absoluteButton}>
                   <LikeButton
                     id={cms.slug}
-                    namespace="generators"
+                    namespace="cms"
                     component={LikeButton.templates.Twitter}
                   />
                 </div>

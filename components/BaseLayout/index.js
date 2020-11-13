@@ -9,10 +9,11 @@ export default function Layout({ preview, children }) {
   return (
     <>
       <Head>
-        <link rel="preload" href="/fonts/colfax-web-700.woff2" />
-        <link rel="preload" href="/fonts/colfax-web-700.woff2" />
-        <link rel="preload" href="/fonts/colfax-web-bold.woff2" />
-        <link rel="preload" href="/fonts/colfax-web-regular.woff2" />
+        <link rel="preload" href="/fonts/Raleway-SemiBold.ttf" />
+        <link rel="preload" href="/fonts/Raleway-Bold.ttf" />
+        <link rel="preload" href="/fonts/Raleway-Medium.ttf" />
+        <link rel="preload" href="/fonts/Vollkorn-SemiBold.ttf" />
+        <link rel="preload" href="/fonts/Vollkorn-Regular.ttf" />
         {[16, 32, 96, 192].map((size) => (
           <link
             rel="icon"

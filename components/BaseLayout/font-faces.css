@@ -1,43 +1,17 @@
 @font-face {
-  font-family: 'montserrat-headline';
+  font-family: 'raleway-headline';
   font-display: swap;
-  src: url('/fonts/Montserrat-Bold.ttf');
+  src: url('/fonts/Raleway-Bold.ttf');
 }
 
 @font-face {
-  font-family: 'montserrat-text';
+  font-family: 'raleway-text';
   font-display: swap;
-  src: url('/fonts/Montserrat-Regular.ttf');
+  src: url('/fonts/Raleway-Medium.ttf');
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: 'vollkorn';
   font-display: swap;
-  src: url('https://fonts.googleapis.com/css2?family=Merriweather&family=Raleway:wght@200&family=Roboto+Slab:wght@300&display=swap');
-}
-
-@font-face {
-  font-family: 'colfax';
-  font-display: swap;
-  font-weight: 300;
-  src: url('/fonts/colfax-web-light.woff2') format('woff2'),
-    url('/fonts/colfax-web-light.woff') format('woff'),
-    url('/fonts/colfax-web-light.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'colfax';
-  font-display: swap;
-  src: url('/fonts/colfax-web-regular.woff2') format('woff2'),
-    url('/fonts/colfax-web-regular.woff') format('woff'),
-    url('/fonts/colfax-web-regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'colfax';
-  font-display: swap;
-  font-weight: 700;
-  src: url('/fonts/colfax-web-bold.woff2') format('woff2'),
-    url('/fonts/colfax-web-bold.woff') format('woff'),
-    url('/fonts/colfax-web-bold.otf') format('opentype');
+  src: url('/fonts/Vollkorn-Regular.ttf');
 }
