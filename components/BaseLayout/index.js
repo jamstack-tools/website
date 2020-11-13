@@ -23,6 +23,20 @@ export default function Layout({ preview, children }) {
             key={size}
           />
         ))}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id="
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '');`,
+          }}
+        />
       </Head>
       <NProgress />
       {preview && (
