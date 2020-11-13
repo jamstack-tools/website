@@ -25,16 +25,18 @@ export default function Layout({ preview, children }) {
         ))}
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=252702750"
+          src="https://www.googletagmanager.com/gtag/js?id=UA-252702750-1"
         ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
+              window.dataLayer = window.dataLayer || [];
+              function gtag() {
+                dataLayer.push(arguments);
+              }
+              gtag("js", new Date());
 
-                gtag('config', '252702750');`,
+              gtag("config", "UA-252702750-1");`,
           }}
         />
       </Head>
