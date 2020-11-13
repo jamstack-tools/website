@@ -21,13 +21,8 @@ export default function Register() {
             </div>
             <div className={s.introBody}>
               <p>
-                Whether you just launched on Product Hunt or you have a
-                multi-million company let's let the world know whu you are. Join
-                the jam!
-              </p>
-              <p>
-                Let us know what you think about the project, any idea on how we
-                can improve and give a better service
+                Let us know what you think about the JAMstack tools project, any
+                idea on how we can improve and give a better service :D
               </p>
             </div>
           </div>

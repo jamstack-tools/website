@@ -21,10 +21,9 @@ export default function Register() {
             <div className={s.introBody}>
               <p>
                 Whether you just launched on Product Hunt or you have a
-                multi-million company let's let the world know whu you are. Join
+                multi-million company let's let the world know who you are. Join
                 the jam!
               </p>
-
               <p>
                 Fill out the form below and we will create a page for your tool.
               </p>
