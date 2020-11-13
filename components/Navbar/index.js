@@ -4,6 +4,7 @@ import Link from 'next/link';
 import s from './style.module.css';
 import classnames from 'classnames';
 import Button from 'components/Button';
+import { categories } from 'lib/categories';
 
 const TitleDesc = ({ href, as, title, description, target }) =>
   target ? (
@@ -70,21 +71,13 @@ export default function Navbar() {
                     </div>
                     <div className={s.section}>
                       <div className={s.grid1}>
-                        <TitleDesc
-                          title="Feedback"
-                          description="Feedback tools"
-                          href="/browse/tools/feedback"
-                        />
-                        <TitleDesc
-                          title="Form"
-                          description="Form tools"
-                          href="/browse/tools/feedback"
-                        />
-                        <TitleDesc
-                          title="Payment"
-                          description="Payment tools"
-                          href="/browse/tools/feedback"
-                        />
+                        {categories.map((category) => (
+                          <TitleDesc
+                            href={category.slug}
+                            title={category.name}
+                            description={category.description}
+                          />
+                        ))}
                       </div>
                     </div>
                   </div>
