@@ -25,7 +25,7 @@ export default function Layout({ preview, children }) {
         ))}
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id="
+          src="https://www.googletagmanager.com/gtag/js?id=252702750"
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -34,7 +34,7 @@ export default function Layout({ preview, children }) {
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                gtag('config', '');`,
+                gtag('config', '252702750');`,
           }}
         />
       </Head>
