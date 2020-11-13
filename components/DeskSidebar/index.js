@@ -29,9 +29,8 @@ const DeskSidebar = () => {
           <div key={category.slug}>
             <ActiveLink
               activeClassName={s.activePage}
-              href={`/browse/${category.slug}`}
-              as={`/browse/${category.slug}`}
-              key={category.slug}
+              href={category.slug}
+              as={category.slug}
             >
               <a className={s.page}>{category.name}</a>
             </ActiveLink>
