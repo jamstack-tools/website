@@ -2,6 +2,7 @@ import s from './style.module.css';
 import Textarea from 'react-autosize-textarea';
 import { Form, Field } from 'components/Form';
 import { getCookie } from 'utils/cookies';
+import { categories } from 'lib/categories';
 
 export default function RegisterForm({ initialValues = {}, issueType }) {
   const defaultValues = {
@@ -82,17 +83,10 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
             label="Which category best describes your tool?"
             validations={{ required: 'Required' }}
             options={[
-              'Headless CMS',
-              'Generator',
-              'API',
-              'Feedback tool',
-              'Payment tool',
-              'UX tool',
-              'Commerce tool',
-              'Form tool',
-              'Chat tool',
-              'Media tool',
-              'other - please specify in description :)',
+              ...categories.map(
+                (category) => category.name + ' - ' + category.description,
+              ),
+              'Other - please specify in description :)',
             ]}
           />
           <Field
