@@ -8,6 +8,7 @@ import s from 'pages/browse/pageStyle.module.css';
 import truncate from 'truncatise';
 import Tags from 'components/Tags';
 import { LikeButton } from '@lyket/react';
+import { renderMetaTags } from 'react-datocms';
 
 export const getStaticPaths = gqlStaticPaths(
   gql`
@@ -34,6 +35,11 @@ export const getStaticProps = gqlStaticProps(
           color {
             hex
           }
+          seo: _seoMetaTags {
+            attributes
+            content
+            tag
+          }
         }
       }
     }
@@ -55,16 +61,14 @@ export const getStaticProps = gqlStaticProps(
 );
 
 export default function Cat({ tools }) {
+  const category = tools[0] && tools[0].category;
+
   return (
     <DocsLayout sidebar={<Sidebar title="Tools" entries={tools} />}>
-      <Head>
-        <title>{tools[0] && tools[0].category.name} JAMstack tools</title>
-      </Head>
+      <Head>{category && renderMetaTags(category.seo)}</Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <div className={s.title}>
-            {tools[0] && tools[0].category.name} tools
-          </div>
+          <div className={s.title}>{category && category.name} tools</div>
 
           <div className={s.cards}>
             {tools.map((tool) => (
@@ -79,7 +83,7 @@ export default function Cat({ tools }) {
                   <LikeButton
                     id={tool.slug}
                     namespace={
-                      (tools[0] && tools[0].category.name) || 'unknown-category'
+                      (category && category.name) || 'unknown-category'
                     }
                     component={LikeButton.templates.Twitter}
                   />

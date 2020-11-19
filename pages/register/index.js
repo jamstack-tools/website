@@ -1,3 +1,6 @@
+import gql from 'graphql-tag';
+import { gqlStaticProps, seoMetaTagsFields } from 'lib/datocms';
+import { renderMetaTags } from 'react-datocms';
 import Layout from 'components/Layout';
 import Wrapper from 'components/Wrapper';
 import s from './style.module.css';
@@ -5,12 +8,23 @@ import RegisterForm from 'components/RegisterForm';
 import Highlight from 'components/Highlight';
 import Head from 'next/head';
 
-export default function Register() {
+export const getStaticProps = gqlStaticProps(
+  gql`
+    query {
+      page: registerPage {
+        seo: _seoMetaTags {
+          ...seoMetaTagsFields
+        }
+      }
+    }
+    ${seoMetaTagsFields}
+  `,
+);
+
+export default function Register({ page }) {
   return (
     <Layout noCta>
-      <Head>
-        <title>Register your tool</title>
-      </Head>
+      <Head>{renderMetaTags(page.seo)}</Head>
       <div className={s.root}>
         <Wrapper>
           <div className={s.intro}>

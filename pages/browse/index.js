@@ -24,7 +24,7 @@ export const getStaticProps = gqlStaticProps(
 export default function Docs({ preview, page }) {
   return (
     <DocsLayout preview={preview} sidebar={<Sidebar />}>
-      <Head>{page && renderMetaTags(page.seo)}</Head>
+      <Head>{renderMetaTags(page.seo)}</Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
           <h2 className={s.title}>Browse our directory of tools!</h2>

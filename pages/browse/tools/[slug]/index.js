@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import s from 'pages/browse/pageStyle.module.css';
 import Tags from 'components/Tags';
 import { LikeButton } from '@lyket/react';
+import { renderMetaTags } from 'react-datocms';
 
 export const getStaticPaths = gqlStaticPaths(
   gql`
@@ -36,6 +37,11 @@ export const getStaticProps = gqlStaticProps(
           color {
             hex
           }
+          seo: _seoMetaTags {
+            attributes
+            content
+            tag
+          }
         }
         text(markdown: true)
       }
@@ -57,21 +63,27 @@ export default function Tool({ tool, preview }) {
       </DocsLayout>
     );
   }
+  const category = tool.category;
 
   return (
     <DocsLayout sidebar={<Sidebar />}>
       <Head>
-        <title>{tool.name}</title>
+        <title>
+          The best {category.name} tools - {tool.name}
+        </title>
+        <meta name="description" content={tool.description} />
+        <meta
+          name="title"
+          content={`The best ${category.name} tools - ${tool.name}`}
+        />
       </Head>
-      <InterstitialTitle
-        kicker={`Tool / ${tool.category && tool.category.name}`}
-      >
+      <InterstitialTitle kicker={`Tool / ${category && category.name}`}>
         {tool.name}
       </InterstitialTitle>
-      <Tags tags={[['Type', tool.category.name]]} url={tool.url}>
+      <Tags tags={[['Type', category.name]]} url={tool.url}>
         <LikeButton
           id={tool.slug}
-          namespace={tool.category.name}
+          namespace={category.name}
           component={LikeButton.templates.Twitter}
         />
       </Tags>

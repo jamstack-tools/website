@@ -16,7 +16,7 @@ export default function InterstitialTitle({
           <div className={styles.bg2} />
           <div className={styles.bg1} />
           <div className={styles.bg} />
-          <h2 className={styles.title}>{children}</h2>
+          <h1 className={styles.title}>{children}</h1>
         </div>
         {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
       </div>

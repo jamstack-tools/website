@@ -1,5 +1,6 @@
 import { gqlStaticProps } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
+import { renderMetaTags } from 'react-datocms';
 import SmartMarkdown from 'components/SmartMarkdown';
 import Sidebar from 'pages/browse/Sidebar';
 import gql from 'graphql-tag';
@@ -12,6 +13,13 @@ import { LikeButton } from '@lyket/react';
 export const getStaticProps = gqlStaticProps(
   gql`
     {
+      page: browsePage {
+        seo: _seoMetaTags {
+          attributes
+          content
+          tag
+        }
+      }
       cmss: allCmsHeadlesses(first: 100) {
         name
         slug
@@ -22,17 +30,10 @@ export const getStaticProps = gqlStaticProps(
   `,
 );
 
-export default function Cms({ cmss }) {
+export default function Cms({ cmss, page }) {
   return (
     <DocsLayout sidebar={<Sidebar entries={[]} />}>
-      <Head>
-        <title>JAMStack tools - Choose a headless CMSs</title>
-        <meta
-          property="og:description"
-          content="Need to choose a headless CMS? Browse our registry and find the perfect match!"
-          key="description"
-        />
-      </Head>
+      <Head>{renderMetaTags(page.seo)}</Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
           <h1 className={s.title}>Headless CMSs</h1>

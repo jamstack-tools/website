@@ -1,5 +1,6 @@
 import { gqlStaticProps } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
+import { renderMetaTags } from 'react-datocms';
 import Sidebar from 'pages/browse/Sidebar';
 import SmartMarkdown from 'components/SmartMarkdown';
 import gql from 'graphql-tag';
@@ -12,6 +13,13 @@ import { LikeButton } from '@lyket/react';
 export const getStaticProps = gqlStaticProps(
   gql`
     {
+      page: browsePage {
+        seo: _seoMetaTags {
+          attributes
+          content
+          tag
+        }
+      }
       generators: allGenerators(first: 100) {
         name
         slug
@@ -22,17 +30,10 @@ export const getStaticProps = gqlStaticProps(
   `,
 );
 
-export default function Generators({ generators }) {
+export default function Generators({ generators, page }) {
   return (
     <DocsLayout sidebar={<Sidebar entries={[]} />}>
-      <Head>
-        <title>JAMStack tools - Choose a static site generator</title>
-        <meta
-          property="og:description"
-          content="Need to choose a static site generator? Browse our registry and find the perfect match!"
-          key="description"
-        />
-      </Head>
+      <Head>{renderMetaTags(page.seo)}</Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
           <div className={s.title}>Static Site Generators</div>

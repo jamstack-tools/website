@@ -13,7 +13,7 @@ export default function Tags({ children, tags = [], url }) {
         {tags.map(
           ([key, value]) =>
             value && (
-              <div className={styles.tag}>
+              <div className={styles.tag} key={key}>
                 <span className={styles.key}>{key}</span>
                 <span className={styles.value}>{value}</span>
               </div>

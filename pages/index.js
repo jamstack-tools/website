@@ -22,7 +22,6 @@ export const getStaticProps = gqlStaticProps(
         }
       }
     }
-
     ${seoMetaTagsFields}
   `,
 );
@@ -30,7 +29,7 @@ export const getStaticProps = gqlStaticProps(
 function Homepage({ preview, page }) {
   return (
     <Layout preview={preview}>
-      <Head>{page && renderMetaTags(page.seo)}</Head>
+      <Head>{renderMetaTags(page.seo)}</Head>
       <Hero
         title={<>The ultimate JAMstack tools marketplace</>}
         subtitle={
