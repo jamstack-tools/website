@@ -37,11 +37,6 @@ export const getStaticProps = gqlStaticProps(
           color {
             hex
           }
-          seo: _seoMetaTags {
-            attributes
-            content
-            tag
-          }
         }
         text(markdown: true)
       }

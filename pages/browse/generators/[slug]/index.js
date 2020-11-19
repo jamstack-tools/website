@@ -40,9 +40,12 @@ export default function Generator({ generator, button }) {
 
   return (
     <DocsLayout sidebar={<Sidebar entries={[]} />}>
-      <Head>
-        <title>{generator.name}</title>
-      </Head>
+      <title>The best static site generators - {generator.name}</title>
+      <meta name="description" content={generator.description} />
+      <meta
+        name="title"
+        content={`The best static site generators - ${generator.name}`}
+      />
       <InterstitialTitle kicker="Generator" style="lamellae">
         {generator.name}
       </InterstitialTitle>
