@@ -8,14 +8,14 @@ import { categories } from 'lib/categories';
 
 const TitleDesc = ({ href, as, title, description, target }) =>
   target ? (
-    <a className={s.titleDesc} href={href} target={target}>
+    <a className={s.titleDesc} href={href} target={target} key={title}>
       <div className={s.titleDescBody}>
         <div className={s.titleDescTitle}>{title}</div>
         <div className={s.titleDescDescription}>{description}</div>
       </div>
     </a>
   ) : (
-    <Link href={href} as={as}>
+    <Link href={href} as={as} key={title}>
       <a className={s.titleDesc}>
         <div className={s.titleDescBody}>
           <div className={s.titleDescTitle}>{title}</div>

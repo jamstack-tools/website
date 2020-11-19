@@ -7,6 +7,7 @@ import { useCallback, useState } from 'react';
 import Hamburger from 'public/icons/regular/bars.svg';
 import Button from 'components/Button';
 import cn from 'classnames';
+import allCategories from 'lib/categories';
 
 const Group = ({ title, children }) => {
   const [open, setOpen] = useState(false);
@@ -92,18 +93,13 @@ export default function Navbar() {
                       description="All our tools"
                       href="/browse"
                     />
-
-                    <LearnResource
-                      title="Headless CMSs"
-                      description="Headless CMSs"
-                      href="/browse/headless-cms"
-                    />
-
-                    <LearnResource
-                      title="Generators"
-                      description="Static site generators"
-                      href="/browse/generators"
-                    />
+                    {allCategories.map((category) => (
+                      <LearnResource
+                        href={category.slug}
+                        title={category.name}
+                        description={category.description}
+                      />
+                    ))}
                   </div>
                 </Group>
 
