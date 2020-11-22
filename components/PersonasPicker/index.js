@@ -16,7 +16,7 @@ export default function PersonasPicker() {
             <Highlight style="pinkorange">the right tool</Highlight> for you
           </h2>
           <div className={s.introBody}>
-            If you are wandering: "Will there be a tool that does that?" Well,
+            If you are wondering: "Will there be a tool that does that?" Well,
             the answer is most probably <strong>yes!</strong> -
           </div>
           <div className={s.personasLink}>
@@ -46,7 +46,7 @@ export default function PersonasPicker() {
               <div className={s.square} />
 
               <div className={s.personasContainer}>
-                <h6 className={s.personasTitle}>An headless CMS?</h6>
+                <h6 className={s.personasTitle}>A headless CMS?</h6>
                 <div className={s.personasBody}>
                   Do you want to keep all your content in one place? You need a
                   headless CMS!
