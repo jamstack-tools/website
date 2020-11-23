@@ -33,7 +33,7 @@ function Homepage({ preview, page }) {
       <Hero
         title={<>The ultimate JAMstack tools marketplace</>}
         subtitle={
-          <>Build fast and secure modern websites. That is why we ♥ to JAM. </>
+          <>Build fast and secure modern websites. This is why we ♥ to JAM. </>
         }
       >
         <Checks checks={["It's free!"]}>
@@ -54,23 +54,24 @@ function Homepage({ preview, page }) {
       </Space>
 
       <Space top={3}>
-        <InterstitialTitle subtitle="Either you are the founder or a fan, register!">
+        <InterstitialTitle subtitle="Whether you are the founder or just a fan, register it!">
           Can't find your favourite tool?
         </InterstitialTitle>
         <div className={styles.grid}>
           <Result number="1" label={<>Who, me?</>}>
             Did you just launch on Product Hunt? Do you have a solid JAM
-            startup? Did you use a tool that made developing your static site so
-            much easier? <strong>It's time to register!</strong>
+            startup? Or did you just discover a tool that made developing your
+            static site easier?{' '}
+            <strong>It's time to show it to the world!</strong>
           </Result>
-          <Result number="2" label={<>I got what you need</>}>
-            You need a just a few basic information to register a new{' '}
+          <Result number="2" label={<>You choose what to write!</>}>
+            You just need a few basic information to register a new{' '}
             <strong>JAMstack tool</strong>. Or go crazy with a long markdown
             description. It's up to you!
           </Result>
-          <Result number="3" label={<>You make me so proud</>}>
-            We usually take a few hours to check, after that you will be able to
-            see your tool in all its glory in our{' '}
+          <Result number="3" label={<>See it online!</>}>
+            We usually take a few hours to check if everything is in order,
+            after that you will be able to see your tool in all its glory in our{' '}
             <strong>Browse section</strong>.
           </Result>
         </div>

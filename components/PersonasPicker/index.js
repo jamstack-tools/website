@@ -20,7 +20,7 @@ export default function PersonasPicker() {
             the answer is most probably <strong>yes!</strong> -
           </div>
           <div className={s.personasLink}>
-            Start browsing <ArrowIcon />
+            Find out <ArrowIcon />
           </div>
         </div>
         <div className={s.picker}>
@@ -31,7 +31,7 @@ export default function PersonasPicker() {
               <div className={s.personasContainer}>
                 <h6 className={s.personasTitle}>A generator?</h6>
                 <div className={s.personasBody}>
-                  Are you just starting a JAMstack project? You need the perfect
+                  Are you just starting a JAMstack project? Choose the perfect
                   static site generator for you
                 </div>
                 <div className={s.personasLink}>
@@ -64,7 +64,7 @@ export default function PersonasPicker() {
               <div className={s.personasContainer}>
                 <h6 className={s.personasTitle}>Tools tools tools</h6>
                 <div className={s.personasBody}>
-                  Forms, feedback systems, e-commerce tools. They are all here.
+                  Forms, feedback systems, e-commerce tools... All in one place!
                 </div>
                 <div className={s.personasLink}>
                   Learn more <ArrowIcon />
