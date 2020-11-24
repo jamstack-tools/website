@@ -45,7 +45,7 @@ export default function Cms({ cms }) {
         <meta name="description" content={cms.description} />
         <meta name="title" content={`The best Headless CMS - ${cms.name}`} />
       </Head>
-      <InterstitialTitle kicker="Generator">{cms.name}</InterstitialTitle>
+      <InterstitialTitle kicker="Headless CMS">{cms.name}</InterstitialTitle>
       <Tags url={cms.url}>
         <LikeButton
           id={cms.slug}
