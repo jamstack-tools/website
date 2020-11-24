@@ -6,7 +6,11 @@ export default function Tags({ children, tags = [], url }) {
     <div className={styles.root}>
       <div className={styles.tags}>
         {url && (
-          <a href={url} target="_blank" className={styles.url}>
+          <a
+            href={`${url}/?ref=jamstacktools`}
+            target="_blank"
+            className={styles.url}
+          >
             <LinkIcon /> {url}
           </a>
         )}
