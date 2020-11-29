@@ -35,7 +35,7 @@ export const getStaticProps = gqlStaticProps(
   `,
 );
 
-export default function Generator({ generator, button }) {
+export default function Generator({ generator }) {
   const { isFallback } = useRouter();
 
   return (
