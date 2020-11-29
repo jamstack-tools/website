@@ -10,17 +10,18 @@ export default function PersonasPicker() {
     <Wrapper>
       <div className={s.root}>
         <div className={s.intro}>
-          <div className={s.introSub}>Stack is of the essence</div>
+          <div className={s.introSub}>The essence of JamStack</div>
           <h2 className={s.introTitle}>
-            Out there, there is{' '}
-            <Highlight style="pinkorange">the right tool</Highlight> for you
+            The right tool for you is{' '}
+            <Highlight style="pinkorange">out there</Highlight>
           </h2>
           <div className={s.introBody}>
-            If you are wondering: "Will there be a tool that does that?" Well,
-            the answer is most probably <strong>yes!</strong> -
+            If you are wondering: "Will there be a tool that does THAT?" Well,
+            the answer is most probably <strong>yes!</strong>
           </div>
           <div className={s.personasLink}>
-            Find out <ArrowIcon />
+            Start browsing
+            <ArrowIcon />
           </div>
         </div>
         <div className={s.picker}>
