@@ -65,14 +65,14 @@ function Homepage({ preview, page }) {
             <strong>It's time to show it to the world!</strong>
           </Result>
           <Result number="2" label={<>You choose what to write!</>}>
-            You just need a few basic information to register a new{' '}
+            You just need to enter some basic information to register your{' '}
             <strong>JAMstack tool</strong>. Or go crazy with a long markdown
             description. It's up to you!
           </Result>
           <Result number="3" label={<>See it online!</>}>
-            We usually take a few hours to check if everything is in order,
-            after that you will be able to see your tool in all its glory in our{' '}
-            <strong>Browse section</strong>.
+            We usually take a few hours to check if everything is in order, but
+            after that, you will be able to see your tool in all of its glory in
+            our <strong>Browse section</strong>!
           </Result>
         </div>
       </Space>

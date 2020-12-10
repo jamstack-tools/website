@@ -33,7 +33,7 @@ export default function PersonasPicker() {
                 <h6 className={s.personasTitle}>A generator?</h6>
                 <div className={s.personasBody}>
                   Are you just starting a JAMstack project? Choose the perfect
-                  static site generator for you
+                  static site generator for you!
                 </div>
                 <div className={s.personasLink}>
                   Learn more <ArrowIcon />
