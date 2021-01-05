@@ -83,7 +83,7 @@ export default function Cat({ tools }) {
                   <LikeButton
                     id={tool.slug}
                     namespace={
-                      (category && category.name) || 'unknown-category'
+                      (category && category.slug) || 'unknown-category'
                     }
                     component={LikeButton.templates.Twitter}
                   />
