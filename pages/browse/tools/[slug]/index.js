@@ -34,6 +34,7 @@ export const getStaticProps = gqlStaticProps(
         slug
         category {
           name
+          slug
           color {
             hex
           }
@@ -78,7 +79,7 @@ export default function Tool({ tool, preview }) {
       <Tags tags={[['Type', category.name]]} url={tool.url}>
         <LikeButton
           id={tool.slug}
-          namespace={category.slug}
+          namespace={(category && category.slug) || 'unknown-category'}
           component={LikeButton.templates.Twitter}
         />
       </Tags>
