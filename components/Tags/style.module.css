@@ -2,15 +2,12 @@
   padding-top: 5%;
   margin: 0 auto;
   max-width: 750px;
-  display: flex;
-  position: relative;
-  justify-content: space-between;
   margin-bottom: rfs(18px);
-  align-items: center;
+  text-align: center;
 }
 
 .tags {
-  display: flex;
+  overflow: hidden;
 }
 
 .tag {

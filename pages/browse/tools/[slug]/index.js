@@ -76,14 +76,14 @@ export default function Tool({ tool, preview }) {
       <InterstitialTitle kicker={`Tool / ${category && category.name}`}>
         {tool.name}
       </InterstitialTitle>
-      <Tags tags={[['Type', category.name]]} url={tool.url}>
-        <LikeButton
-          id={tool.slug}
-          namespace={(category && category.slug) || 'unknown-category'}
-          component={LikeButton.templates.Twitter}
-        />
-      </Tags>
       <Wrapper>
+        <Tags tags={[['Type', category.name]]} url={tool.url}>
+          <LikeButton
+            id={tool.slug}
+            namespace={(category && category.slug) || 'unknown-category'}
+            component={LikeButton.templates.Twitter}
+          />
+        </Tags>
         <PostContent isFallback={isFallback} content={tool} />
       </Wrapper>
     </DocsLayout>
