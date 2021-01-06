@@ -78,7 +78,7 @@ export default function Tool({ tool, preview }) {
       <Tags tags={[['Type', category.name]]} url={tool.url}>
         <LikeButton
           id={tool.slug}
-          namespace={category.name}
+          namespace={category.slug}
           component={LikeButton.templates.Twitter}
         />
       </Tags>
