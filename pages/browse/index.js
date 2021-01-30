@@ -12,6 +12,8 @@ export const getStaticProps = gqlStaticProps(
   gql`
     query {
       page: browsePage {
+        seoKeywords
+        schema
         seo: _seoMetaTags {
           ...seoMetaTagsFields
         }
@@ -24,10 +26,17 @@ export const getStaticProps = gqlStaticProps(
 export default function Docs({ preview, page }) {
   return (
     <DocsLayout preview={preview} sidebar={<Sidebar />}>
-      <Head>{renderMetaTags(page.seo)}</Head>
+      <Head>
+        {renderMetaTags(page.seo)}
+        <meta name="keywords" content={page.seoKeywords} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(page.schema) }}
+        />
+      </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <h2 className={s.title}>Browse our directory of tools!</h2>
+          <h2 className={s.title}>Browse our JAMstack directory!</h2>
           <p className={s.subtitle}>
             Here you can search into our directories to find the perfect stack
             for your project

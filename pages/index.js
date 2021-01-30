@@ -29,7 +29,6 @@ export const getStaticProps = gqlStaticProps(
 );
 
 function Homepage({ preview, page }) {
-  console.log(page.schema);
   return (
     <Layout preview={preview}>
       <Head>

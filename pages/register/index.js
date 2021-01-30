@@ -12,6 +12,8 @@ export const getStaticProps = gqlStaticProps(
   gql`
     query {
       page: registerPage {
+        seoKeywords
+        schema
         seo: _seoMetaTags {
           ...seoMetaTagsFields
         }
@@ -24,13 +26,20 @@ export const getStaticProps = gqlStaticProps(
 export default function Register({ page }) {
   return (
     <Layout noCta>
-      <Head>{renderMetaTags(page.seo)}</Head>
+      <Head>
+        {renderMetaTags(page.seo)}
+        <meta name="keywords" content={page.seoKeywords} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(page.schema) }}
+        />
+      </Head>
       <div className={s.root}>
         <Wrapper>
           <div className={s.intro}>
             <div className={s.introKicker}>Get in touch</div>
             <div className={s.introTitle}>
-              <Highlight>Register your tool!</Highlight>
+              <Highlight>Register your JAMstack tool!</Highlight>
             </div>
             <div className={s.introBody}>
               <p>
