@@ -1,5 +1,10 @@
 import gql from 'graphql-tag';
-import { gqlStaticPaths, gqlStaticProps, request } from 'lib/datocms';
+import {
+  gqlStaticPaths,
+  gqlStaticProps,
+  request,
+  seoMetaTagsFields,
+} from 'lib/datocms';
 import SmartMarkdown from 'components/SmartMarkdown';
 import DocsLayout from 'components/DocsLayout';
 import Sidebar from 'pages/browse/Sidebar';
@@ -35,15 +40,17 @@ export const getStaticProps = gqlStaticProps(
           color {
             hex
           }
+          seoKeywords
+          schema
           seo: _seoMetaTags {
-            attributes
-            content
-            tag
+            ...seoMetaTagsFields
           }
         }
       }
     }
+    ${seoMetaTagsFields}
   `,
+
   async ({ category }) => {
     const { data } = await request({
       query: gql`
@@ -66,7 +73,20 @@ export default function Cat({ tools }) {
 
   return (
     <DocsLayout sidebar={<Sidebar title="Tools" entries={tools} />}>
-      <Head>{category && renderMetaTags(category.seo)}</Head>
+      <Head>
+        {renderMetaTags(category.seo)}
+        {category.seoKeywords && (
+          <meta name="keywords" content={category.seoKeywords} />
+        )}
+        {category.schema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(category.schema),
+            }}
+          />
+        )}
+      </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
           <div className={s.title}>{category && category.name} tools</div>

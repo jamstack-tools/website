@@ -1,4 +1,4 @@
-import { gqlStaticProps } from 'lib/datocms';
+import { gqlStaticProps, seoMetaTagsFields } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
 import { renderMetaTags } from 'react-datocms';
 import SmartMarkdown from 'components/SmartMarkdown';
@@ -13,11 +13,11 @@ import { LikeButton } from '@lyket/react';
 export const getStaticProps = gqlStaticProps(
   gql`
     {
-      page: browsePage {
+      page: cmsPage {
+        seoKeywords
+        schema
         seo: _seoMetaTags {
-          attributes
-          content
-          tag
+          ...seoMetaTagsFields
         }
       }
       cmss: allCmsHeadlesses(first: 100) {
@@ -27,13 +27,23 @@ export const getStaticProps = gqlStaticProps(
         cmsType
       }
     }
+    ${seoMetaTagsFields}
   `,
 );
 
 export default function Cms({ cmss, page }) {
   return (
     <DocsLayout sidebar={<Sidebar entries={[]} />}>
-      <Head>{renderMetaTags(page.seo)}</Head>
+      <Head>
+        {page.seo && renderMetaTags(page.seo)}
+        <meta name="keywords" content={page.seoKeywords} />
+        {page.schema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(page.schema) }}
+          />
+        )}
+      </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
           <h1 className={s.title}>Headless CMSs</h1>
@@ -45,22 +55,24 @@ export default function Cms({ cmss, page }) {
                 key={cms.slug}
                 className={s.card}
               >
-                <h6 className={s.cardTitle}>{cms.name}</h6>
-                <div className={s.absoluteButton}>
-                  <LikeButton
-                    id={cms.slug}
-                    namespace="cms"
-                    component={LikeButton.templates.Twitter}
-                  />
-                </div>
-                <Tags />
-                <div className={s.cardDescription}>
-                  <SmartMarkdown>
-                    {truncate(cms.description, {
-                      TruncateBy: 'words',
-                      TruncateLength: 20,
-                    })}
-                  </SmartMarkdown>
+                <div>
+                  <h6 className={s.cardTitle}>{cms.name}</h6>
+                  <div className={s.absoluteButton}>
+                    <LikeButton
+                      id={cms.slug}
+                      namespace="cms"
+                      component={LikeButton.templates.Twitter}
+                    />
+                  </div>
+                  <Tags />
+                  <div className={s.cardDescription}>
+                    <SmartMarkdown>
+                      {truncate(cms.description, {
+                        TruncateBy: 'words',
+                        TruncateLength: 20,
+                      })}
+                    </SmartMarkdown>
+                  </div>
                 </div>
               </a>
             ))}

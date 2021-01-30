@@ -1,4 +1,4 @@
-import { gqlStaticProps } from 'lib/datocms';
+import { gqlStaticProps, seoMetaTagsFields } from 'lib/datocms';
 import DocsLayout from 'components/DocsLayout';
 import { renderMetaTags } from 'react-datocms';
 import Sidebar from 'pages/browse/Sidebar';
@@ -13,11 +13,11 @@ import { LikeButton } from '@lyket/react';
 export const getStaticProps = gqlStaticProps(
   gql`
     {
-      page: browsePage {
+      page: generatorsPage {
+        seoKeywords
+        schema
         seo: _seoMetaTags {
-          attributes
-          content
-          tag
+          ...seoMetaTagsFields
         }
       }
       generators: allGenerators(first: 100) {
@@ -27,16 +27,26 @@ export const getStaticProps = gqlStaticProps(
         language
       }
     }
+    ${seoMetaTagsFields}
   `,
 );
 
 export default function Generators({ generators, page }) {
   return (
     <DocsLayout sidebar={<Sidebar entries={[]} />}>
-      <Head>{renderMetaTags(page.seo)}</Head>
+      <Head>
+        {renderMetaTags(page.seo)}
+        <meta name="keywords" content={page.seoKeywords} />
+        {page.schema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(page.schema) }}
+          />
+        )}
+      </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <div className={s.title}>Static Site Generators</div>
+          <h1 className={s.title}>SSG -Static Site Generators</h1>
 
           <div className={s.cards}>
             {generators.map((generator) => (
