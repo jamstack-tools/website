@@ -1,9 +1,8 @@
-.grid {
+.gridContainer {
   box-shadow: var(--box-shadow);
   border-radius: 5px;
   padding: rfs(70px);
   background: white;
-
   @media screen and (width <= 900px) {
     > * {
       margin-bottom: rfs(70px) !important;
@@ -14,6 +13,23 @@
     }
   }
 
+  @media screen and (width > 900px) {
+    margin: 40px;
+  }
+}
+
+.gridTitle {
+  font-size: rfs(40px);
+  margin-top: 0;
+  margin-bottom: rfs(40px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-family: var(--font-sans);
+  font-weight: bold;
+  text-align: center;
+}
+
+.grid {
   @media screen and (width > 900px) {
     display: grid;
     grid-auto-flow: column;

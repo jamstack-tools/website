@@ -27,13 +27,13 @@
     var(--azure-color),
     var(--accent-color),
     var(--orange-color)
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  );
   background: linear-gradient(
     to right,
     var(--azure-color),
     var(--accent-color),
     var(--orange-color)
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  );
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

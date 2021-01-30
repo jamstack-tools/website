@@ -26,8 +26,8 @@ video {
 }
 
 ::-moz-selection {
-  background: #f4cf58;
+  background: var(--accent-color);
 }
 ::selection {
-  background: #f4cf58;
+  background: var(--accent-color);
 }

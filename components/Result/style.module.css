@@ -18,22 +18,25 @@ a.root {
 
 .number {
   font-weight: bold;
-  font-size: rfs(50px);
+  font-size: rfs(60px);
   line-height: 1.4;
   position: relative;
-  &:before {
-    content: '';
-    display: block;
-    background-color: #eee;
-    width: 6vw;
-    height: 3vw;
-    z-index: -1;
-    position: absolute;
-    top: 26%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-5deg) skew(10deg, 10deg);
-    background: linear-gradient(45deg, #fff8cf, #ffe6ee);
-  }
+  background: var(--orange-color); /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    var(--azure-color),
+    var(--accent-color),
+    var(--orange-color)
+  );
+  background: linear-gradient(
+    to right,
+    var(--azure-color),
+    var(--accent-color),
+    var(--orange-color)
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .label {
@@ -41,9 +44,24 @@ a.root {
   font-size: rfs(25px);
   line-height: 1;
   margin-bottom: rfs(30px);
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    background-color: #eee;
+    width: 14vw;
+    height: 4vw;
+    z-index: -1;
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg) skew(10deg, 10deg);
+    background: linear-gradient(45deg, #fff8cf, #ffe6ee);
+  }
 }
 
 .title {
+  color: var(--extra-light-body-color);
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 30px;
