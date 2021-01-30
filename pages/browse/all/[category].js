@@ -62,6 +62,7 @@ export const getStaticProps = gqlStaticProps(
 
 export default function Cat({ tools }) {
   const category = tools[0] && tools[0].category;
+  const categorySlug = (category && category.slug) || 'unknown-category';
 
   return (
     <DocsLayout sidebar={<Sidebar title="Tools" entries={tools} />}>
@@ -82,9 +83,7 @@ export default function Cat({ tools }) {
                 <div className={s.absoluteButton}>
                   <LikeButton
                     id={tool.slug}
-                    namespace={
-                      (category && category.slug) || 'unknown-category'
-                    }
+                    namespace={categorySlug}
                     component={LikeButton.templates.Twitter}
                   />
                 </div>

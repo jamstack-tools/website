@@ -17,6 +17,7 @@ export const getStaticProps = gqlStaticProps(
   gql`
     query {
       page: homePage {
+        seoKeywords
         seo: _seoMetaTags {
           ...seoMetaTagsFields
         }
@@ -29,11 +30,18 @@ export const getStaticProps = gqlStaticProps(
 function Homepage({ preview, page }) {
   return (
     <Layout preview={preview}>
-      <Head>{renderMetaTags(page.seo)}</Head>
+      <Head>
+        {renderMetaTags(page.seo)}
+        <meta name="keywords" content={page.seoKeywords} />
+      </Head>
       <Hero
-        title={<>The ultimate JAMstack tools marketplace</>}
+        title={'JAMstack tools'}
+        kicker={'The ultimate JAMstack showcase'}
         subtitle={
-          <>Build fast and secure modern websites. This is why we ♥ to JAM. </>
+          <>
+            Build fast and secure modern websites. This is why we ♥ the
+            JAMstack.{' '}
+          </>
         }
       >
         <Checks checks={["It's free!"]}>
@@ -55,13 +63,14 @@ function Homepage({ preview, page }) {
 
       <Space top={3}>
         <InterstitialTitle subtitle="Whether you are the founder or just a fan, register it!">
-          Can't find your favourite tool?
+          Can't find your favourite tool for your <strong>JAMstack</strong>{' '}
+          website?
         </InterstitialTitle>
         <div className={styles.grid}>
           <Result number="1" label={<>Who, me?</>}>
-            Did you just launch on Product Hunt? Do you have a solid JAM
-            startup? Or did you just discover a tool that made developing your
-            static site easier?{' '}
+            Did you just launch on Product Hunt? Do you have a solid{' '}
+            <strong>JAMstack startup</strong>? Or did you just discover a tool
+            that made developing your <strong>static site easier</strong>?{' '}
             <strong>It's time to show it to the world!</strong>
           </Result>
           <Result number="2" label={<>You choose what to write!</>}>

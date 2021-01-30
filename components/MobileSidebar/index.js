@@ -27,7 +27,11 @@ export default function Navbar() {
           <div className={s.innerSidebar}>
             <Link href="/">
               <a className={s.logo}>
-                <LazyImage src={`/images/logo-small-gradient.png`} />
+                <LazyImage
+                  alt="Logo JAMstack tools"
+                  title="JAMstack"
+                  src={`/images/logo-small-gradient.png`}
+                />
               </a>
             </Link>
             <div className={s.space} />

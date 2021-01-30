@@ -11,10 +11,10 @@ export default function PersonasPicker() {
       <div className={s.root}>
         <div className={s.intro}>
           <div className={s.introSub}>The essence of JamStack</div>
-          <h2 className={s.introTitle}>
-            The right tool for you is{' '}
+          <h4 className={s.introTitle}>
+            The right <strong>JAMstack</strong> tool for you is{' '}
             <Highlight style="pinkorange">out there</Highlight>
-          </h2>
+          </h4>
           <div className={s.introBody}>
             If you are wondering: "Will there be a tool that does THAT?" Well,
             the answer is most probably <strong>yes!</strong>
@@ -30,7 +30,7 @@ export default function PersonasPicker() {
               <div className={s.square} />
 
               <div className={s.personasContainer}>
-                <h6 className={s.personasTitle}>A generator?</h6>
+                <h6 className={s.personasTitle}>Static site generators</h6>
                 <div className={s.personasBody}>
                   Are you just starting a JAMstack project? Choose the perfect
                   static site generator for you!
@@ -47,7 +47,7 @@ export default function PersonasPicker() {
               <div className={s.square} />
 
               <div className={s.personasContainer}>
-                <h6 className={s.personasTitle}>A headless CMS?</h6>
+                <h6 className={s.personasTitle}>Headless CMS</h6>
                 <div className={s.personasBody}>
                   Do you want to keep all your content in one place? You need a
                   headless CMS!
@@ -63,7 +63,7 @@ export default function PersonasPicker() {
             <a className={s.personas}>
               <div className={s.square} />
               <div className={s.personasContainer}>
-                <h6 className={s.personasTitle}>Tools tools tools</h6>
+                <h6 className={s.personasTitle}>JAMstack showcase</h6>
                 <div className={s.personasBody}>
                   Forms, feedback systems, e-commerce tools... All in one place!
                 </div>
