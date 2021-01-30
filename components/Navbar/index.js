@@ -58,16 +58,19 @@ export default function Navbar() {
                       <div className={s.grid1}>
                         <TitleDesc
                           title="All"
+                          key="All"
                           description="Get a first look"
                           href="/browse"
                         />
                         <TitleDesc
                           title="Headless CMS"
+                          key="Headless CMS"
                           description="Browse headless CMSs"
                           href="/browse/headless-cms"
                         />
                         <TitleDesc
                           title="Generators"
+                          key="Generators"
                           description="Browse generators"
                           href="/browse/generators"
                         />

@@ -18,6 +18,7 @@ export const getStaticProps = gqlStaticProps(
     query {
       page: homePage {
         seoKeywords
+        schema
         seo: _seoMetaTags {
           ...seoMetaTagsFields
         }
@@ -28,11 +29,16 @@ export const getStaticProps = gqlStaticProps(
 );
 
 function Homepage({ preview, page }) {
+  console.log(page.schema);
   return (
     <Layout preview={preview}>
       <Head>
         {renderMetaTags(page.seo)}
         <meta name="keywords" content={page.seoKeywords} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(page.schema) }}
+        />
       </Head>
       <Hero
         title={'JAMstack tools'}
