@@ -29,10 +29,12 @@ export default function Docs({ preview, page }) {
       <Head>
         {renderMetaTags(page.seo)}
         <meta name="keywords" content={page.seoKeywords} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(page.schema) }}
-        />
+        {page.schema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(page.schema) }}
+          />
+        )}
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
