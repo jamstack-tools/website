@@ -37,6 +37,7 @@ export const getStaticProps = gqlStaticProps(
         category {
           name
           slug
+          h1
           subtitle
           color {
             hex
@@ -91,9 +92,9 @@ export default function Cat({ tools }) {
       <div className={s.articleContainer}>
         <div className={s.article}>
           {category.subtitle && (
-            <h2 className={s.subtitle}>{category.subtitle}</h2>
+            <h2 className={s.overTitle}>{category.subtitle}</h2>
           )}
-          <h1 className={s.title}>{category.name}</h1>
+          <h1 className={s.title}>{category.h1 || category.name}</h1>
 
           <div className={s.cards}>
             {tools.map((tool) => (
