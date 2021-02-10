@@ -51,7 +51,7 @@ export default function Generators({ generators, page }) {
           <div className={s.cards}>
             {generators.map((generator) => (
               <a
-                href={`/browse/generators/${generator.slug}`}
+                href={`/browse/static-site-generators/${generator.slug}`}
                 key={generator.slug}
                 className={s.card}
               >

@@ -72,7 +72,7 @@ export default function Navbar() {
                           title="Generators"
                           key="Generators"
                           description="Browse generators"
-                          href="/browse/generators"
+                          href="/browse/static-site-generators"
                         />
                       </div>
                     </div>

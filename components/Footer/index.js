@@ -24,7 +24,7 @@ export default function Footer({ noCta }) {
                       </Link>
                     </div>
                     <div className={s.groupLink}>
-                      <Link href="/browse/generators">
+                      <Link href="/browse/static-site-generators">
                         <a>Generators</a>
                       </Link>
                     </div>

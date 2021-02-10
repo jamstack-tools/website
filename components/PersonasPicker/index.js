@@ -25,7 +25,7 @@ export default function PersonasPicker() {
           </div>
         </div>
         <div className={s.picker}>
-          <Link href="/browse/generators">
+          <Link href="/browse/static-site-generators">
             <a className={s.personas}>
               <div className={s.square} />
 

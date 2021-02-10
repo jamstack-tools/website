@@ -12,6 +12,7 @@ export const getStaticProps = gqlStaticProps(
   gql`
     query {
       page: browsePage {
+        title
         seoKeywords
         schema
         seo: _seoMetaTags {
@@ -38,7 +39,7 @@ export default function Docs({ preview, page }) {
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <h2 className={s.title}>Browse our JAMstack directory!</h2>
+          <h2 className={s.title}>{page.title}</h2>
           <p className={s.subtitle}>
             Here you can search into our directories to find the perfect stack
             for your project
@@ -52,7 +53,10 @@ export default function Docs({ preview, page }) {
                 <p>Choose an headless CMS.</p>
               </a>
             </Link>
-            <Link href={'/browse/generators'} as="/browse/generators">
+            <Link
+              href={'/browse/static-site-generators'}
+              as="/browse/static-site-generators"
+            >
               <a className={s.card}>
                 <div className={s.cardTitle}>Static site generator</div>
                 <p>Choose a generator</p>
@@ -65,7 +69,7 @@ export default function Docs({ preview, page }) {
             {categories.map((category) => (
               <Link href={category.slug} as={category.slug} key={category.slug}>
                 <a className={s.card}>
-                  <div className={s.cardTitle}>{category.name}</div>
+                  <h5 className={s.cardTitle}>{category.name}</h5>
                   <p>{category.description}</p>
                 </a>
               </Link>
