@@ -91,6 +91,12 @@ export default function Navbar() {
                 </Pane>
               </div>
 
+              <Link href="/what-is-jamstack">
+                <a className={s.entry}>
+                  <span>What is JAMstack?</span>
+                </a>
+              </Link>
+
               <Link href="/register">
                 <a className={s.entry}>
                   <span>Register your tool</span>

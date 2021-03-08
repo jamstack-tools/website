@@ -22,3 +22,6 @@
 .mb3 {
   margin-bottom: rfs(200px);
 }
+.center {
+  text-align: center;
+}

@@ -33,7 +33,7 @@ export const getStaticProps = gqlStaticProps(
 function Homepage({ preview, page }) {
   return (
     <Layout preview={preview}>
-      <div className={styles.pageBg}>
+      <div>
         <Head>
           {renderMetaTags(page.seo)}
           <meta name="keywords" content={page.seoKeywords} />
@@ -49,8 +49,8 @@ function Homepage({ preview, page }) {
           kicker={'The ultimate JAMstack showcase'}
           subtitle={
             <>
-              Build fast and secure modern websites. This is why we ♥ the
-              JAMstack.{' '}
+              Build fast and secure websites with thousands of tools at your
+              disposal. This is why we ♥ the JAMstack.{' '}
             </>
           }
         >
@@ -102,9 +102,13 @@ function Homepage({ preview, page }) {
         </Space>
 
         <Space top={3}>
-          <InterstitialTitle>What is JAMstack?</InterstitialTitle>
-          <div className={styles.mdText}>
-            <SmartMarkdown>{page.text || ''}</SmartMarkdown>
+          <InterstitialTitle>
+            Is JAMstack the right architecture for your next project?
+          </InterstitialTitle>
+          <div className={styles.center}>
+            <Button fs="big" as="a" href="/what-is-jamstack">
+              Read more about JAMstack!
+            </Button>
           </div>
         </Space>
       </div>

@@ -107,6 +107,7 @@ export default function Navbar() {
                   </div>
                 </Group>
 
+                <BigLink href="/what-is-jamstack">What is JAMstack?</BigLink>
                 <BigLink href="/register">Register your tool</BigLink>
                 <BigLink href="/contact">Contact</BigLink>
               </Wrapper>
