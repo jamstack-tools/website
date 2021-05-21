@@ -20,7 +20,6 @@ export const getStaticProps = gqlStaticProps(
       page: homePage {
         seoKeywords
         schema
-        text(markdown: true)
         seo: _seoMetaTags {
           ...seoMetaTagsFields
         }
@@ -73,8 +72,7 @@ function Homepage({ preview, page }) {
 
         <Space top={3}>
           <InterstitialTitle subtitle="Whether you are the founder or just a fan, register it to JAMstack tools!">
-            Can't find your favourite tool for your <strong>JAMstack</strong>{' '}
-            website?
+            Can't find your favourite tool for <strong>JAMstack</strong>?
           </InterstitialTitle>
 
           <div className={styles.gridContainer}>
