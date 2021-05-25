@@ -73,11 +73,18 @@ export const getStaticProps = gqlStaticProps(
       namespace: params.category,
     });
 
-    const sorted = buttons.data.map((button) =>
-      data.tools.find((t) => t.slug === button.id),
-    );
+    const sortingArr = buttons.data.map((b) => b.id);
 
-    return { ...data, tools: sorted, buttons, category: variables.category };
+    const sorted = data.tools.sort((a, b) => {
+      return sortingArr.indexOf(a.slug) - sortingArr.indexOf(b.slug);
+    });
+
+    return {
+      ...data,
+      tools: sorted,
+      buttons,
+      category: variables.category,
+    };
   },
 );
 

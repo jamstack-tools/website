@@ -40,11 +40,13 @@ export const getStaticProps = gqlStaticProps(
       namespace: lyketNamespace,
     });
 
-    const sorted = buttons.data.map((button) =>
-      data.cmss.find((t) => t.slug === button.id),
-    );
+    const sortingArr = buttons.data.map((b) => b.id);
 
-    return { ...data, cmss: [...sorted], buttons };
+    const sorted = data.cmss.sort((a, b) => {
+      return sortingArr.indexOf(a.slug) - sortingArr.indexOf(b.slug);
+    });
+
+    return { ...data, cmss: sorted, buttons };
   },
 );
 
