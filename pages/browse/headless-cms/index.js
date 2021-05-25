@@ -9,6 +9,9 @@ import s from 'pages/browse/pageStyle.module.css';
 import truncate from 'truncatise';
 import Tags from 'components/Tags';
 import { LikeButton } from '@lyket/react';
+import { rankLikeButtonsByNamespace } from 'lib/lyket';
+
+const lyketNamespace = 'cms';
 
 export const getStaticProps = gqlStaticProps(
   gql`
@@ -31,6 +34,18 @@ export const getStaticProps = gqlStaticProps(
     }
     ${seoMetaTagsFields}
   `,
+  () => {},
+  async (data, { params }) => {
+    const buttons = await rankLikeButtonsByNamespace({
+      namespace: lyketNamespace,
+    });
+
+    const sorted = buttons.data.map((button) =>
+      data.cmss.find((t) => t.slug === button.id),
+    );
+
+    return { ...data, cmss: [...sorted], buttons };
+  },
 );
 
 export default function Cms({ cmss, page }) {
@@ -62,7 +77,7 @@ export default function Cms({ cmss, page }) {
                   <div className={s.absoluteButton}>
                     <LikeButton
                       id={cms.slug}
-                      namespace="cms"
+                      namespace={lyketNamespace}
                       component={LikeButton.templates.Twitter}
                     />
                   </div>

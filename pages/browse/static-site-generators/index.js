@@ -9,6 +9,9 @@ import s from 'pages/browse/pageStyle.module.css';
 import truncate from 'truncatise';
 import Tags from 'components/Tags';
 import { LikeButton } from '@lyket/react';
+import { rankLikeButtonsByNamespace } from 'lib/lyket';
+
+const lyketNamespace = 'generators';
 
 export const getStaticProps = gqlStaticProps(
   gql`
@@ -31,6 +34,18 @@ export const getStaticProps = gqlStaticProps(
     }
     ${seoMetaTagsFields}
   `,
+  () => {},
+  async (data, { params }) => {
+    const buttons = await rankLikeButtonsByNamespace({
+      namespace: lyketNamespace,
+    });
+
+    const sorted = buttons.data.map((button) =>
+      data.generators.find((t) => t.slug === button.id),
+    );
+
+    return { ...data, generators: sorted, buttons };
+  },
 );
 
 export default function Generators({ generators, page }) {
@@ -61,7 +76,7 @@ export default function Generators({ generators, page }) {
                 <div className={s.absoluteButton}>
                   <LikeButton
                     id={generator.slug}
-                    namespace="generators"
+                    namespace={lyketNamespace}
                     component={LikeButton.templates.Twitter}
                   />
                 </div>

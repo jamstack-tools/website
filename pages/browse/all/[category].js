@@ -5,6 +5,7 @@ import {
   request,
   seoMetaTagsFields,
 } from 'lib/datocms';
+import { rankLikeButtonsByNamespace } from 'lib/lyket';
 import SmartMarkdown from 'components/SmartMarkdown';
 import DocsLayout from 'components/DocsLayout';
 import Sidebar from 'pages/browse/Sidebar';
@@ -29,48 +30,58 @@ export const getStaticPaths = gqlStaticPaths(
 
 export const getStaticProps = gqlStaticProps(
   gql`
-    query ToolByCategoryQuery($category: ItemId!) {
-      tools: allTools(filter: { category: { eq: $category } }) {
+    query ToolByCategoryQuery($categoryId: ItemId!) {
+      tools: allTools(filter: { category: { eq: $categoryId } }) {
         name
         slug
         description
-        category {
-          name
-          slug
-          h1
-          subtitle
-          color {
-            hex
-          }
-          seoKeywords
-          schema
-          seo: _seoMetaTags {
-            ...seoMetaTagsFields
-          }
-        }
       }
     }
-    ${seoMetaTagsFields}
   `,
-
   async ({ category }) => {
     const { data } = await request({
       query: gql`
-        {
-          category(filter: { slug: { eq: ${category} } }) {
-            id
+          {
+            category(filter: { slug: { eq: ${category} } }) {
+              id
+              name
+              slug
+              h1
+              subtitle
+              color {
+                hex
+              }
+              seoKeywords
+              schema
+              seo: _seoMetaTags {
+                ...seoMetaTagsFields
+              }
+            }
           }
-        }
-      `,
+          ${seoMetaTagsFields}
+        `,
     });
 
     // if category is non existant use random id
-    return { category: (data.category && data.category.id) || '111' };
+    return {
+      categoryId: (data.category && data.category.id) || '111',
+      category: data.category,
+    };
+  },
+  async (data, { params, variables }) => {
+    const buttons = await rankLikeButtonsByNamespace({
+      namespace: params.category,
+    });
+
+    const sorted = buttons.data.map((button) =>
+      data.tools.find((t) => t.slug === button.id),
+    );
+
+    return { ...data, tools: sorted, buttons, category: variables.category };
   },
 );
 
-export default function Cat({ tools }) {
-  const category = tools[0] && tools[0].category;
+export default function Cat({ tools, buttons, category }) {
   const categorySlug = (category && category.slug) || 'unknown-category';
 
   return (
