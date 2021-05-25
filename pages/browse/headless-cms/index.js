@@ -16,6 +16,8 @@ export const getStaticProps = gqlStaticProps(
       page: cmsPage {
         seoKeywords
         schema
+        h1
+        h2
         seo: _seoMetaTags {
           ...seoMetaTagsFields
         }
@@ -46,8 +48,8 @@ export default function Cms({ cmss, page }) {
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <h1 className={s.title}>Headless CMSs</h1>
-
+          <h2 className={s.overTitle}>{page.h2}</h2>
+          <h1 className={s.title}>{page.h1}</h1>
           <div className={s.cards}>
             {cmss.map((cms) => (
               <a

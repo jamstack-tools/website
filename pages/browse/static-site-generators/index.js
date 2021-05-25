@@ -14,6 +14,8 @@ export const getStaticProps = gqlStaticProps(
   gql`
     {
       page: generatorsPage {
+        h1
+        h2
         seoKeywords
         schema
         seo: _seoMetaTags {
@@ -46,8 +48,8 @@ export default function Generators({ generators, page }) {
       </Head>
       <div className={s.articleContainer}>
         <div className={s.article}>
-          <h1 className={s.title}>SSG -Static Site Generators</h1>
-
+          <h2 className={s.overTitle}>{page.h2}</h2>
+          <h1 className={s.title}>{page.h1}</h1>
           <div className={s.cards}>
             {generators.map((generator) => (
               <a
