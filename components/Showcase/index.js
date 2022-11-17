@@ -18,7 +18,7 @@ export default function Showcase() {
     <div className={s.root}>
       {Object.entries(SUCCESS_STORIES).map(([slug, Logo]) => {
         return (
-          <Link key={slug} href={`/customers/${slug}`}>
+          <Link legacyBehavior key={slug} href={`/customers/${slug}`}>
             <a className={s.logo}>
               <Logo />
             </a>

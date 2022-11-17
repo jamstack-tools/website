@@ -47,13 +47,18 @@ export default function Docs({ preview, page }) {
 
           <h6 className={s.browseTitle}>The basics</h6>
           <div className={s.cards}>
-            <Link href={'/browse/headless-cms'} as="/browse/headless-cms">
+            <Link
+              legacyBehavior
+              href={'/browse/headless-cms'}
+              as="/browse/headless-cms"
+            >
               <a className={s.card}>
                 <div className={s.cardTitle}>Headless CMSs</div>
                 <p>Choose an headless CMS.</p>
               </a>
             </Link>
             <Link
+              legacyBehavior
               href={'/browse/static-site-generators'}
               as="/browse/static-site-generators"
             >
@@ -67,7 +72,12 @@ export default function Docs({ preview, page }) {
           <h6 className={s.browseTitle}>Toolkit by category</h6>
           <div className={s.cards}>
             {categories.map((category) => (
-              <Link href={category.slug} as={category.slug} key={category.slug}>
+              <Link
+                legacyBehavior
+                href={category.slug}
+                as={category.slug}
+                key={category.slug}
+              >
                 <a className={s.card}>
                   <h5 className={s.cardTitle}>{category.name}</h5>
                   <p>{category.description}</p>

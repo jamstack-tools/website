@@ -1,18 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDebounce } from 'use-debounce';
-import DatoCmsSearch from 'datocms-search/dist/datocms-search.base';
 import highlighter from 'keyword-highlighter';
 import cn from 'classnames';
 import parse from 'html-react-parser';
-
+import wretch from 'wretch';
+import { buildClient } from '@datocms/cma-client-browser';
 import s from './style.module.css';
 
-const client = new DatoCmsSearch('c84d1aee3930503d15d76e70cf91e0');
-
 const search = async (query) => {
-  const [{ results: docs }] = await Promise.all([client.search(query)]);
-
-  return docs;
+  const { data } = await client.searchResults.rawList(query);
+  return data;
 };
 
 export default function DocSearch() {
@@ -21,13 +18,29 @@ export default function DocSearch() {
   const [isSearching, setIsSearching] = useState(false);
   const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
 
+  let client;
+
+  useEffect(() => {
+    client = buildClient({ apiToken: 'c84d1aee3930503d15d76e70cf91e0' });
+  }, []);
+
   useEffect(() => {
     if (debouncedSearchTerm) {
       setIsSearching(true);
 
-      search(debouncedSearchTerm).then((results) => {
+      search({
+        filter: {
+          fuzzy: 'true',
+          query: debouncedSearchTerm,
+          build_trigger_id: '11100',
+        },
+        page: {
+          limit: 20,
+          offset: 0,
+        },
+      }).then((results) => {
         setIsSearching(false);
-        setResults(results);
+        setResults(results.map((r) => r.attributes));
       });
     } else {
       setResults([]);
@@ -75,7 +88,7 @@ export default function DocSearch() {
         <input
           name="query"
           type="search"
-          placeholder="Search in the registry..."
+          placeholder="Search in the docs and community..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

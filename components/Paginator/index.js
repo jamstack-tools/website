@@ -10,7 +10,7 @@ const GoTo = ({ href, as, index, className, disabled, children }) =>
       {children}
     </span>
   ) : (
-    <Link href={href(index)} as={as(index)}>
+    <Link legacyBehavior href={href(index)} as={as(index)}>
       <a className={cn(className, { [s.disabled]: disabled })}>{children}</a>
     </Link>
   );
@@ -51,7 +51,7 @@ export default function Pagination({
       </GoTo>
 
       <div className={s.links}>
-        {range(0, pageCount).map(i => (
+        {range(0, pageCount).map((i) => (
           <GoTo
             href={href}
             as={as}

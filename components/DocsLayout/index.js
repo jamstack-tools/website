@@ -13,11 +13,11 @@ export default function DocsLayout({ sidebar, children, preview }) {
       <div className={s.footer} data-datocms-noindex>
         <div className={s.footerTitle}>Cant't find a tool?</div>
         <div className={s.footerBody}>
-          <Link href="/contact">
+          <Link legacyBehavior href="/contact">
             <a>Write to us</a>
           </Link>
           , or{' '}
-          <Link href="/register">
+          <Link legacyBehavior href="/register">
             <a>register it!</a>
           </Link>
         </div>
@@ -33,7 +33,7 @@ export default function DocsLayout({ sidebar, children, preview }) {
           <div className={s.mainHeader}>
             <ul>
               <li>
-                <Link href="/support">
+                <Link legacyBehavior href="/support">
                   <a>
                     <PenIcon />
                     Write to us
@@ -41,7 +41,7 @@ export default function DocsLayout({ sidebar, children, preview }) {
                 </Link>
               </li>
               <li>
-                <Link href="/register">
+                <Link legacyBehavior href="/register">
                   <a>
                     <RegisterIcon />
                     Register a tool

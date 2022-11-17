@@ -19,12 +19,15 @@ export default function Footer({ noCta }) {
                   <div className={s.groupTitle}>Basic</div>
                   <div className={s.groupLinks}>
                     <div className={s.groupLink}>
-                      <Link href="/browse/headless-cms">
+                      <Link legacyBehavior href="/browse/headless-cms">
                         <a>Headless CMSs</a>
                       </Link>
                     </div>
                     <div className={s.groupLink}>
-                      <Link href="/browse/static-site-generators">
+                      <Link
+                        legacyBehavior
+                        href="/browse/static-site-generators"
+                      >
                         <a>Generators</a>
                       </Link>
                     </div>
@@ -37,7 +40,7 @@ export default function Footer({ noCta }) {
                   <div className={s.groupLinks}>
                     {categories.map((category) => (
                       <div className={s.groupLink}>
-                        <Link href={category.slug}>
+                        <Link legacyBehavior href={category.slug}>
                           <a>{category.name}</a>
                         </Link>
                       </div>
@@ -50,12 +53,12 @@ export default function Footer({ noCta }) {
                   <div className={s.groupTitle}>Contact</div>
                   <div className={s.groupLinks}>
                     <div className={s.groupLink}>
-                      <Link href="/contact">
+                      <Link legacyBehavior href="/contact">
                         <a>Contact us</a>
                       </Link>
                     </div>
                     <div className={s.groupLink}>
-                      <Link href="/register">
+                      <Link legacyBehavior href="/register">
                         <a>Register your tool</a>
                       </Link>
                     </div>
@@ -69,16 +72,16 @@ export default function Footer({ noCta }) {
           <Wrapper>
             {false && (
               <div className={s.finalLinks}>
-                <Link href="/legal/privacy-policy">
+                <Link legacyBehavior href="/legal/privacy-policy">
                   <a className={s.finalLink}>Privacy policy</a>
                 </Link>
-                <Link href="/legal/cookie-policy">
+                <Link legacyBehavior href="/legal/cookie-policy">
                   <a className={s.finalLink}>Cookie policy</a>
                 </Link>
-                <Link href="/legal/gdpr">
+                <Link legacyBehavior href="/legal/gdpr">
                   <a className={s.finalLink}>GDPR Compliance</a>
                 </Link>
-                <Link href="/legal/terms">
+                <Link legacyBehavior href="/legal/terms">
                   <a className={s.finalLink}>Terms of Service</a>
                 </Link>
               </div>

@@ -8,19 +8,19 @@ import s from './style.module.css';
 const DeskSidebar = () => {
   return (
     <div className={s.sidebar}>
-      <Link href="/">
+      <Link legacyBehavior href="/">
         <a className={s.logo}>
           <span> JAMTools </span>
         </a>
       </Link>
       <div className={s.innerSidebar} data-datocms-noindex>
-        <Link href="/">
+        <Link legacyBehavior href="/">
           <a className={s.backHome}>
             <Logo width={18} height={18} />
             Home
           </a>
         </Link>
-        <Link href="/browse">
+        <Link legacyBehavior href="/browse">
           <a className={s.backHome}>
             <LeftIcon /> Browse
           </a>

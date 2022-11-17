@@ -25,7 +25,7 @@ export default function PersonasPicker() {
           </div>
         </div>
         <div className={s.picker}>
-          <Link href="/browse/static-site-generators">
+          <Link legacyBehavior href="/browse/static-site-generators">
             <a className={s.personas}>
               <div className={s.square} />
 
@@ -42,7 +42,7 @@ export default function PersonasPicker() {
             </a>
           </Link>
 
-          <Link href="/browse/headless-cms">
+          <Link legacyBehavior href="/browse/headless-cms">
             <a className={s.personas}>
               <div className={s.square} />
 
@@ -59,7 +59,7 @@ export default function PersonasPicker() {
             </a>
           </Link>
 
-          <Link href="/browse">
+          <Link legacyBehavior href="/browse">
             <a className={s.personas}>
               <div className={s.square} />
               <div className={s.personasContainer}>

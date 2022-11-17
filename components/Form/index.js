@@ -143,11 +143,11 @@ export function FormInner({
             {false && (
               <>
                 By submitting you agree to our{' '}
-                <Link href="/legal/terms">
+                <Link legacyBehavior href="/legal/terms">
                   <a>TOS</a>
                 </Link>{' '}
                 and acknowledge our{' '}
-                <Link href="/legal/privacy-policy">
+                <Link legacyBehavior href="/legal/privacy-policy">
                   <a>Privacy Policy</a>
                 </Link>
               </>

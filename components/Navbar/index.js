@@ -15,7 +15,7 @@ const TitleDesc = ({ href, as, title, description, target }) =>
       </div>
     </a>
   ) : (
-    <Link href={href} as={as} key={title}>
+    <Link legacyBehavior href={href} as={as} key={title}>
       <a className={s.titleDesc}>
         <div className={s.titleDescBody}>
           <div className={s.titleDescTitle}>{title}</div>
@@ -38,7 +38,7 @@ export default function Navbar() {
       <div className={classnames(s.root)} data-datocms-noindex>
         <Wrapper>
           <div className={s.innerRoot}>
-            <Link href="/">
+            <Link legacyBehavior href="/">
               <a className={s.logo}>
                 <LazyImage
                   src={`/images/logo-full-gradient.png`}
@@ -91,19 +91,19 @@ export default function Navbar() {
                 </Pane>
               </div>
 
-              <Link href="/what-is-jamstack">
+              <Link legacyBehavior href="/what-is-jamstack">
                 <a className={s.entry}>
                   <span>What is JAMstack?</span>
                 </a>
               </Link>
 
-              <Link href="/register">
+              <Link legacyBehavior href="/register">
                 <a className={s.entry}>
                   <span>Register your tool</span>
                 </a>
               </Link>
 
-              <Link href="/contact">
+              <Link legacyBehavior href="/contact">
                 <a className={s.entry}>
                   <span>Contact us</span>
                 </a>
@@ -111,7 +111,7 @@ export default function Navbar() {
             </div>
 
             <div className={s.actions}>
-              <Link href="/register">
+              <Link legacyBehavior href="/register">
                 <Button as="a" p="small" href="/register">
                   Register your tool
                 </Button>

@@ -17,5 +17,9 @@ export default function ActiveLink({ children, ...props }) {
 
   delete props.activeClassName;
 
-  return <Link {...props}>{React.cloneElement(child, { className })}</Link>;
+  return (
+    <Link legacyBehavior {...props}>
+      {React.cloneElement(child, { className })}
+    </Link>
+  );
 }

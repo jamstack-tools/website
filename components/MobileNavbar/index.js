@@ -30,7 +30,7 @@ const Group = ({ title, children }) => {
 const BigLink = ({ children, href }) => {
   return (
     <div className={s.group}>
-      <Link href={href}>
+      <Link legacyBehavior href={href}>
         <a className={s.groupTitle}>{children}</a>
       </Link>
     </div>
@@ -50,7 +50,7 @@ const LearnResource = ({ href, as, title, target, description }) => {
       {content}
     </a>
   ) : (
-    <Link href={href} as={as}>
+    <Link legacyBehavior href={href} as={as}>
       <a className={s.learnResource}>{content}</a>
     </Link>
   );
@@ -71,7 +71,7 @@ export default function Navbar() {
       <div className={classnames(s.root)} data-datocms-noindex>
         <Wrapper>
           <div className={s.innerRoot}>
-            <Link href="/">
+            <Link legacyBehavior href="/">
               <a className={s.logo}>
                 <LazyImage
                   title="JAMstack"
