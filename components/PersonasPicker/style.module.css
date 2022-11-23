@@ -114,12 +114,12 @@
   font-size: 0.8em;
   text-transform: uppercase;
   color: var(--light-body-color);
+}
 
-  svg {
-    height: 0.7em;
-    margin-left: 10px;
-    fill: var(--light-body-color);
-  }
+.personasLink svg {
+  height: 0.7em;
+  margin-left: 10px;
+  fill: var(--light-body-color);
 }
 
 .personasImage {

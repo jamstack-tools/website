@@ -2,71 +2,6 @@
   position: relative;
   border-bottom: 1px solid var(--border-color);
   background: white;
-
-  .selectPlaceholder {
-    position: absolute;
-    top: 45px;
-    left: 32px;
-    right: 30px;
-    font-size: rfs(17px);
-    color: var(--extra-light-body-color);
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  select,
-  input,
-  textarea {
-    border: 0;
-    margin: 0;
-    background-color: white;
-    padding: 45px rfs(29px) 20px;
-    font-family: inherit;
-    font-size: rfs(17px);
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    border-left: 4px solid transparent;
-    appearance: none;
-
-    &:focus {
-      outline: none;
-      border-left-color: var(--azure-color);
-    }
-
-    &::placeholder {
-      color: var(--extra-light-body-color);
-    }
-  }
-
-  textarea {
-    min-height: 150px;
-    max-height: 300px;
-  }
-
-  label,
-  .error {
-    position: absolute;
-    top: 25px;
-    left: rfs(33px);
-    width: 40%;
-    font-size: 12px;
-    line-height: 1;
-  }
-
-  label {
-    color: var(--light-body-color);
-    text-transform: uppercase;
-    font-weight: bold;
-    width: 60%;
-  }
-
-  .error {
-    right: rfs(29px);
-    left: auto;
-    text-align: right;
-    color: var(--accent-color);
-  }
 }
 
 .submit {
@@ -83,12 +18,82 @@
   top: -80px;
 }
 
+.field select,
+.field input,
+.field textarea {
+  border: 0;
+  margin: 0;
+  background-color: white;
+  padding: 45px rfs(29px) 20px;
+  font-family: inherit;
+  font-size: rfs(17px);
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-left: 4px solid transparent;
+  appearance: none;
+  left: 0;
+}
+
+.field select:focus,
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-left-color: var(--azure-color);
+}
+
+.field select::placeholder,
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--extra-light-body-color);
+}
+
+.field .selectPlaceholder {
+  position: absolute;
+  top: 45px;
+  left: 32px;
+  right: 30px;
+  font-size: rfs(17px);
+  color: var(--extra-light-body-color);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.field textarea {
+  min-height: 150px;
+  max-height: 300px;
+}
+
+.field label,
+.error {
+  position: absolute;
+  top: 25px;
+  left: rfs(33px);
+  width: 40%;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.field label {
+  color: var(--light-body-color);
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 60%;
+}
+
+.field .error {
+  right: rfs(29px);
+  left: auto;
+  text-align: right;
+  color: var(--accent-color);
+}
+
 .agree {
   flex: 1;
   font-size: 13px;
   color: var(--light-body-color);
 
-  @media (width <= 900px) {
+  @media (width <=900px) {
     margin-bottom: 15px;
   }
 

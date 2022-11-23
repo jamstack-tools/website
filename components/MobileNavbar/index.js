@@ -5,7 +5,6 @@ import s from './style.module.css';
 import classnames from 'classnames';
 import { useCallback, useState } from 'react';
 import Hamburger from 'public/icons/regular/bars.svg';
-import Button from 'components/Button';
 import cn from 'classnames';
 import allCategories from 'lib/categories';
 
@@ -82,7 +81,7 @@ export default function Navbar() {
             </Link>
             <div className={s.space} />
             <button className={s.hamburger} onClick={toggleVisibility}>
-              <Hamburger />
+              <Hamburger width={18} height={18} />
             </button>
           </div>
         </Wrapper>

@@ -2,7 +2,7 @@
   box-shadow: var(--box-shadow);
   border-radius: 5px;
   overflow: hidden;
-  background: var(--light-bg-color);
+  background: white;
 }
 
 .formCols {

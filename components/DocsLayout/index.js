@@ -1,6 +1,5 @@
 import BaseLayout from 'components/BaseLayout';
 import DocSearch from 'components/DocSearch';
-import Logo from 'public/images/logo.svg';
 import Link from 'next/link';
 import s from './style.module.css';
 import PenIcon from 'public/icons/regular/pen.svg';
@@ -24,6 +23,7 @@ export default function DocsLayout({ sidebar, children, preview }) {
       </div>
     </div>
   );
+
   return (
     <BaseLayout preview={preview}>
       <div className={s.root}>
@@ -35,7 +35,7 @@ export default function DocsLayout({ sidebar, children, preview }) {
               <li>
                 <Link legacyBehavior href="/support">
                   <a>
-                    <PenIcon />
+                    <PenIcon width={18} height={18} />
                     Write to us
                   </a>
                 </Link>
@@ -43,7 +43,7 @@ export default function DocsLayout({ sidebar, children, preview }) {
               <li>
                 <Link legacyBehavior href="/register">
                   <a>
-                    <RegisterIcon />
+                    <RegisterIcon width={18} height={18} />
                     Register a tool
                   </a>
                 </Link>

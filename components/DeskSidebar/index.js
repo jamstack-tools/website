@@ -22,7 +22,7 @@ const DeskSidebar = () => {
         </Link>
         <Link legacyBehavior href="/browse">
           <a className={s.backHome}>
-            <LeftIcon /> Browse
+            <LeftIcon width={18} height={18} /> Browse
           </a>
         </Link>
         {all.map((category) => (

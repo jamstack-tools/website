@@ -102,7 +102,14 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
           label="Full description"
           placeholder="Give a description of what your tool does - Markdown accepted"
           validations={{ required: 'Required' }}
-          as={<Textarea />}
+          as={({ field: { onChange, onBlur, value, ref } }) => (
+            <Textarea
+              onBlur={onBlur} // notify when input is touched
+              onChange={onChange} // send value to hook form
+              checked={value}
+              inputRef={ref}
+            />
+          )}
         />
 
         {initialValues.errorId && (

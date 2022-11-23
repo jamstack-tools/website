@@ -40,7 +40,14 @@ export default function ContactForm({ initialValues = {} }) {
           label="Message"
           placeholder="Message"
           validations={{ required: 'Required' }}
-          as={<Textarea />}
+          as={({ field: { onChange, onBlur, value, ref } }) => (
+            <Textarea
+              onBlur={onBlur} // notify when input is touched
+              onChange={onChange} // send value to hook form
+              checked={value}
+              inputRef={ref}
+            />
+          )}
         />
 
         {initialValues.errorId && (

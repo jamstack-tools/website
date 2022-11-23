@@ -22,16 +22,23 @@ export const Field = ({
   multiple,
   readOnly,
 }) => {
-  const { register, control, watch, errors } = useFormContext();
-  const ref = register(validations);
+  const {
+    register,
+    control,
+    watch,
+    formState: { errors },
+  } = useFormContext();
   const value = watch(name);
+  const field = register(name, validations);
+
+  const ref = { ...register('form', validations) };
 
   let input = (
     <input
+      {...field}
       name={name}
       id={name}
       placeholder={placeholder}
-      ref={ref}
       type={type}
       multiple={multiple}
       readOnly={readOnly}
@@ -63,7 +70,7 @@ export const Field = ({
   if (as) {
     input = (
       <Controller
-        as={as}
+        render={as}
         name={name}
         id={name}
         control={control}
@@ -76,12 +83,14 @@ export const Field = ({
   return (
     <div
       className={cn(s.field, {
-        [s.fieldError]: errors[name] && errors[name].message,
+        [s.fieldError]: errors?.[name]?.message,
       })}
     >
       <label htmlFor={name}>{label}</label>
 
-      {errors[name] && <div className={s.error}>← {errors[name].message}</div>}
+      {errors?.[name] && (
+        <div className={s.error}>← {errors[name].message}</div>
+      )}
       {input}
     </div>
   );
@@ -125,6 +134,21 @@ export function FormInner({
     event.nativeEvent.currentTarget.submit();
   };
 
+  const privacy = (
+    <div className={s.agree}>
+      <>
+        By submitting you agree to our{' '}
+        <Link legacyBehavior href="/legal/terms">
+          <a>TOS</a>
+        </Link>{' '}
+        and acknowledge our{' '}
+        <Link legacyBehavior href="/legal/privacy-policy">
+          <a>Privacy Policy</a>
+        </Link>
+      </>
+    </div>
+  );
+
   return (
     <FormProvider {...methods}>
       <form
@@ -139,22 +163,7 @@ export function FormInner({
         {children}
 
         <div className={s.submit}>
-          <div className={s.agree}>
-            {false && (
-              <>
-                By submitting you agree to our{' '}
-                <Link legacyBehavior href="/legal/terms">
-                  <a>TOS</a>
-                </Link>{' '}
-                and acknowledge our{' '}
-                <Link legacyBehavior href="/legal/privacy-policy">
-                  <a>Privacy Policy</a>
-                </Link>
-              </>
-            )}
-          </div>
-
-          <Button as="button" type="submit">
+          <Button render="button" type="submit">
             {submitLabel}
           </Button>
         </div>

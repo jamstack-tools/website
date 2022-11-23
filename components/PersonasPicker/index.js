@@ -21,7 +21,7 @@ export default function PersonasPicker() {
           </div>
           <div className={s.personasLink}>
             Start browsing
-            <ArrowIcon />
+            <ArrowIcon width={18} height={18} />
           </div>
         </div>
         <div className={s.picker}>

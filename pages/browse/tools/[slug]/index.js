@@ -48,7 +48,7 @@ export const getStaticProps = gqlStaticProps(
 export default function Tool({ tool, preview }) {
   const { isFallback } = useRouter();
 
-  if (!tool) {
+  if (!tool?.category) {
     return (
       <DocsLayout sidebar={<Sidebar />}>
         <div className={s.articleContainer}>
@@ -73,14 +73,14 @@ export default function Tool({ tool, preview }) {
           content={`The best ${category.name} tools - ${tool.name}`}
         />
       </Head>
-      <InterstitialTitle kicker={`Tool / ${category && category.name}`}>
+      <InterstitialTitle kicker={`Tool / ${category?.name}`}>
         {tool.name}
       </InterstitialTitle>
       <Wrapper>
-        <Tags tags={[['Type', category.name]]} url={tool.url}>
+        <Tags tags={[['Type', category?.name]]} url={tool.url}>
           <LikeButton
             id={tool.slug}
-            namespace={(category && category.slug) || 'unknown-category'}
+            namespace={category?.slug || 'unknown-category'}
             component={LikeButton.templates.Twitter}
           />
         </Tags>

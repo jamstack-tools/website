@@ -26,14 +26,7 @@ export const getStaticProps = gqlStaticProps(
 export default function Register({ page }) {
   return (
     <Layout noCta>
-      <Head>
-        {renderMetaTags(page.seo)}
-        <meta name="keywords" content={page.seoKeywords} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(page.schema) }}
-        />
-      </Head>
+      <Head>{renderMetaTags(page.seo)}</Head>
       <div className={s.root}>
         <Wrapper>
           <div className={s.intro}>

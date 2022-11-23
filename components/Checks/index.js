@@ -15,9 +15,9 @@ export default function Checks({ as: Component = 'div', checks, children }) {
     <Component className={cn(style.root)}>
       {children}
       <ul className={style.list}>
-        {checks.map(check => (
+        {checks.map((check) => (
           <li key={check} className={style.check}>
-            <CheckIcon /> {check}
+            <CheckIcon width={18} height={18} s /> {check}
           </li>
         ))}
       </ul>

@@ -8,7 +8,7 @@ import Head from 'next/head';
 
 export default function Register() {
   return (
-    <Layout noCta>
+    <Layout noCta={true}>
       <Head>
         <title>Contact us</title>
       </Head>
