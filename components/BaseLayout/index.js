@@ -2,7 +2,6 @@ import Head from 'next/head';
 import s from './style.module.css';
 import { useRouter } from 'next/router';
 import NProgress from 'components/NProgress';
-import Script from 'next/Script';
 
 export default function Layout({ preview, children }) {
   const router = useRouter();
@@ -24,11 +23,11 @@ export default function Layout({ preview, children }) {
             key={size}
           />
         ))}
-        <Script
+        <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-CLEE5S149Y"
-        ></Script>
-        <Script
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
