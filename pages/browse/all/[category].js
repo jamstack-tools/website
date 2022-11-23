@@ -64,7 +64,7 @@ export const getStaticProps = gqlStaticProps(
 
     // if category is non existant use random id
     return {
-      categoryId: (data.category && data.category.id) || '111',
+      categoryId: data.category?.id || '111',
       category: data.category,
     };
   },
@@ -82,14 +82,13 @@ export const getStaticProps = gqlStaticProps(
     return {
       ...data,
       tools: sorted,
-      buttons,
       category: variables.category,
     };
   },
 );
 
-export default function Cat({ tools, buttons, category }) {
-  const categorySlug = (category && category.slug) || 'unknown-category';
+export default function Cat({ tools, category }) {
+  const categorySlug = category?.slug || 'unknown-category';
 
   return (
     <DocsLayout sidebar={<Sidebar title="Tools" entries={tools} />}>
