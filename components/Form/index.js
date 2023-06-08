@@ -42,14 +42,12 @@ export const Field = ({
   );
 
   if (options) {
-    const ref = { ...register('form', validations) };
-
     input = (
       <>
         {!value && (
           <div className={s.selectPlaceholder}>Please select one...</div>
         )}
-        <select name={name} id={name} ref={ref}>
+        <select name={name} id={name} {...register(name, validations)}>
           <option value="" />
           {options.map((option) => {
             const value = typeof option === 'string' ? option : option.value;
@@ -121,7 +119,6 @@ export function FormInner({ children, defaultValues, submitLabel, name }) {
     defaultValues,
   });
 
-  const formRef = useRef();
   // this has to be deconstructed like this otherwise it does not work
   const { handleSubmit } = methods;
 

@@ -7,17 +7,14 @@ import { categories } from 'lib/categories';
 export default function RegisterForm({ initialValues = {}, issueType }) {
   const defaultValues = {
     fullName: '',
-    project: '',
+    role: '',
     email: '',
-    phoneNumber: '',
-    companyName: '',
-    country: '',
-    jobTitle: '',
-    companyRevenue: '',
-    numberEmployees: '',
-    body: '',
+    toolName: '',
+    website: '',
+    pricing: '',
+    pitch: '',
+    description: '',
     errorId: '',
-    issueType: issueType,
     ...initialValues,
   };
 
@@ -25,7 +22,7 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
     <div className={s.root}>
       <Form
         defaultValues={defaultValues}
-        submitLabel="Register!"
+        submitLabel="Register your tool!"
         name="register"
       >
         <input type="hidden" name="form-name" value="register" />

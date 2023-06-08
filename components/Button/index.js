@@ -56,7 +56,7 @@ export function SubmitButton({
   return (
     <Component
       {...other}
-      label={label}
+      value={label}
       type="submit"
       form={formHookId}
       className={cn(
