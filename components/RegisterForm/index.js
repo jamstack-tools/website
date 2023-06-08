@@ -6,7 +6,7 @@ import { categories } from 'lib/categories';
 
 export default function RegisterForm({ initialValues = {}, issueType }) {
   const defaultValues = {
-    name: '',
+    fullName: '',
     project: '',
     email: '',
     phoneNumber: '',
@@ -32,7 +32,7 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
 
         <div className={s.formCols}>
           <Field
-            name="name"
+            name="fullName"
             label="Full name *"
             placeholder="Your full name"
             validations={{ required: 'Required' }}

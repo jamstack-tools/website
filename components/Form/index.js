@@ -28,7 +28,6 @@ export const Field = ({
     formState: { errors },
   } = useFormContext();
   const value = watch(name);
-  const ref = { ...register('form', validations) };
 
   let input = (
     <input
@@ -43,6 +42,8 @@ export const Field = ({
   );
 
   if (options) {
+    const ref = { ...register('form', validations) };
+
     input = (
       <>
         {!value && (
@@ -121,6 +122,7 @@ export function FormInner({ children, defaultValues, submitLabel, name }) {
   });
 
   const onSubmit = (values, event) => {
+    console.log(values);
     event.nativeEvent.currentTarget.submit();
   };
 
@@ -153,12 +155,7 @@ export function FormInner({ children, defaultValues, submitLabel, name }) {
       >
         {children}
         <div className={s.submit}>
-          <SubmitButton
-            render="button"
-            type="submit"
-            form={name}
-            label={submitLabel}
-          />
+          <SubmitButton form={name} label={submitLabel} />
         </div>
       </form>
     </FormProvider>

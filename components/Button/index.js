@@ -56,6 +56,7 @@ export function SubmitButton({
     <Component
       {...other}
       label={label}
+      type="submit"
       className={cn(
         style.root,
         {

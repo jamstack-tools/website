@@ -4,20 +4,18 @@ import { Form, Field } from 'components/Form';
 
 export default function ContactForm({ initialValues = {} }) {
   const defaultValues = {
-    name: '',
+    fullName: '',
     email: '',
-    body: '',
+    message: '',
     ...initialValues,
   };
 
   return (
     <div className={s.root}>
       <Form defaultValues={defaultValues} submitLabel="Submit" name="contact">
-        <input type="hidden" name="form-name" value="contact" />
-
         <div className={s.formCols}>
           <Field
-            name="name"
+            name="fullName"
             label="Full name *"
             placeholder="Your full name"
             validations={{ required: 'Required' }}
