@@ -13,6 +13,8 @@ export default function ContactForm({ initialValues = {} }) {
   return (
     <div className={s.root}>
       <Form defaultValues={defaultValues} submitLabel="Submit" name="contact">
+        <input type="hidden" name="form-name" value="contact" />
+
         <div className={s.formCols}>
           <Field
             name="name"
