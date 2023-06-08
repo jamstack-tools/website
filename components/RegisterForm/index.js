@@ -32,13 +32,13 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
         <div className={s.formCols}>
           <Field
             name="name"
-            label="Full name"
+            label="Full name *"
             placeholder="Your full name"
             validations={{ required: 'Required' }}
           />
           <Field
             name="email"
-            label="Your email"
+            label="Your email *"
             placeholder="me@example.com"
             validations={{
               required: 'Required',
@@ -52,13 +52,13 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
         <div className={s.formCols}>
           <Field
             name="role"
-            label="role"
+            label="role *"
             validations={{ required: 'Required' }}
             options={['Owner', 'Employee', 'Fan', 'Other']}
           />
           <Field
             name="toolName"
-            label="Tool name"
+            label="Tool name *"
             placeholder="Tool name"
             validations={{ required: 'Required' }}
           />
@@ -66,13 +66,13 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
         <div className={s.formCols}>
           <Field
             name="website"
-            label="Official website"
+            label="Official website *"
             placeholder="what-a-tool.dev"
             validations={{ required: 'Required' }}
           />
           <Field
             name="pricing"
-            label="Describe your pricing model"
+            label="Describe your pricing model *"
             placeholder="Describe your pricing model"
             validations={{ required: 'Required' }}
           />
@@ -80,11 +80,11 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
         <div className={s.formCols}>
           <Field
             name="category"
-            label="Which category best describes your tool?"
+            label="Which category best describes your tool? *"
             validations={{ required: 'Required' }}
             options={[
               ...categories.map(
-                (category) => category.name + ' - ' + category.description,
+                (category) => `${category.name} - ${category.description}`,
               ),
               'Other - please specify in description :)',
             ]}
@@ -92,14 +92,14 @@ export default function RegisterForm({ initialValues = {}, issueType }) {
           <Field
             name="pitch"
             label="Pitch description"
-            placeholder="Define your tool in one sentence"
+            placeholder="Define your tool in one sentence *"
             validations={{ required: 'Required' }}
           />
         </div>
 
         <Field
           name="description"
-          label="Full description"
+          label="Full description *"
           placeholder="Give a description of what your tool does - Markdown accepted"
           validations={{ required: 'Required' }}
           as={({ field: { onChange, onBlur, value, ref } }) => (

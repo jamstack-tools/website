@@ -17,13 +17,13 @@ export default function ContactForm({ initialValues = {} }) {
         <div className={s.formCols}>
           <Field
             name="name"
-            label="Full name"
+            label="Full name *"
             placeholder="Your full name"
             validations={{ required: 'Required' }}
           />
           <Field
             name="email"
-            label="Your email"
+            label="Your email *"
             placeholder="me@example.com"
             validations={{
               required: 'Required',
@@ -37,7 +37,7 @@ export default function ContactForm({ initialValues = {} }) {
 
         <Field
           name="message"
-          label="Message"
+          label="Message *"
           placeholder="Message"
           validations={{ required: 'Required' }}
           as={({ field: { onChange, onBlur, value, ref } }) => (

@@ -100,6 +100,7 @@ export default function Cat({ tools, category }) {
         {category.schema && (
           <script
             type="application/ld+json"
+            // rome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(category.schema),
             }}
