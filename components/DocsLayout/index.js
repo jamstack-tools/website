@@ -33,7 +33,7 @@ export default function DocsLayout({ sidebar, children, preview }) {
           <div className={s.mainHeader}>
             <ul>
               <li>
-                <Link legacyBehavior href="/support">
+                <Link legacyBehavior href="/contact">
                   <a>
                     <PenIcon width={18} height={18} />
                     Write to us

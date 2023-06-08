@@ -77,8 +77,6 @@ export const Field = ({
     );
   }
 
-  console.log(errors?.[name]);
-
   return (
     <div
       className={cn(s.field, {
@@ -150,6 +148,7 @@ export function FormInner({ children, defaultValues, submitLabel, name }) {
         encType="multipart/form-data"
         acceptCharset="utf-8"
         name={name}
+        data-netlify="true"
         id={name}
       >
         {children}
