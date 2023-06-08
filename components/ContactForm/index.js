@@ -44,7 +44,7 @@ export default function ContactForm({ initialValues = {} }) {
               onBlur={onBlur} // notify when input is touched
               onChange={onChange} // send value to hook form
               checked={value}
-              inputRef={ref}
+              ref={ref}
             />
           )}
         />

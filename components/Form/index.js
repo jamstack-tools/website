@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import s from './style.module.css';
 import cn from 'classnames';
-import Button from 'components/Button';
+import { SubmitButton } from 'components/Button';
 import { ToastProvider, useToasts } from 'react-toast-notifications';
-import Link from 'next/link';
 import {
   FormProvider,
   useForm,
@@ -29,13 +28,11 @@ export const Field = ({
     formState: { errors },
   } = useFormContext();
   const value = watch(name);
-  const field = register(name, validations);
-
   const ref = { ...register('form', validations) };
 
   let input = (
     <input
-      {...field}
+      {...register(name, validations)}
       name={name}
       id={name}
       placeholder={placeholder}
@@ -52,7 +49,7 @@ export const Field = ({
           <div className={s.selectPlaceholder}>Please select one...</div>
         )}
         <select name={name} id={name} ref={ref}>
-          <option value=""></option>
+          <option value="" />
           {options.map((option) => {
             const value = typeof option === 'string' ? option : option.value;
             const label = typeof option === 'string' ? option : option.label;
@@ -80,6 +77,8 @@ export const Field = ({
     );
   }
 
+  console.log(errors?.[name]);
+
   return (
     <div
       className={cn(s.field, {
@@ -96,17 +95,11 @@ export const Field = ({
   );
 };
 
-export function FormInner({
-  children,
-  defaultValues,
-  action,
-  submitLabel,
-  name,
-}) {
+export function FormInner({ children, defaultValues, submitLabel, name }) {
   const { addToast } = useToasts();
 
   useEffect(() => {
-    var urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.search);
 
     if (urlParams.has('code')) {
       const code = urlParams.get('code');
@@ -128,44 +121,45 @@ export function FormInner({
   const methods = useForm({
     defaultValues,
   });
-  const { handleSubmit } = methods;
 
   const onSubmit = (values, event) => {
     event.nativeEvent.currentTarget.submit();
   };
 
-  const privacy = (
-    <div className={s.agree}>
-      <>
-        By submitting you agree to our{' '}
-        <Link legacyBehavior href="/legal/terms">
-          <a>TOS</a>
-        </Link>{' '}
-        and acknowledge our{' '}
-        <Link legacyBehavior href="/legal/privacy-policy">
-          <a>Privacy Policy</a>
-        </Link>
-      </>
-    </div>
-  );
+  // const privacy = (
+  //   <div className={s.agree}>
+  //     <>
+  //       By submitting you agree to our{' '}
+  //       <Link legacyBehavior href="/legal/terms">
+  //         <a>TOS</a>
+  //       </Link>{' '}
+  //       and acknowledge our{' '}
+  //       <Link legacyBehavior href="/legal/privacy-policy">
+  //         <a>Privacy Policy</a>
+  //       </Link>
+  //     </>
+  //   </div>
+  // );
 
   return (
     <FormProvider {...methods}>
       <form
         className={s.form}
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={methods.handleSubmit(onSubmit)}
         method="POST"
         encType="multipart/form-data"
         acceptCharset="utf-8"
-        data-netlify="true"
         name={name}
+        id={name}
       >
         {children}
-
         <div className={s.submit}>
-          <Button render="button" type="submit">
-            {submitLabel}
-          </Button>
+          <SubmitButton
+            render="button"
+            type="submit"
+            form={name}
+            label={submitLabel}
+          />
         </div>
       </form>
     </FormProvider>

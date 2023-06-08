@@ -41,3 +41,31 @@ export default function Button({
     </Component>
   );
 }
+
+export function SubmitButton({
+  as: Component = 'input',
+  label,
+  fs,
+  p,
+  s,
+  block,
+  disabled,
+  ...other
+}) {
+  return (
+    <Component
+      {...other}
+      label={label}
+      className={cn(
+        style.root,
+        {
+          [style.disabled]: disabled,
+          [style.block]: block,
+        },
+        s && sClassNames[s],
+        fs && fsClassNames[fs],
+        p && pClassNames[p],
+      )}
+    />
+  );
+}
