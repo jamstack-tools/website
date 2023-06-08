@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import s from './style.module.css';
 import cn from 'classnames';
 import { SubmitButton } from 'components/Button';
@@ -31,13 +31,13 @@ export const Field = ({
 
   let input = (
     <input
-      {...register(name, validations)}
       name={name}
       id={name}
       placeholder={placeholder}
       type={type}
       multiple={multiple}
       readOnly={readOnly}
+      {...register(name, validations)}
     />
   );
 
@@ -121,9 +121,12 @@ export function FormInner({ children, defaultValues, submitLabel, name }) {
     defaultValues,
   });
 
-  const onSubmit = (values, event) => {
-    console.log(values);
-    event.nativeEvent.currentTarget.submit();
+  const formRef = useRef();
+  // this has to be deconstructed like this otherwise it does not work
+  const { handleSubmit } = methods;
+
+  const onSubmit = (_values, event) => {
+    event.target.submit();
   };
 
   // const privacy = (
@@ -145,7 +148,7 @@ export function FormInner({ children, defaultValues, submitLabel, name }) {
     <FormProvider {...methods}>
       <form
         className={s.form}
-        onSubmit={methods.handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit)}
         method="POST"
         encType="multipart/form-data"
         acceptCharset="utf-8"
@@ -155,7 +158,7 @@ export function FormInner({ children, defaultValues, submitLabel, name }) {
       >
         {children}
         <div className={s.submit}>
-          <SubmitButton form={name} label={submitLabel} />
+          <SubmitButton formHookId={name} label={submitLabel} />
         </div>
       </form>
     </FormProvider>

@@ -45,6 +45,7 @@ export default function Button({
 export function SubmitButton({
   as: Component = 'input',
   label,
+  formHookId,
   fs,
   p,
   s,
@@ -57,6 +58,7 @@ export function SubmitButton({
       {...other}
       label={label}
       type="submit"
+      form={formHookId}
       className={cn(
         style.root,
         {
