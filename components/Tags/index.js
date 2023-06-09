@@ -1,5 +1,5 @@
 import styles from './style.module.css';
-import LinkIcon from 'public/icons/regular/link.svg';
+import LinkIcon from 'public/icons/regular/external-link.svg';
 
 export default function Tags({ children, tags = [], url }) {
   return (
@@ -9,8 +9,10 @@ export default function Tags({ children, tags = [], url }) {
           href={`${url}/?ref=jamstacktools`}
           target="_blank"
           className={styles.url}
+          rel="noreferrer"
         >
-          <LinkIcon /> <span>{url}</span>
+          <span>{url}</span>
+          <LinkIcon className={styles.icon} />
         </a>
       )}
       <div className={styles.tags}>

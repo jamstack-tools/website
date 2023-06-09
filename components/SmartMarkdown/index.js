@@ -18,15 +18,21 @@ export default function SmartMarkdown({ children, imageClassName }) {
         if (type === 'tag' && name.match(/^h[1-6]$/)) {
           const innerText = getInnerText(children);
 
+          // posts cannot have more than 1 h1
+          const newTag = name.match(/^h1$/) ? 'h2' : name;
+
           return (
-            <Heading
-              {...attribs}
-              anchor={slugify(innerText)}
-              as={name}
-              data-with-anchor
-            >
-              {domToReact(children, parseOptions)}
-            </Heading>
+            <a href={`#${innerText}`}>
+              <Heading
+                {...attribs}
+                id={innerText}
+                anchor={slugify(innerText)}
+                as={newTag}
+                data-with-anchor
+              >
+                {domToReact(children, parseOptions)}
+              </Heading>
+            </a>
           );
         }
 
@@ -50,10 +56,7 @@ export default function SmartMarkdown({ children, imageClassName }) {
                 alt: attribs.alt,
                 title: attribs.title,
                 url: src,
-                format: src
-                  .split('.')
-                  .pop()
-                  .split(/\#|\?/g)[0],
+                format: src.split('.').pop().split(/\#|\?/g)[0],
               }}
             />
           );

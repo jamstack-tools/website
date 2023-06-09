@@ -16,10 +16,12 @@
 }
 
 .url {
-  margin-right: 10px;
   text-decoration: none;
   color: var(--base-body-color);
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .key,
@@ -36,4 +38,9 @@
   padding: 2px 5px;
   border-radius: 3px;
   font-weight: bold;
+}
+
+.icon {
+  height: 1em;
+  margin-left: 10px;
 }
